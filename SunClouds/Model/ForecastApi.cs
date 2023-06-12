@@ -45,7 +45,7 @@ namespace SunClouds
             public double sea_level { get; set; }
             public double grnd_level { get; set; }
             public int humidity { get; set; }
-            public int temp_kf { get; set; }
+            public double temp_kf { get; set; }
         }
 
         public class Weather
