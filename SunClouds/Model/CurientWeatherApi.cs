@@ -17,7 +17,7 @@ namespace SunClouds.Model
             try
             {
                 var httpn = new HttpClient();
-                var uri = String.Format("https://api.openweathermap.org/data/2.5/weather?q={0}&appid=564b5aadf3e12ef181a4035457b6e0b3&units=metric", sityName);
+                var uri = String.Format("https://api.openweathermap.org/data/2.5/weather?q={0}&lang=ru&appid=564b5aadf3e12ef181a4035457b6e0b3&units=metric", sityName);
                 var response = await httpn.GetAsync(uri);
                 var result = await response.Content.ReadAsStringAsync();
                 var data = JsonConvert.DeserializeObject<Root>(result);
