@@ -5,6 +5,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace SunClouds
 {
@@ -12,15 +13,26 @@ namespace SunClouds
     {
         class WeatherForecast
         {
+
             public async static Task<RootObject> GetWeatherForecast(string sityName)
             {
-                var httpn = new HttpClient();
-                var uri = String.Format("https://api.openweathermap.org/data/2.5/forecast?q={0}&appid=564b5aadf3e12ef181a4035457b6e0b3&units=metric", sityName);
-                var response = await httpn.GetAsync(uri);
-                var result = await response.Content.ReadAsStringAsync();
-                var data = JsonConvert.DeserializeObject<RootObject>(result);
+                try
+                {
+                    var httpn = new HttpClient();
+                    var uri = String.Format("https://api.openweathermap.org/data/2.5/forecast?q={0}&appid=564b5aadf3e12ef181a4035457b6e0b3&units=metric", sityName);
+                    var response = await httpn.GetAsync(uri);
+                    var result = await response.Content.ReadAsStringAsync();
+                    var data = JsonConvert.DeserializeObject<RootObject>(result);
 
-                return data;
+                    return data;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+
+                    return null;
+                }
+                
             }
 
         }
