@@ -19,9 +19,41 @@ namespace SunClouds.View
     /// </summary>
     public partial class WeatherInfWindow : Window
     {
+        private bool isDragging = false;
+        private Point startPoint;
         public WeatherInfWindow()
         {
             InitializeComponent();
+        }
+
+        private void OnMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            isDragging = true;
+            startPoint = e.GetPosition(null);
+        }
+
+        private void OnMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            isDragging = false;
+        }
+
+        private void OnMouseMove(object sender, MouseEventArgs e)
+        {
+            if (isDragging)
+            {
+                Point currentPoint = e.GetPosition(null);
+                Vector offset = startPoint - currentPoint;
+
+                if (Math.Abs(offset.X) > SystemParameters.MinimumHorizontalDragDistance ||
+                    Math.Abs(offset.Y) > SystemParameters.MinimumVerticalDragDistance)
+                {
+                    // Выполните здесь логику перемещения карточек, используя offset.X и offset.Y
+                    scrollViewer.ScrollToHorizontalOffset(scrollViewer.HorizontalOffset + offset.X);
+                    scrollViewer.ScrollToVerticalOffset(scrollViewer.VerticalOffset + offset.Y);
+
+                    startPoint = currentPoint;
+                }
+            }
         }
 
 
