@@ -9,6 +9,7 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Effects;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
@@ -24,10 +25,10 @@ namespace SunClouds.View
         public WeatherInfWindow()
         {
             InitializeComponent();
+            SimulateChangeTextEffect();
         }
 
-        //КОД ДЛЯ СЛАЙДЕРА
-
+        //КОД ДЛЯ СЛАЙДЕРА ->
         private void OnMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             isDragging = true;
@@ -57,8 +58,40 @@ namespace SunClouds.View
                 }
             }
         }
-        //КОД ДЛЯ СЛАЙДЕРА
+        //КОД ДЛЯ СЛАЙДЕРА <-
 
+        //ПРИКОЛЬНАЯ СМЕНА РАСЦВЕТОЧКИ В ЗАВИСИМОСТИ ОТ ВРЕМЕНИ ->
+        private void SimulateChangeTextEffect()
+        {
+            // Введите желаемое время для симуляции
+            int simulatedHour = 23;
+
+            if (simulatedHour >= 4 && simulatedHour < 21)
+            {
+                ApplyTextEffect(Colors.Yellow);
+            }
+            else if (simulatedHour >= 22 || simulatedHour < 4)
+            {
+                ApplyTextEffect(Colors.BlueViolet);
+            }
+        }
+
+        private void ApplyTextEffect(Color color)
+        {
+            DropShadowEffect dropShadowEffect = new DropShadowEffect
+            {
+                Color = color,
+                ShadowDepth = 0,
+                BlurRadius = 40,
+                Opacity = 0.5
+            };
+
+            FirstTextBox.Effect = dropShadowEffect;
+            SecondTextBox.Effect = dropShadowEffect;
+            ThirdTextBox.Effect = dropShadowEffect;
+            ForthTextBox.Effect = dropShadowEffect;
+        }
+        //ПРИКОЛЬНАЯ СМЕНА РАСЦВЕТОЧКИ В ЗАВИСИМОСТИ ОТ ВРЕМЕНИ <-
         private void Border_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.LeftButton == MouseButtonState.Pressed)
