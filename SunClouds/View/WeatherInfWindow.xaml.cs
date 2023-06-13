@@ -26,6 +26,8 @@ namespace SunClouds.View
             InitializeComponent();
         }
 
+        //КОД ДЛЯ СЛАЙДЕРА
+
         private void OnMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             isDragging = true;
@@ -55,7 +57,7 @@ namespace SunClouds.View
                 }
             }
         }
-
+        //КОД ДЛЯ СЛАЙДЕРА
 
         private void Border_MouseDown(object sender, MouseButtonEventArgs e)
         {
@@ -78,5 +80,10 @@ namespace SunClouds.View
                 window.WindowState = WindowState.Normal;
         }
         private void CloseButton_Click(object sender, RoutedEventArgs e) { Application.Current.Shutdown(); }
+
+        private void TabControl_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }

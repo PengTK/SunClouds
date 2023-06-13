@@ -69,42 +69,171 @@
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Border Grid.RowSpan="2" Background="{DynamicResource Primary}">
-            <TabControl Grid.RowSpan="2">
-
-                <TabItem  Style="{DynamicResource TabItemStyle1}" HorizontalAlignment="Center" Margin="0,25,0,0" FontSize="25" >
-                    <TabItem.Header>
-                        <TextBlock Text="{Binding City, Mode=OneWay}" HorizontalAlignment="Center" TextWrapping="Wrap"/>
-                    </TabItem.Header>
-                    <Grid>
-
+    <Border Grid.RowSpan="2" Background="{DynamicResource Primary}">
+        <TabControl Grid.RowSpan="2">
+            <TabItem Style="{DynamicResource TabItemStyle1}" HorizontalAlignment="Center" Margin="0,25,0,0" FontSize="25" >
+                <TabItem.Header>
+                    <TextBlock Text="{Binding City, Mode=OneWay}" HorizontalAlignment="Center" TextWrapping="Wrap"/>
+                </TabItem.Header>
+                <Grid>
                         <Grid HorizontalAlignment="Left" Margin="25,10,0,0">
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="auto"/>
-                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
                             <Grid.RowDefinitions>
-                                <RowDefinition Height="auto"/>
-                                <RowDefinition Height="2.8*"/>
-                                <RowDefinition Height="2.8*"/>
-                                <RowDefinition Height="2.8*"/>
-                                <RowDefinition Height="20"/>
-                                <RowDefinition Height="15"/>
-                                <!-- <RowDefinition Height="90"/>
-                                <RowDefinition Height="80"/>
-                                <RowDefinition Height="80"/>
-                                <RowDefinition Height="80"/>
-                                <RowDefinition Height="70"/>
-                                <RowDefinition Height="*"/> -->
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="10"/>
                             </Grid.RowDefinitions>
-                            <Image Grid.Column="1" Source="/WeatherIcons/Sunny.png" Width="90" Height="90" Panel.ZIndex="2"/>
-                            <Image Grid.Column="1" Grid.Row="1" Source="/WeatherIcons/Sunny.png" Width="45" Height="45" Margin="0,35,0,0" Panel.ZIndex="3"/>
-                            <Image Grid.Column="1" Grid.Row="2" Source="/WeatherIcons/Cloudy.png" Width="45" Height="45" Margin="0,35,0,0" Panel.ZIndex="4"/>
-                            <Image Grid.Row="3" Grid.Column="1" Source="/WeatherIcons/Rainy.png" Width="45" Height="45" Margin="0,35,0,0" Panel.ZIndex="5"/>
-                            <Image Grid.Column="1" Grid.RowSpan="6" Source="/WeatherIcons/Line.png" Width="7"  Panel.ZIndex="1" Margin="0,35,0,0"/>
-                        </Grid>
 
+                            <Image Grid.Column="1" Grid.Row="0" Source="/WeatherIcons/Sunny.png" Width="90" Height="90" Panel.ZIndex="2">
+                                <Image.Triggers>
+                                    <EventTrigger RoutedEvent="Loaded">
+                                        <BeginStoryboard>
+                                            <Storyboard>
+                                                <DoubleAnimation From="0" To="1" Duration="0:0:1" Storyboard.TargetProperty="Opacity"/>
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </EventTrigger>
+                                    <EventTrigger RoutedEvent="MouseEnter">
+                                        <BeginStoryboard>
+                                            <Storyboard>
+                                                <DoubleAnimation To="1.2" Duration="0:0:0.3" Storyboard.TargetProperty="RenderTransform.ScaleX"/>
+                                                <DoubleAnimation To="1.2" Duration="0:0:0.3" Storyboard.TargetProperty="RenderTransform.ScaleY"/>
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </EventTrigger>
+                                    <EventTrigger RoutedEvent="MouseLeave">
+                                        <BeginStoryboard>
+                                            <Storyboard>
+                                                <DoubleAnimation To="1" Duration="0:0:0.3" Storyboard.TargetProperty="RenderTransform.ScaleX"/>
+                                                <DoubleAnimation To="1" Duration="0:0:0.3" Storyboard.TargetProperty="RenderTransform.ScaleY"/>
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </EventTrigger>
+                                </Image.Triggers>
+                                <Image.RenderTransform>
+                                    <ScaleTransform ScaleX="1" ScaleY="1"/>
+                                </Image.RenderTransform>
+                            </Image>
+
+                            <Image Grid.Column="1" Grid.Row="1" Source="/WeatherIcons/Sunny.png" Width="45" Height="45" Margin="0,10,0,0" Panel.ZIndex="3">
+                                <Image.Triggers>
+                                    <EventTrigger RoutedEvent="Loaded">
+                                        <BeginStoryboard>
+                                            <Storyboard>
+                                                <DoubleAnimation From="0" To="1" Duration="0:0:1" BeginTime="0:0:0.1" Storyboard.TargetProperty="Opacity"/>
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </EventTrigger>
+                                    <EventTrigger RoutedEvent="MouseEnter">
+                                        <BeginStoryboard>
+                                            <Storyboard>
+                                                <DoubleAnimation To="1.2" Duration="0:0:0.3" Storyboard.TargetProperty="RenderTransform.ScaleX"/>
+                                                <DoubleAnimation To="1.2" Duration="0:0:0.3" Storyboard.TargetProperty="RenderTransform.ScaleY"/>
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </EventTrigger>
+                                    <EventTrigger RoutedEvent="MouseLeave">
+                                        <BeginStoryboard>
+                                            <Storyboard>
+                                                <DoubleAnimation To="1" Duration="0:0:0.3" Storyboard.TargetProperty="RenderTransform.ScaleX"/>
+                                                <DoubleAnimation To="1" Duration="0:0:0.3" Storyboard.TargetProperty="RenderTransform.ScaleY"/>
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </EventTrigger>
+                                </Image.Triggers>
+                                <Image.RenderTransform>
+                                    <ScaleTransform ScaleX="1" ScaleY="1"/>
+                                </Image.RenderTransform>
+                            </Image>
+
+                            <Image Grid.Column="1" Grid.Row="2" Source="/WeatherIcons/Cloudy.png" Width="45" Height="45" Margin="0,10,0,0" Panel.ZIndex="4">
+                                <Image.Triggers>
+                                    <EventTrigger RoutedEvent="Loaded">
+                                        <BeginStoryboard>
+                                            <Storyboard>
+                                                <DoubleAnimation From="0" To="1" Duration="0:0:1" BeginTime="0:0:0.2" Storyboard.TargetProperty="Opacity"/>
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </EventTrigger>
+                                    <EventTrigger RoutedEvent="MouseEnter">
+                                        <BeginStoryboard>
+                                            <Storyboard>
+                                                <DoubleAnimation To="1.2" Duration="0:0:0.3" Storyboard.TargetProperty="RenderTransform.ScaleX"/>
+                                                <DoubleAnimation To="1.2" Duration="0:0:0.3" Storyboard.TargetProperty="RenderTransform.ScaleY"/>
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </EventTrigger>
+                                    <EventTrigger RoutedEvent="MouseLeave">
+                                        <BeginStoryboard>
+                                            <Storyboard>
+                                                <DoubleAnimation To="1" Duration="0:0:0.3" Storyboard.TargetProperty="RenderTransform.ScaleX"/>
+                                                <DoubleAnimation To="1" Duration="0:0:0.3" Storyboard.TargetProperty="RenderTransform.ScaleY"/>
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </EventTrigger>
+                                </Image.Triggers>
+                                <Image.RenderTransform>
+                                    <ScaleTransform ScaleX="1" ScaleY="1"/>
+                                </Image.RenderTransform>
+                            </Image>
+
+                            <Image Grid.Column="1" Grid.Row="3" Source="/WeatherIcons/Rainy.png" Width="45" Height="45" Margin="0,10,0,0" Panel.ZIndex="5">
+                                <Image.Triggers>
+                                    <EventTrigger RoutedEvent="Loaded">
+                                        <BeginStoryboard>
+                                            <Storyboard>
+                                                <DoubleAnimation From="0" To="1" Duration="0:0:1" BeginTime="0:0:0.3" Storyboard.TargetProperty="Opacity"/>
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </EventTrigger>
+                                    <EventTrigger RoutedEvent="MouseEnter">
+                                        <BeginStoryboard>
+                                            <Storyboard>
+                                                <DoubleAnimation To="1.2" Duration="0:0:0.3" Storyboard.TargetProperty="RenderTransform.ScaleX"/>
+                                                <DoubleAnimation To="1.2" Duration="0:0:0.3" Storyboard.TargetProperty="RenderTransform.ScaleY"/>
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </EventTrigger>
+                                    <EventTrigger RoutedEvent="MouseLeave">
+                                        <BeginStoryboard>
+                                            <Storyboard>
+                                                <DoubleAnimation To="1" Duration="0:0:0.3" Storyboard.TargetProperty="RenderTransform.ScaleX"/>
+                                                <DoubleAnimation To="1" Duration="0:0:0.3" Storyboard.TargetProperty="RenderTransform.ScaleY"/>
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </EventTrigger>
+                                </Image.Triggers>
+                                <Image.RenderTransform>
+                                    <ScaleTransform ScaleX="1" ScaleY="1"/>
+                                </Image.RenderTransform>
+                            </Image>
+
+                            <Image Grid.Column="1" Grid.RowSpan="4" Source="/WeatherIcons/Line.png" Width="7" Stretch="Fill" Panel.ZIndex="1" VerticalAlignment="Top" Margin="0,10,0,0" Opacity="0">
+                                <Image.Triggers>
+                                    <EventTrigger RoutedEvent="Loaded">
+                                        <BeginStoryboard>
+                                            <Storyboard>
+                                                <DoubleAnimation From="0" To="1" Duration="0:0:1" Storyboard.TargetProperty="Opacity"/>
+                                                <DoubleAnimation From="0" To="1" Duration="0:0:1" Storyboard.TargetProperty="(Image.RenderTransform).(TranslateTransform.Y)">
+                                                    <DoubleAnimation.EasingFunction>
+                                                        <QuadraticEase EasingMode="EaseOut"/>
+                                                    </DoubleAnimation.EasingFunction>
+                                                </DoubleAnimation>
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </EventTrigger>
+                                </Image.Triggers>
+                                <Image.RenderTransform>
+                                    <TranslateTransform Y="-50"/>
+                                </Image.RenderTransform>
+                            </Image>
+                        </Grid>
                     </Grid>
                 </TabItem>
 
@@ -158,7 +287,7 @@
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="11*"/>
                         <ColumnDefinition Width="9*"/>
-                        <ColumnDefinition Width="52*"/>
+                        <ColumnDefinition Width="52.003"/>
                         <ColumnDefinition Width="78*"/>
                         <ColumnDefinition Width="34*"/>
                         <ColumnDefinition Width="42*"/>
