@@ -6,11 +6,17 @@
         xmlns:local="clr-namespace:SunClouds.View"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="WeatherInfWindow" Height="550" Width="800" MinHeight="274" MinWidth="438" 
+        Title="WeatherInfWindow" Height="550" MinHeight="274" MinWidth="250" 
+        MaxWidth="800"
         WindowStyle="None" AllowsTransparency="True" ResizeMode="CanResizeWithGrip"
         FontFamily="./Jura-Regular.ttf#Jura">
 
+
     <Window.Resources>
+        <Style TargetType="RichTextBox">
+            <Setter Property="SelectionBrush" Value="Transparent" />
+            <Setter Property="SelectionOpacity" Value="0" />
+        </Style>
         <Style x:Key="TabItemStyle1" TargetType="TabItem">
             <Setter Property="Foreground" Value="{DynamicResource Focus}"/>
             <Setter Property="FontFamily" Value="pack://application:,,,/Jura-Regular.ttf#Jura"/>
@@ -65,7 +71,7 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="0.45*"/>
+            <ColumnDefinition Width="250"/>
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
@@ -76,7 +82,7 @@
                         <TextBlock Text="{Binding City, Mode=OneWay}" HorizontalAlignment="Center" TextWrapping="Wrap"/>
                     </TabItem.Header>
                     <Grid>
-                        <Grid HorizontalAlignment="Center" Margin="0,10,0,0" Width="228">
+                        <Grid HorizontalAlignment="Center" Margin="0,10,0,0" Width="228" ClipToBounds="True">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="Auto"/>
                                 <ColumnDefinition Width="18.677"/>
@@ -93,7 +99,7 @@
                             </Grid.RowDefinitions>
 
                             <Image Grid.Column="1" Grid.Row="0" Source="/WeatherIcons/Sunny.png" Width="80" Height="80" Panel.ZIndex="2" Grid.ColumnSpan="3" HorizontalAlignment="Left" Margin="21,0,0,0">
-                                <Image.Triggers>
+                                <!--<Image.Triggers>
                                     <EventTrigger RoutedEvent="Loaded">
                                         <BeginStoryboard>
                                             <Storyboard>
@@ -120,7 +126,7 @@
                                 </Image.Triggers>
                                 <Image.RenderTransform>
                                     <ScaleTransform ScaleX="1" ScaleY="1"/>
-                                </Image.RenderTransform>
+                                </Image.RenderTransform>-->
                             </Image>
                             <TextBlock x:Name="FirstTextBox" Grid.Column="4" VerticalAlignment="Center" FontWeight="Bold" FontSize="20" Margin="10,0,15,0" TextAlignment="Right">
                                 <TextBlock.Inlines>
@@ -128,7 +134,7 @@
                                     <LineBreak/>
                                     <Run Text="Additional"/>
                                 </TextBlock.Inlines>
-                                <TextBlock.Triggers>
+                                <!--<TextBlock.Triggers>
                                     <EventTrigger RoutedEvent="Loaded" >
                                         <BeginStoryboard>
                                             <Storyboard>
@@ -139,12 +145,12 @@
                                 </TextBlock.Triggers>
                                 <TextBlock.Effect>
                                     <DropShadowEffect Color="Yellow" ShadowDepth="0" BlurRadius="40" Opacity="0.5"/>
-                                </TextBlock.Effect>
+                                </TextBlock.Effect>-->
                             </TextBlock>
 
 
                             <Image Grid.Column="2" Grid.Row="1" Source="/WeatherIcons/Sunny.png" Width="45" Height="45" Panel.ZIndex="3" Margin="4,29,7,29">
-                                <Image.Triggers>
+                                <!--<Image.Triggers>
                                     <EventTrigger RoutedEvent="Loaded">
                                         <BeginStoryboard>
                                             <Storyboard>
@@ -171,7 +177,7 @@
                                 </Image.Triggers>
                                 <Image.RenderTransform>
                                     <ScaleTransform ScaleX="1" ScaleY="1"/>
-                                </Image.RenderTransform>
+                                </Image.RenderTransform>-->
                             </Image>
                             <TextBlock x:Name="SecondLeftTextBox" Text="Time" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1" VerticalAlignment="Center" FontWeight="Normal" FontSize="15" HorizontalAlignment="Center"></TextBlock>
                             <TextBlock x:Name="SecondTextBox" Grid.Column="2" Grid.ColumnSpan="3" Grid.Row="1" VerticalAlignment="Center" FontWeight="Normal" FontSize="15" Margin="56,0,0,0">
@@ -180,7 +186,7 @@
                                     <LineBreak/>
                                     <Run Text="Additional"/>
                                 </TextBlock.Inlines>
-                                <TextBlock.Triggers>
+                                <!--<TextBlock.Triggers>
                                     <EventTrigger RoutedEvent="Loaded">
                                         <BeginStoryboard>
                                             <Storyboard>
@@ -191,12 +197,12 @@
                                 </TextBlock.Triggers>
                                 <TextBlock.Effect>
                                     <DropShadowEffect Color="Yellow" ShadowDepth="0" BlurRadius="40" Opacity="0.5"/>
-                                </TextBlock.Effect>
+                                </TextBlock.Effect>-->
                             </TextBlock>
 
 
                             <Image Grid.Column="2" Grid.Row="2" Source="/WeatherIcons/Cloudy.png" Width="45" Height="45" Panel.ZIndex="4" Margin="4,30,7,29">
-                                <Image.Triggers>
+                                <!--<Image.Triggers>
                                     <EventTrigger RoutedEvent="Loaded">
                                         <BeginStoryboard>
                                             <Storyboard>
@@ -223,7 +229,7 @@
                                 </Image.Triggers>
                                 <Image.RenderTransform>
                                     <ScaleTransform ScaleX="1" ScaleY="1"/>
-                                </Image.RenderTransform>
+                                </Image.RenderTransform>-->
                             </Image>
                             <TextBlock x:Name="ThirdLeftTextBox" Text="Time" Grid.ColumnSpan="2" Grid.Column="0" Grid.Row="2" VerticalAlignment="Center" FontWeight="Normal" FontSize="15" HorizontalAlignment="Center"></TextBlock>
                             <TextBlock x:Name="ThirdTextBox" Grid.Column="2" Grid.ColumnSpan="3" Grid.Row="2" VerticalAlignment="Center" FontWeight="Normal" FontSize="15" Margin="56,0,0,0">
@@ -232,7 +238,7 @@
                                     <LineBreak/>
                                     <Run Text="Additional"/>
                                 </TextBlock.Inlines>
-                                <TextBlock.Triggers>
+                                <!--<TextBlock.Triggers>
                                     <EventTrigger RoutedEvent="Loaded">
                                         <BeginStoryboard>
                                             <Storyboard>
@@ -243,11 +249,11 @@
                                 </TextBlock.Triggers>
                                 <TextBlock.Effect>
                                     <DropShadowEffect Color="Yellow" ShadowDepth="0" BlurRadius="40" Opacity="0.5"/>
-                                </TextBlock.Effect>
+                                </TextBlock.Effect>-->
                             </TextBlock>
 
                             <Image Grid.Column="2" Grid.Row="3" Source="/WeatherIcons/Rainy.png" Width="45" Height="45" Panel.ZIndex="5" Margin="4,29,7,30">
-                                <Image.Triggers>
+                                <!--<Image.Triggers>
                                     <EventTrigger RoutedEvent="Loaded">
                                         <BeginStoryboard>
                                             <Storyboard>
@@ -274,7 +280,7 @@
                                 </Image.Triggers>
                                 <Image.RenderTransform>
                                     <ScaleTransform ScaleX="1" ScaleY="1"/>
-                                </Image.RenderTransform>
+                                </Image.RenderTransform>-->
                             </Image>
                             <TextBlock x:Name="ForthLeftTextBox" Grid.ColumnSpan="2" Text="Time" Grid.Column="0" Grid.Row="3" VerticalAlignment="Center" FontWeight="Normal" FontSize="15"></TextBlock>
                             <TextBlock x:Name="ForthTextBox" Grid.Column="2" Grid.ColumnSpan="3" Grid.Row="3" VerticalAlignment="Center" FontWeight="Normal" FontSize="15" Margin="56,0,0,0">
@@ -283,7 +289,7 @@
                                     <LineBreak/>
                                     <Run Text="Additional"/>
                                 </TextBlock.Inlines>
-                                <TextBlock.Triggers>
+                                <!--<TextBlock.Triggers>
                                     <EventTrigger RoutedEvent="Loaded">
                                         <BeginStoryboard>
                                             <Storyboard>
@@ -294,11 +300,11 @@
                                 </TextBlock.Triggers>
                                 <TextBlock.Effect>
                                     <DropShadowEffect Color="Yellow" ShadowDepth="0" BlurRadius="40" Opacity="0.5"/>
-                                </TextBlock.Effect>
+                                </TextBlock.Effect>-->
                             </TextBlock>
 
-                            <Image Grid.Column="2" Grid.RowSpan="4" Source="/WeatherIcons/Line.png" Width="7" Stretch="Fill" Panel.ZIndex="1" VerticalAlignment="Top" Margin="23,10,26,0" Opacity="0">
-                                <Image.Triggers>
+                            <Image Grid.Column="2" Grid.RowSpan="4" Source="/WeatherIcons/Line.png" Width="7" Stretch="Fill" Panel.ZIndex="1" VerticalAlignment="Top" Margin="23,10,26,0" Opacity="1">
+                                <!--<Image.Triggers>
                                     <EventTrigger RoutedEvent="Loaded">
                                         <BeginStoryboard>
                                             <Storyboard>
@@ -311,10 +317,7 @@
                                             </Storyboard>
                                         </BeginStoryboard>
                                     </EventTrigger>
-                                </Image.Triggers>
-                                <Image.RenderTransform>
-                                    <TranslateTransform Y="-50"/>
-                                </Image.RenderTransform>
+                                </Image.Triggers>-->
                             </Image>
                         </Grid>
                     </Grid>
@@ -368,9 +371,9 @@
                 </TabItem.Header>
                 <Grid>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="20*"/>
-                        <ColumnDefinition Width="518*"/>
-                        <ColumnDefinition Width="13*"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="518"/>
+                        <ColumnDefinition Width="13"/>
                     </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>
@@ -412,54 +415,92 @@
                     <TextBlock Text="20" Foreground="White" VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="12" Grid.Column="1" Grid.Row="2" Height="14" Width="14" Margin="259,29,0,0" FontWeight="Normal"/>
                     <TextBlock Text="20" Foreground="White" VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="12" Grid.Column="1" Grid.Row="2" Height="14" Width="14" Margin="259,29,0,0" FontWeight="Normal"/>
                     <TextBlock Text="20" Foreground="White" VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="12" Grid.Column="1" Grid.Row="2" Height="14" Width="14" Margin="22,29,0,0" FontWeight="Normal"/>-->
-
-                    <StackPanel Grid.Row="2" Grid.Column="1" Background="#F8C5B4">
-                        <Grid Height="43">
+                    <StackPanel Grid.Row="2" Grid.Column="1">
+                        <Grid Grid.Row="2" Grid.Column="1">
+                            <Grid.Background>
+                                <SolidColorBrush Color="#F8C5B4" Opacity="0.5" />
+                            </Grid.Background>
                             <Grid.RowDefinitions>
-                                <RowDefinition Height="*"/>
-                                <!-- Добавляем первую строку -->
-                                <RowDefinition Height="*"/>
-                                <!-- Добавляем вторую строку -->
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
                             </Grid.RowDefinitions>
                             <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="5.156" />
                                 <ColumnDefinition Width="Auto"/>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="70" />
+                                <ColumnDefinition Width="70" />
+                                <ColumnDefinition Width="70" />
+                                <ColumnDefinition Width="70" />
+                                <ColumnDefinition Width="70" />
+                                <ColumnDefinition Width="70" />
+                                <ColumnDefinition Width="58" />
                             </Grid.ColumnDefinitions>
 
-                            <!-- Число 21 с RowSpan 1 и шрифтом 25 -->
-                            <TextBlock Text="21" Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" FontSize="25" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            <RichTextBox Grid.Row="0" Grid.Column="1" Grid.RowSpan="2" BorderThickness="0" IsReadOnly="True" Width="35" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,3,0,0">
+                                <FlowDocument>
+                                    <Paragraph TextAlignment="Center">
+                                        <Run Text="21" FontWeight="Bold" FontSize="25" Foreground="#87B6CA"/>
+                                    </Paragraph>
+                                </FlowDocument>
+                            </RichTextBox>
 
-                            <!-- Линия справа от числа 21 -->
+                            <Rectangle Grid.Row="0" Grid.RowSpan="2" Grid.Column="2" Fill="White" Width="1" Margin="2,5,2,5" />
 
-                            <!-- Надписи в 0-й строке -->
-                            <TextBlock Text="Label 1" Grid.Row="0" Grid.Column="1" FontSize="10"/>
-                            <TextBlock Text="Label 2" Grid.Row="0" Grid.Column="2" FontSize="10"/>
-                            <TextBlock Text="Label 3" Grid.Row="0" Grid.Column="3" FontSize="10"/>
-                            <TextBlock Text="Label 4" Grid.Row="0" Grid.Column="4" FontSize="10"/>
-                            <TextBlock Text="Label 5" Grid.Row="0" Grid.Column="5" FontSize="10"/>
-                            <TextBlock Text="Label 6" Grid.Row="0" Grid.Column="6" FontSize="10"/>
-                            <TextBlock Text="Label 7" Grid.Row="0" Grid.Column="7" FontSize="10"/>
+                            <RichTextBox Grid.Column="3" Grid.RowSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" IsReadOnly="True" FontSize="10">
+                                <FlowDocument>
+                                    <Paragraph TextAlignment="Center">Ощущение:</Paragraph>
+                                    <Paragraph TextAlignment="Center">Test</Paragraph>
+                                </FlowDocument>
+                            </RichTextBox>
 
-                            <!-- Надписи в 1-й строке -->
-                            <TextBlock Text="Label 1" Grid.Row="1" Grid.Column="1" FontSize="10"/>
-                            <TextBlock Text="Label 2" Grid.Row="1" Grid.Column="2" FontSize="10"/>
-                            <TextBlock Text="Label 3" Grid.Row="1" Grid.Column="3" FontSize="10"/>
-                            <TextBlock Text="Label 4" Grid.Row="1" Grid.Column="4" FontSize="10"/>
-                            <TextBlock Text="Label 5" Grid.Row="1" Grid.Column="5" FontSize="10"/>
-                            <TextBlock Text="Label 6" Grid.Row="1" Grid.Column="6" FontSize="10"/>
-                            <TextBlock Text="Label 6" Grid.Row="1" Grid.Column="7" FontSize="10"/>
+                            <RichTextBox Grid.Column="4" Grid.RowSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" IsReadOnly="True" FontSize="10">
+                                <FlowDocument>
+                                    <Paragraph TextAlignment="Center">Мин.</Paragraph>
+                                    <Paragraph TextAlignment="Center">Test</Paragraph>
+                                </FlowDocument>
+                            </RichTextBox>
 
-                            <!-- Другие элементы вашего Grid -->
+                            <RichTextBox Grid.Column="5" Grid.RowSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" IsReadOnly="True" FontSize="10">
+                                <FlowDocument>
+                                    <Paragraph TextAlignment="Center">Макс.</Paragraph>
+                                    <Paragraph TextAlignment="Center">Test</Paragraph>
+                                </FlowDocument>
+                            </RichTextBox>
+
+                            <RichTextBox Grid.Column="6" Grid.RowSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" IsReadOnly="True" FontSize="10">
+                                <FlowDocument>
+                                    <Paragraph TextAlignment="Center">Давление:</Paragraph>
+                                    <Paragraph TextAlignment="Center">Test</Paragraph>
+                                </FlowDocument>
+                            </RichTextBox>
+
+                            <RichTextBox Grid.Column="7" Grid.RowSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" IsReadOnly="True" FontSize="10">
+                                <FlowDocument>
+                                    <Paragraph TextAlignment="Center">Влажность:</Paragraph>
+                                    <Paragraph TextAlignment="Center">Test</Paragraph>
+                                </FlowDocument>
+                            </RichTextBox>
+
+                            <RichTextBox Grid.Column="8" Grid.RowSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" IsReadOnly="True" FontSize="10">
+                                <FlowDocument>
+                                    <Paragraph TextAlignment="Center">Ветер м/c:</Paragraph>
+                                    <Paragraph TextAlignment="Center">Test</Paragraph>
+                                </FlowDocument>
+                            </RichTextBox>
+
+                            <RichTextBox Grid.Column="9" Grid.RowSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" IsReadOnly="True" FontSize="10">
+                                <FlowDocument>
+                                    <Paragraph TextAlignment="Center">Ветер:</Paragraph>
+                                    <Paragraph TextAlignment="Center">Test</Paragraph>
+                                </FlowDocument>
+                            </RichTextBox>
                         </Grid>
                     </StackPanel>
 
-                    <ScrollViewer x:Name="scrollViewer" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Disabled" Grid.Row="5" Grid.Column="1" MouseLeftButtonDown="OnMouseLeftButtonDown" MouseLeftButtonUp="OnMouseLeftButtonUp" MouseMove="OnMouseMove" Grid.ColumnSpan="1" >
+
+
+                    <ScrollViewer x:Name="scrollViewer" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden" Grid.Row="5" Grid.Column="1" MouseLeftButtonDown="OnMouseLeftButtonDown" MouseLeftButtonUp="OnMouseLeftButtonUp" MouseMove="OnMouseMove" Grid.ColumnSpan="1" >
                         <Grid>
                             <Grid.Background>
                                 <SolidColorBrush Color="#F8C5B4" Opacity="0.5" />
