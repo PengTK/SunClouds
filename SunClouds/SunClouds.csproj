@@ -150,7 +150,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\ThemesLib\ThemesLib.csproj">
       <Project>{b12a95f4-2c58-461f-9e48-54e5dec363de}</Project>
