@@ -28,6 +28,29 @@ namespace SunClouds.View
             SimulateChangeTextEffect();
         }
 
+        private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            if (this.ActualHeight < 550)
+            {
+                // Меняем высоту второй, третьей и четвертой строк на Auto
+                for (int i = 1; i < 4; i++)
+                {
+                    RowDefinition rowDefinition = SunnyGrid.RowDefinitions[i];
+                    rowDefinition.Height = GridLength.Auto;
+                }
+            }
+            else
+            {
+                // Меняем высоту второй, третьей и четвертой строк на *
+                for (int i = 1; i < 4; i++)
+                {
+                    RowDefinition rowDefinition = SunnyGrid.RowDefinitions[i];
+                    rowDefinition.Height = new GridLength(1, GridUnitType.Star);
+                }
+            }
+        }
+
+
         //КОД ДЛЯ СЛАЙДЕРА ->
         private void OnMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {

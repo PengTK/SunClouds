@@ -6,17 +6,13 @@
         xmlns:local="clr-namespace:SunClouds.View"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="WeatherInfWindow" Height="550" MinHeight="274" MinWidth="250" 
+        Title="WeatherInfWindow" Height="550" MinHeight="200" MinWidth="250" 
         MaxWidth="800"
         WindowStyle="None" AllowsTransparency="True" ResizeMode="CanResizeWithGrip"
         FontFamily="./Jura-Regular.ttf#Jura">
 
 
     <Window.Resources>
-        <Style TargetType="RichTextBox">
-            <Setter Property="SelectionBrush" Value="Transparent" />
-            <Setter Property="SelectionOpacity" Value="0" />
-        </Style>
         <Style x:Key="TabItemStyle1" TargetType="TabItem">
             <Setter Property="Foreground" Value="{DynamicResource Focus}"/>
             <Setter Property="FontFamily" Value="pack://application:,,,/Jura-Regular.ttf#Jura"/>
@@ -82,7 +78,7 @@
                         <TextBlock Text="{Binding City, Mode=OneWay}" HorizontalAlignment="Center" TextWrapping="Wrap"/>
                     </TabItem.Header>
                     <Grid>
-                        <Grid HorizontalAlignment="Center" Margin="0,10,0,0" Width="228" ClipToBounds="True">
+                        <Grid x:Name="SunnyGrid" HorizontalAlignment="Center" Margin="0,10,0,0" Width="228" ClipToBounds="True" SizeChanged="Window_SizeChanged">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="Auto"/>
                                 <ColumnDefinition Width="18.677"/>
@@ -98,7 +94,8 @@
                                 <RowDefinition Height="10"/>
                             </Grid.RowDefinitions>
 
-                            <Image Grid.Column="1" Grid.Row="0" Source="/WeatherIcons/Sunny.png" Width="80" Height="80" Panel.ZIndex="2" Grid.ColumnSpan="3" HorizontalAlignment="Left" Margin="21,0,0,0">
+
+                        <Image Grid.Column="1" Grid.Row="0" Source="/WeatherIcons/Sunny.png" Width="80" Height="80" Panel.ZIndex="2" Grid.ColumnSpan="3" HorizontalAlignment="Left" Margin="21,0,0,0">
                                 <!--<Image.Triggers>
                                     <EventTrigger RoutedEvent="Loaded">
                                         <BeginStoryboard>
@@ -304,6 +301,12 @@
                             </TextBlock>
 
                             <Image Grid.Column="2" Grid.RowSpan="4" Source="/WeatherIcons/Line.png" Width="7" Stretch="Fill" Panel.ZIndex="1" VerticalAlignment="Top" Margin="23,10,26,0" Opacity="1">
+                                <Image.RenderTransform>
+                                    <ScaleTransform ScaleY="1" />
+                                </Image.RenderTransform>
+                                <Image.RenderTransformOrigin>
+                                    <Point X="0.5" Y="0" />
+                                </Image.RenderTransformOrigin>
                                 <!--<Image.Triggers>
                                     <EventTrigger RoutedEvent="Loaded">
                                         <BeginStoryboard>
@@ -438,6 +441,7 @@
                             </Grid.ColumnDefinitions>
 
                             <RichTextBox Grid.Row="0" Grid.Column="1" Grid.RowSpan="2" BorderThickness="0" IsReadOnly="True" Width="35" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,3,0,0">
+                                
                                 <FlowDocument>
                                     <Paragraph TextAlignment="Center">
                                         <Run Text="21" FontWeight="Bold" FontSize="25" Foreground="#87B6CA"/>
