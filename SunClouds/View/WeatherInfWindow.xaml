@@ -95,7 +95,7 @@
                             </Grid.RowDefinitions>
 
 
-                        <Image Grid.Column="1" Grid.Row="0" Source="/WeatherIcons/Sunny.png" Width="80" Height="80" Panel.ZIndex="2" Grid.ColumnSpan="3" HorizontalAlignment="Left" Margin="21,0,0,0">
+                            <Image Grid.Column="1" Grid.Row="0" Source="/WeatherIcons/Sunny.png" Width="80" Height="80" Panel.ZIndex="2" Grid.ColumnSpan="3" HorizontalAlignment="Left" Margin="21,0,0,0">
                                 <!--<Image.Triggers>
                                     <EventTrigger RoutedEvent="Loaded">
                                         <BeginStoryboard>
@@ -370,7 +370,7 @@
         <TabControl Grid.Row="1" Grid.Column="2">
             <TabItem Style="{DynamicResource TabItemStyle2}" FontSize="25" HorizontalAlignment="Left" Margin="20,0,0,0">
                 <TabItem.Header>
-                    <TextBlock Text="Погода" HorizontalAlignment="Center" TextWrapping="Wrap"/>
+                    <TextBlock Text="Погода                        " HorizontalAlignment="Center" TextWrapping="Wrap"/>
                 </TabItem.Header>
                 <Grid>
                     <Grid.ColumnDefinitions>
@@ -441,7 +441,7 @@
                             </Grid.ColumnDefinitions>
 
                             <RichTextBox Grid.Row="0" Grid.Column="1" Grid.RowSpan="2" BorderThickness="0" IsReadOnly="True" Width="35" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,3,0,0">
-                                
+
                                 <FlowDocument>
                                     <Paragraph TextAlignment="Center">
                                         <Run Text="21" FontWeight="Bold" FontSize="25" Foreground="#87B6CA"/>
@@ -791,7 +791,177 @@
                     <TextBlock Text="                    Настройки" HorizontalAlignment="Center" TextWrapping="Wrap"/>
                 </TabItem.Header>
                 <Grid>
-                    <TextBlock Text="Тута настройки будут" Foreground="Black" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="40"/>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" MinHeight="40"/>
+                        <RowDefinition Height="Auto" MinHeight="44"/>
+                        <RowDefinition Height="Auto" MinHeight="34"/>
+                        <RowDefinition Height="Auto" MinHeight="151"/>
+                        <RowDefinition Height="Auto" MinHeight="53"/>
+                        <RowDefinition Height="Auto" MinHeight="0"/>
+                        <RowDefinition Height="Auto" MinHeight="29" />
+                        <RowDefinition Height="Auto" MinHeight="51" />
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <TextBlock TextWrapping="Wrap" Text="Ваш основной город:" TextAlignment="Center" FontWeight="Bold" FontSize="18" Margin="160,16,0,0" Height="24" VerticalAlignment="Top" HorizontalAlignment="Left" Width="229"/>
+
+                    <TextBlock TextWrapping="Wrap" Text="Избранные города:" TextAlignment="Center" FontWeight="Bold" FontSize="18" Grid.Row="2" Height="26" VerticalAlignment="Center" HorizontalAlignment="Left" Width="229" Margin="160,0,0,0"/>
+                    <WrapPanel Height="140" Grid.Row="3" VerticalAlignment="Center" Background="#7FF8C5B4" HorizontalAlignment="Left" Width="503" Margin="23,0,0,0">
+                        <Grid Height="140" Width="503">
+                            <Grid Margin="5,10,0,0" Height="55" Width="120" VerticalAlignment="Top" HorizontalAlignment="Left">
+                                <StackPanel Margin="0,21,0,0" Background="#7F3D95B9">
+                                    <TextBlock TextWrapping="Wrap" Text="55°45′07″ с.ш.       37°36′56″ в.д." FontSize="12" Padding="4" TextAlignment="Center" Height="34"/>
+                                </StackPanel>
+                                <StackPanel Margin="0,0,0,34" Background="#FF3D95B9">
+                                    <Grid Height="21">
+                                        <TextBlock TextWrapping="Wrap" Text="Москва" FontSize="13" Padding="2" TextAlignment="Center"/>
+                                        <Button Content="X" Margin="106,0,0,5" Padding="0" FontSize="12" Grid.RowSpan="1" Height="16" Background="#00000000" BorderBrush="#00000000" Width="16" Panel.ZIndex="1"/>
+                                    </Grid>
+                                </StackPanel>
+                            </Grid>
+                            <Grid Margin="130,10,0,0" Height="55" Width="120" VerticalAlignment="Top" HorizontalAlignment="Left">
+                                <StackPanel Margin="0,21,0,0" Background="#7F3D95B9">
+                                    <TextBlock TextWrapping="Wrap" Text="55°45′07″ с.ш.       37°36′56″ в.д." FontSize="12" Padding="4" TextAlignment="Center" Height="34"/>
+                                </StackPanel>
+                                <StackPanel Margin="0,0,0,34" Background="#FF3D95B9">
+                                    <Grid Height="21">
+                                        <TextBlock TextWrapping="Wrap" Text="Москва" FontSize="13" Padding="2" TextAlignment="Center"/>
+                                        <Button Content="X" Margin="106,0,0,5" Padding="0" FontSize="12" Grid.RowSpan="1" Height="16" Background="#00000000" BorderBrush="#00000000" Width="16" Panel.ZIndex="1"/>
+                                    </Grid>
+                                </StackPanel>
+                            </Grid>
+                            <Grid Margin="255,10,0,0" Height="55" Width="120" VerticalAlignment="Top" HorizontalAlignment="Left">
+                                <StackPanel Margin="0,21,0,0" Background="#7F3D95B9">
+                                    <TextBlock TextWrapping="Wrap" Text="55°45′07″ с.ш.       37°36′56″ в.д." FontSize="12" Padding="4" TextAlignment="Center" Height="34"/>
+                                </StackPanel>
+                                <StackPanel Margin="0,0,0,34" Background="#FF3D95B9">
+                                    <Grid Height="21">
+                                        <TextBlock TextWrapping="Wrap" Text="Москва" FontSize="13" Padding="2" TextAlignment="Center"/>
+                                        <Button Content="X" Margin="106,0,0,5" Padding="0" FontSize="12" Grid.RowSpan="1" Height="16" Background="#00000000" BorderBrush="#00000000" Width="16" Panel.ZIndex="1"/>
+                                    </Grid>
+                                </StackPanel>
+                            </Grid>
+                            <Grid Margin="380,10,0,0" Height="55" Width="120" VerticalAlignment="Top" HorizontalAlignment="Left">
+                                <StackPanel Margin="0,21,0,0" Background="#7F3D95B9">
+                                    <TextBlock TextWrapping="Wrap" Text="55°45′07″ с.ш.       37°36′56″ в.д." FontSize="12" Padding="4" TextAlignment="Center" Height="34"/>
+                                </StackPanel>
+                                <StackPanel Margin="0,0,0,34" Background="#FF3D95B9">
+                                    <Grid Height="21">
+                                        <TextBlock TextWrapping="Wrap" Text="Москва" FontSize="13" Padding="2" TextAlignment="Center"/>
+                                        <Button Content="X" Margin="106,0,0,5" Padding="0" FontSize="12" Grid.RowSpan="1" Height="16" Background="#00000000" BorderBrush="#00000000" Width="16" Panel.ZIndex="1"/>
+                                    </Grid>
+                                </StackPanel>
+                            </Grid>
+                            <Grid Margin="5,75,0,0" Height="55" Width="120" VerticalAlignment="Top" HorizontalAlignment="Left">
+                                <StackPanel Margin="0,21,0,0" Background="#7F3D95B9">
+                                    <TextBlock TextWrapping="Wrap" Text="55°45′07″ с.ш.       37°36′56″ в.д." FontSize="12" Padding="4" TextAlignment="Center" Height="34"/>
+                                </StackPanel>
+                                <StackPanel Margin="0,0,0,34" Background="#FF3D95B9">
+                                    <Grid Height="21">
+                                        <TextBlock TextWrapping="Wrap" Text="Москва" FontSize="13" Padding="2" TextAlignment="Center"/>
+                                        <Button Content="X" Margin="106,0,0,5" Padding="0" FontSize="12" Grid.RowSpan="1" Height="16" Background="#00000000" BorderBrush="#00000000" Width="16" Panel.ZIndex="1"/>
+                                    </Grid>
+                                </StackPanel>
+                            </Grid>
+                        </Grid>
+                    </WrapPanel>
+                    <StackPanel HorizontalAlignment="Left" Height="26" Grid.Row="1" VerticalAlignment="Center" Width="503" Margin="23,0,0,0">
+                        <Grid>
+                            <TextBlock  Text="{Binding City, Mode=OneWay}" TextWrapping="Wrap" FontSize="13" Background="#7F3D95B9" Padding="4"  TextAlignment="Center" Height="25" Width="503" FontWeight="Normal"/>
+                            <Button Content="X" HorizontalAlignment="Left" Height="26" Margin="462,0,0,0" VerticalAlignment="Center" Background="{x:Null}" BorderBrush="#00000000" FontSize="13"/>
+
+                        </Grid>
+                    </StackPanel>
+                    <StackPanel HorizontalAlignment="Left" Height="26" Grid.Row="4" VerticalAlignment="Center" Width="503" Margin="23,0,0,0">
+                        <Grid Height="25">
+
+                            <TextBlock TextWrapping="Wrap" FontSize="13" Background="#7F3D95B9" Padding="4"  TextAlignment="Center" Height="25" Margin="0,0,151,0"/>
+                            <TextBlock TextWrapping="Wrap" FontSize="13" Background="#FF87B6CA" Padding="4"  TextAlignment="Center" Margin="352,0,0,0"/>
+                            <TextBox materialDesign:HintAssist.Hint="Название города" materialDesign:HintAssist.HintOpacity="100" HorizontalAlignment="Left" materialDesign:TextFieldAssist.DecorationVisibility="Collapsed" BorderThickness="0" TextWrapping="Wrap" Text="" VerticalAlignment="Center" CaretBrush="Black" FontSize="13" Width="313" Height="26" Foreground="White" SelectionBrush="#FF313131" BorderBrush="Transparent" TextAlignment="Center" FontWeight="Normal"/>
+                            <Button Content="X" HorizontalAlignment="Left" Height="26" Margin="313,0,0,0" VerticalAlignment="Bottom" Background="{x:Null}" BorderBrush="#00000000" FontSize="13"/>
+                            <Button Content="Добавить" HorizontalAlignment="Left" Height="24" Margin="352,0,0,0" VerticalAlignment="Center" FontSize="13" Width="151" BorderBrush="#00000000" Background="#00000000" FontWeight="Normal"/>
+
+
+                        </Grid>
+                    </StackPanel>
+                    <TextBlock TextWrapping="Wrap" Text="Исчисление градусов:" TextAlignment="Center" FontWeight="Bold" FontSize="18" Grid.Row="6" Height="26" VerticalAlignment="Top" HorizontalAlignment="Left" Width="229" Margin="160,0,0,0"/>
+                    <StackPanel Margin="69,2,0,0" Grid.Row="7" Height="24" HorizontalAlignment="Left" Width="401" VerticalAlignment="Top">
+                        <Grid Height="24">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="197*"/>
+                                <ColumnDefinition Width="204*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock TextWrapping="Wrap" FontSize="13" Background="#7F3D95B9" Padding="4"  TextAlignment="Center" Margin="33,0,0,0" Text="Фаренгейт F°" FontWeight="Normal" Grid.Column="1"/>
+                            <TextBlock TextWrapping="Wrap" FontSize="13" Background="#7F3D95B9" Padding="4" TextAlignment="Center" Margin="0,0,26,0" Text="Цельсий С°" FontWeight="Normal"/>
+                            <RadioButton Content="" Margin="33,0,0,0" Grid.Column="1">
+                                <RadioButton.Template>
+                                    <ControlTemplate TargetType="{x:Type RadioButton}">
+                                        <Grid>
+                                            <Border x:Name="border" Background="Transparent" CornerRadius="7" Margin="0,-2,0,-2" HorizontalAlignment="Center" Width="171">
+                                                <Ellipse x:Name="outerCircle" Fill="Transparent" Stroke="White" StrokeThickness="1.5" HorizontalAlignment="Left" Width="14" Height="14" VerticalAlignment="Center" Margin="15,0,0,0"/>
+                                            </Border>
+                                            <Ellipse x:Name="innerCircle" Fill="Transparent" Stroke="Transparent" StrokeThickness="2" Margin="17,0,0,0" HorizontalAlignment="Left" Width="10" Height="10" VerticalAlignment="Center"/>
+                                        </Grid>
+                                        <ControlTemplate.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter TargetName="innerCircle" Property="Fill" Value="Transparent"/>
+                                            </Trigger>
+                                            <Trigger Property="IsChecked" Value="True">
+                                                <Setter TargetName="outerCircle" Property="Stroke" Value="White"/>
+                                                <Setter TargetName="innerCircle" Property="Fill">
+                                                    <Setter.Value>
+                                                        <RadialGradientBrush>
+                                                            <GradientStop Color="White" Offset="1"/>
+                                                            <GradientStop Color="Transparent" Offset="1"/>
+                                                        </RadialGradientBrush>
+                                                    </Setter.Value>
+                                                </Setter>
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </RadioButton.Template>
+                            </RadioButton>
+                            <RadioButton Content="" Margin="0,0,26,0">
+                                <RadioButton.Template>
+                                    <ControlTemplate TargetType="{x:Type RadioButton}">
+                                        <Grid>
+                                            <Border x:Name="border" Background="Transparent" CornerRadius="7" Margin="0,-2,0,-2" HorizontalAlignment="Left" Width="163">
+                                                <Ellipse x:Name="outerCircle" Fill="Transparent" Stroke="White" StrokeThickness="1.5" HorizontalAlignment="Left" Width="14" Height="14" VerticalAlignment="Center" Margin="15,0,0,0"/>
+                                            </Border>
+                                            <Ellipse x:Name="innerCircle" Fill="Transparent" Stroke="Transparent" StrokeThickness="2" Margin="17,0,0,0" HorizontalAlignment="Left" Width="10" Height="10" VerticalAlignment="Center"/>
+                                        </Grid>
+                                        <ControlTemplate.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter TargetName="innerCircle" Property="Fill" Value="Transparent"/>
+                                            </Trigger>
+                                            <Trigger Property="IsChecked" Value="True">
+                                                <Setter TargetName="outerCircle" Property="Stroke" Value="White"/>
+                                                <Setter TargetName="innerCircle" Property="Fill">
+                                                    <Setter.Value>
+                                                        <RadialGradientBrush>
+                                                            <GradientStop Color="White" Offset="1"/>
+                                                            <GradientStop Color="Transparent" Offset="1"/>
+                                                        </RadialGradientBrush>
+                                                    </Setter.Value>
+                                                </Setter>
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </RadioButton.Template>
+                                <RadioButton.InputBindings>
+                                    <MouseBinding Gesture="LeftClick" Command="{Binding Path=Command}" CommandParameter="{Binding Path=CommandParameter}" />
+                                </RadioButton.InputBindings>
+                            </RadioButton>
+                        </Grid>
+                    </StackPanel>
+                    <StackPanel Margin="0,47,0,0" Grid.Row="8" Height="24" VerticalAlignment="Top" HorizontalAlignment="Left" Width="549">
+                        <Grid Height="24">
+                            <TextBlock TextWrapping="Wrap" FontSize="13" Background="#FF87B6CA" Padding="4"  TextAlignment="Center" Margin="23,0,23,0" Height="24"/>
+                            <Button Content="Сохранить" FontSize="13" Width="503" BorderBrush="#00000000" Background="#00000000" FontWeight="Normal" Margin="23,0,23,0" Height="24"/>
+                        </Grid>
+                    </StackPanel>
                 </Grid>
             </TabItem>
         </TabControl>
