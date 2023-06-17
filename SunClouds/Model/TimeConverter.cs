@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SunClouds.Model
 {
-    internal class TimeConverter
+    internal static class TimeConverter
     {
         public static DateTime UnixToUtc(int unixTime, int timezoneOffset)
         {
