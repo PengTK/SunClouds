@@ -71,8 +71,6 @@
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        
-        
         <Border Grid.RowSpan="2" Background="{DynamicResource Primary}">
             <TabControl Grid.RowSpan="2">
                 <TabItem Style="{DynamicResource TabItemStyle1}" HorizontalAlignment="Center" Margin="0,25,0,0" FontSize="25" >
@@ -368,18 +366,6 @@
 
             </Grid>
         </Border>
-        <Grid Grid.Row="1" Grid.Column="2" Panel.ZIndex="2">
-            <Ellipse x:Name="progressBar" Width="200" Height="200" Stroke="#3D95B9" StrokeThickness="4">
-                <Ellipse.Fill>
-                    <RadialGradientBrush>
-                        <GradientStop Color="#3D95B9" Offset="0" />
-                        <GradientStop Color="Transparent" Offset="0" />
-                    </RadialGradientBrush>
-                </Ellipse.Fill>
-            </Ellipse>
-        </Grid>
-
-
         <TabControl Grid.Row="1" Grid.Column="2">
             <TabItem Style="{DynamicResource TabItemStyle2}" FontSize="25" HorizontalAlignment="Left" Margin="20,0,0,0">
                 <TabItem.Header>
@@ -387,21 +373,50 @@
                 </TabItem.Header>
                 <Grid>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="20*"/>
-                        <ColumnDefinition Width="518*"/>
-                        <ColumnDefinition Width="13*"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="518"/>
+                        <ColumnDefinition Width="13"/>
                     </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="4.76"/>
                         <RowDefinition Height="43.24"/>
-                        <RowDefinition Height="25"/>
-                        <RowDefinition Height="Auto" MinHeight="125"/>
                         <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="21.956"/>
-                        <RowDefinition Height="231.538"/>
-                        <RowDefinition Height="33.933"/>
+                        <RowDefinition Height="13"/>
+                        <RowDefinition Height="Auto" MinHeight="112.475"/>
+                        <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
+                    <!--<Grid Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Left" Height="48" Margin="9,0,0,0" Width="50" Grid.Column="1" Grid.RowSpan="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="21°" FontFamily="Jura" Foreground="#87B6CA" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="40" Height="47" Width="49" Margin="0,3,0,0"/>
+                        <Line X1="0" Y1="0" X2="0" Y2="30" Stroke="White" StrokeThickness="1" VerticalAlignment="Top" Grid.Column="1" RenderTransformOrigin="0.5,0.5" Margin="0,13,0,0">
+                            <Line.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform/>
+
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </Line.RenderTransform>
+                        </Line>
+                    </Grid>-->
+                    <!--<TextBlock Text="Ощущение:" Foreground="White" VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="12" Grid.Column="1" Grid.Row="2" Height="18" Width="63" Margin="234,10,0,0"/>
+                    <TextBlock Text="Мин." Foreground="White" VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="12" Grid.Column="1" Grid.Row="2" Height="18" Width="26" Margin="253,10,0,0"/>
+                    <TextBlock Text="Макс." Foreground="White" VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="12" Grid.Column="1" Grid.Row="2" Height="18" Width="32" Margin="250,10,0,0"/>
+                    <TextBlock Text="Давление:" Foreground="White" VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="12" Grid.Column="1" Grid.Row="2" Height="18" Width="61" Margin="235,10,0,0"/>
+                    <TextBlock Text="Влажность:" Foreground="White" VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="12" Grid.Column="1" Height="18" Width="67" Grid.Row="2" Margin="232,10,0,0"/>
+                    <TextBlock Text="Ветер м/c:" Foreground="White" VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="12" Grid.Column="1" Grid.Row="2" Height="18" Width="61" Margin="235,10,0,0"/>
+                    <TextBlock Text="Ветер °:" Foreground="White" VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="12" Grid.Column="1" Grid.Row="2" Height="18" Width="46" Margin="243,10,0,0"/>
+                    <TextBlock Text="20" Foreground="White" VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="12" Grid.Column="1" Grid.Row="2" Height="14" Width="15" Margin="258,29,0,0" FontWeight="Normal"/>
+                    <TextBlock Text="20" Foreground="White" VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="12" Grid.Column="1" Grid.Row="2" Height="14" Width="14" Margin="9,29,0,0" FontWeight="Normal"/>
+                    <TextBlock Text="20" Foreground="White" VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="12" Grid.Column="1" Grid.Row="2" Height="14" Width="14" Margin="259,29,0,0" FontWeight="Normal"/>
+                    <TextBlock Text="20" Foreground="White" VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="12" Grid.Column="1" Grid.Row="2" Height="14" Width="14" Margin="259,29,0,0" FontWeight="Normal"/>
+                    <TextBlock Text="20" Foreground="White" VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="12" Grid.Column="1" Grid.Row="2" Height="14" Width="14" Margin="259,29,0,0" FontWeight="Normal"/>
+                    <TextBlock Text="20" Foreground="White" VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="12" Grid.Column="1" Grid.Row="2" Height="14" Width="14" Margin="259,29,0,0" FontWeight="Normal"/>
+                    <TextBlock Text="20" Foreground="White" VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="12" Grid.Column="1" Grid.Row="2" Height="14" Width="14" Margin="22,29,0,0" FontWeight="Normal"/>-->
                     <StackPanel Grid.Row="2" Grid.Column="1">
                         <Grid Grid.Row="2" Grid.Column="1">
                             <Grid.Background>
@@ -413,25 +428,29 @@
                             </Grid.RowDefinitions>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="5.156" />
-                                <ColumnDefinition Width="Auto" />
-                                <ColumnDefinition Width="Auto" />
-                                <ColumnDefinition Width="10" />
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
                                 <ColumnDefinition Width="70" />
                                 <ColumnDefinition Width="70" />
                                 <ColumnDefinition Width="70" />
                                 <ColumnDefinition Width="70" />
                                 <ColumnDefinition Width="70" />
-                                <ColumnDefinition Width="58" />
+                                <ColumnDefinition Width="70" />
                                 <ColumnDefinition Width="58" />
                             </Grid.ColumnDefinitions>
 
-                            <TextBlock Grid.Column="2" Grid.Row="0" Grid.RowSpan="2" Width="35" HorizontalAlignment="Center" VerticalAlignment="Center">
-        <Run Text="21" FontWeight="Bold" FontSize="25" Foreground="#87B6CA"/>
-                            </TextBlock>
+                            <RichTextBox Grid.Row="0" Grid.Column="1" Grid.RowSpan="2" BorderThickness="0" IsReadOnly="True" Width="35" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,3,0,0">
 
-                            <Rectangle Grid.Row="0" Grid.RowSpan="2" Grid.Column="3" Fill="White" Width="1" Margin="2,5,2,5" />
+                                <FlowDocument>
+                                    <Paragraph TextAlignment="Center">
+                                        <Run Text="21" FontWeight="Bold" FontSize="25" Foreground="#87B6CA"/>
+                                    </Paragraph>
+                                </FlowDocument>
+                            </RichTextBox>
 
-                            <RichTextBox x:Name="menuButton" Grid.Column="4" Grid.RowSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" IsReadOnly="True" FontSize="10">
+                            <Rectangle Grid.Row="0" Grid.RowSpan="2" Grid.Column="2" Fill="White" Width="1" Margin="2,5,2,5" />
+
+                            <RichTextBox Grid.Column="3" Grid.RowSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" IsReadOnly="True" FontSize="10">
                                 <FlowDocument>
                                     <Paragraph TextAlignment="Center">Ощущение:</Paragraph>
                                     <Paragraph TextAlignment="Center">
@@ -440,7 +459,7 @@
                                 </FlowDocument>
                             </RichTextBox>
 
-                            <RichTextBox Grid.Column="5" Grid.RowSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" IsReadOnly="True" FontSize="10">
+                            <RichTextBox Grid.Column="4" Grid.RowSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" IsReadOnly="True" FontSize="10">
                                 <FlowDocument>
                                     <Paragraph TextAlignment="Center">Мин.</Paragraph>
                                     <Paragraph TextAlignment="Center">
@@ -449,7 +468,7 @@
                                 </FlowDocument>
                             </RichTextBox>
 
-                            <RichTextBox Grid.Column="6" Grid.RowSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" IsReadOnly="True" FontSize="10">
+                            <RichTextBox Grid.Column="5" Grid.RowSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" IsReadOnly="True" FontSize="10">
                                 <FlowDocument>
                                     <Paragraph TextAlignment="Center">Макс.</Paragraph>
                                     <Paragraph TextAlignment="Center">
@@ -458,7 +477,7 @@
                                 </FlowDocument>
                             </RichTextBox>
 
-                            <RichTextBox Grid.Column="7" Grid.RowSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" IsReadOnly="True" FontSize="10">
+                            <RichTextBox Grid.Column="6" Grid.RowSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" IsReadOnly="True" FontSize="10">
                                 <FlowDocument>
                                     <Paragraph TextAlignment="Center">Давление:</Paragraph>
                                     <Paragraph TextAlignment="Center">
@@ -467,7 +486,7 @@
                                 </FlowDocument>
                             </RichTextBox>
 
-                            <RichTextBox Grid.Column="8" Grid.RowSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" IsReadOnly="True" FontSize="10">
+                            <RichTextBox Grid.Column="7" Grid.RowSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" IsReadOnly="True" FontSize="10">
                                 <FlowDocument>
                                     <Paragraph TextAlignment="Center">Влажность:</Paragraph>
                                     <Paragraph TextAlignment="Center">
@@ -476,7 +495,7 @@
                                 </FlowDocument>
                             </RichTextBox>
 
-                            <RichTextBox Grid.Column="9" Grid.RowSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" IsReadOnly="True" FontSize="10">
+                            <RichTextBox Grid.Column="8" Grid.RowSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" IsReadOnly="True" FontSize="10">
                                 <FlowDocument>
                                     <Paragraph TextAlignment="Center">Ветер м/c:</Paragraph>
                                     <Paragraph TextAlignment="Center">
@@ -485,7 +504,7 @@
                                 </FlowDocument>
                             </RichTextBox>
 
-                            <RichTextBox Grid.Column="10" Grid.RowSpan="2" HorizontalAlignment="Right" VerticalAlignment="Center" IsReadOnly="True" FontSize="10">
+                            <RichTextBox Grid.Column="9" Grid.RowSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" IsReadOnly="True" FontSize="10">
                                 <FlowDocument>
                                     <Paragraph TextAlignment="Center">Ветер:</Paragraph>
                                     <Paragraph TextAlignment="Center">
@@ -493,21 +512,17 @@
                                     </Paragraph>
                                 </FlowDocument>
                             </RichTextBox>
-
-                            <Image x:Name="dotsButton" Grid.Column="11" Grid.Row="0" Grid.RowSpan="2" Source="/WeatherIcons/dots.png" Width="20" Height="20" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Collapsed" />
-
                         </Grid>
                     </StackPanel>
 
 
 
-                    <ScrollViewer x:Name="scrollViewer" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden" Grid.Row="4" Grid.Column="1" MouseLeftButtonDown="OnMouseLeftButtonDown" MouseLeftButtonUp="OnMouseLeftButtonUp" MouseMove="OnMouseMove" Grid.ColumnSpan="1" >
+                    <ScrollViewer x:Name="scrollViewer" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden" Grid.Row="5" Grid.Column="1" MouseLeftButtonDown="OnMouseLeftButtonDown" MouseLeftButtonUp="OnMouseLeftButtonUp" MouseMove="OnMouseMove" Grid.ColumnSpan="1" >
                         <Grid>
                             <Grid.Background>
                                 <SolidColorBrush Color="#F8C5B4" Opacity="0.5" />
                             </Grid.Background>
                             <WrapPanel Orientation="Horizontal">
-
                                 <Grid Width="65" Height="100" Margin="4" MouseLeftButtonDown="OnMouseLeftButtonDown" MouseLeftButtonUp="OnMouseLeftButtonUp" MouseMove="OnMouseMove">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="51*" />
@@ -522,7 +537,7 @@
                                     <Grid.Background>
                                         <SolidColorBrush Color="#87B6CA" Opacity="1" />
                                     </Grid.Background>
-                                    <Image Source="/WeatherIcons/Sunny.png" Width="25" Height="25" HorizontalAlignment="Center" Grid.ColumnSpan="2" />
+                                    <Image Source="{Binding Card01Png}" Width="25" Height="25" HorizontalAlignment="Center" Grid.ColumnSpan="2" />
                                     <StackPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"  Grid.RowSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center" Height="24" Width="65" Background="#FF3D95B9">
                                         <TextBlock Text="{Binding WeatherLeftPanelOne}" Foreground="White" FontSize="10" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="0" Grid.Row="0" />
                                         <TextBlock Text="{Binding TempaOne}" Foreground="White" FontWeight="Bold" FontSize="12" HorizontalAlignment="Center" Height="13" Grid.Column="0" Margin="0,-2,0,0" />
@@ -552,7 +567,7 @@
                                     <Grid.Background>
                                         <SolidColorBrush Color="#87B6CA" Opacity="1" />
                                     </Grid.Background>
-                                    <Image Source="/WeatherIcons/Sunny.png" Width="25" Height="25" HorizontalAlignment="Center" Grid.ColumnSpan="2" />
+                                    <Image Source="{Binding Card02Png}" Width="25" Height="25" HorizontalAlignment="Center" Grid.ColumnSpan="2" />
                                     <StackPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"  Grid.RowSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center" Height="24" Width="65" Background="#FF3D95B9">
                                         <TextBlock Text="{Binding WeatherLeftPanelTwo}" Foreground="White" FontSize="10" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="0" Grid.Row="0" />
                                         <TextBlock Text="{Binding TempaTwo}" Foreground="White" FontWeight="Bold" FontSize="12" HorizontalAlignment="Center" Height="13" Grid.Column="0" Margin="0,-2,0,0" />
@@ -569,22 +584,20 @@
                                 </Grid>
 
                                 <Grid Width="65" Height="100" Margin="4" MouseLeftButtonDown="OnMouseLeftButtonDown" MouseLeftButtonUp="OnMouseLeftButtonUp" MouseMove="OnMouseMove">
-
                                     <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="61*" />
-                                        <ColumnDefinition Width="59*" />
+                                        <ColumnDefinition Width="51*" />
+                                        <ColumnDefinition Width="49*" />
                                     </Grid.ColumnDefinitions>
                                     <Grid.RowDefinitions>
-                                        <RowDefinition Height="25*" />
-                                        <RowDefinition Height="7*" />
-                                        <RowDefinition Height="7*" />
-                                        <RowDefinition Height="20*" />
+                                        <RowDefinition Height="21*" />
+                                        <RowDefinition Height="6*" />
+                                        <RowDefinition Height="6*" />
+                                        <RowDefinition Height="17*" />
                                     </Grid.RowDefinitions>
                                     <Grid.Background>
                                         <SolidColorBrush Color="#87B6CA" Opacity="1" />
                                     </Grid.Background>
-
-                                    <Image Source="/WeatherIcons/Sunny.png" Width="25" Height="25" HorizontalAlignment="Center" Grid.ColumnSpan="2" />
+                                    <Image Source="{Binding Card03Png}" Width="25" Height="25" HorizontalAlignment="Center" Grid.ColumnSpan="2" />
                                     <StackPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"  Grid.RowSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center" Height="24" Width="65" Background="#FF3D95B9">
                                         <TextBlock Text="{Binding WeatherLeftPanelThree}" Foreground="White" FontSize="10" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="0" Grid.Row="0" />
                                         <TextBlock Text="{Binding TempaThree}" Foreground="White" FontWeight="Bold" FontSize="12" HorizontalAlignment="Center" Height="13" Grid.Column="0" Margin="0,-2,0,0" />
@@ -614,7 +627,7 @@
                                     <Grid.Background>
                                         <SolidColorBrush Color="#87B6CA" Opacity="1" />
                                     </Grid.Background>
-                                    <Image Source="/WeatherIcons/Sunny.png" Width="25" Height="25" HorizontalAlignment="Center" Grid.ColumnSpan="2" />
+                                    <Image Source="{Binding Card04Png}" Width="25" Height="25" HorizontalAlignment="Center" Grid.ColumnSpan="2" />
                                     <StackPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"  Grid.RowSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center" Height="24" Width="65" Background="#FF3D95B9">
                                         <TextBlock Text="{Binding WeatherLeftPanelFour}" Foreground="White" FontSize="10" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="0" Grid.Row="0" />
                                         <TextBlock Text="{Binding TempaFour}" Foreground="White" FontWeight="Bold" FontSize="12" HorizontalAlignment="Center" Height="13" Grid.Column="0" Margin="0,-2,0,0" />
@@ -627,13 +640,8 @@
                                                 " Width="25">
                                         <TextBlock Text="Влаж." Foreground="White" FontSize="8" HorizontalAlignment="Center" />
                                         <TextBlock Text="{Binding HumidityFour}" Foreground="White" FontSize="8" HorizontalAlignment="Center" />
-
                                     </StackPanel>
                                 </Grid>
-                            </WrapPanel>
-                        </Grid>
-                    </ScrollViewer>
-
 
                                 <Grid Width="65" Height="100" Margin="4" MouseLeftButtonDown="OnMouseLeftButtonDown" MouseLeftButtonUp="OnMouseLeftButtonUp" MouseMove="OnMouseMove">
                                     <Grid.ColumnDefinitions>
@@ -649,7 +657,7 @@
                                     <Grid.Background>
                                         <SolidColorBrush Color="#87B6CA" Opacity="1" />
                                     </Grid.Background>
-                                    <Image Source="/WeatherIcons/Sunny.png" Width="25" Height="25" HorizontalAlignment="Center" Grid.ColumnSpan="2" />
+                                    <Image Source="{Binding Card05Png}" Width="25" Height="25" HorizontalAlignment="Center" Grid.ColumnSpan="2" />
                                     <StackPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"  Grid.RowSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center" Height="24" Width="65" Background="#FF3D95B9">
                                         <TextBlock Text="{Binding WeatherLeftPanelFive}" Foreground="White" FontSize="10" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="0" Grid.Row="0" />
                                         <TextBlock Text="{Binding TempaFive}" Foreground="White" FontWeight="Bold" FontSize="12" HorizontalAlignment="Center" Height="13" Grid.Column="0" Margin="0,-2,0,0" />
@@ -679,7 +687,7 @@
                                     <Grid.Background>
                                         <SolidColorBrush Color="#87B6CA" Opacity="1" />
                                     </Grid.Background>
-                                    <Image Source="/WeatherIcons/Sunny.png" Width="25" Height="25" HorizontalAlignment="Center" Grid.ColumnSpan="2" />
+                                    <Image Source="{Binding Card06Png}" Width="25" Height="25" HorizontalAlignment="Center" Grid.ColumnSpan="2" />
                                     <StackPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"  Grid.RowSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center" Height="24" Width="65" Background="#FF3D95B9">
                                         <TextBlock Text="{Binding WeatherLeftPanelSix}" Foreground="White" FontSize="10" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="0" Grid.Row="0" />
                                         <TextBlock Text="{Binding TempaSix}" Foreground="White" FontWeight="Bold" FontSize="12" HorizontalAlignment="Center" Height="13" Grid.Column="0" Margin="0,-2,0,0" />
@@ -709,7 +717,7 @@
                                     <Grid.Background>
                                         <SolidColorBrush Color="#87B6CA" Opacity="1" />
                                     </Grid.Background>
-                                    <Image Source="/WeatherIcons/Sunny.png" Width="25" Height="25" HorizontalAlignment="Center" Grid.ColumnSpan="2" />
+                                    <Image Source="{Binding Card07Png}" Width="25" Height="25" HorizontalAlignment="Center" Grid.ColumnSpan="2" />
                                     <StackPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"  Grid.RowSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center" Height="24" Width="65" Background="#FF3D95B9">
                                         <TextBlock Text="{Binding WeatherLeftPanelSeven}" Foreground="White" FontSize="10" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="0" Grid.Row="0" />
                                         <TextBlock Text="{Binding TempaSeven}" Foreground="White" FontWeight="Bold" FontSize="12" HorizontalAlignment="Center" Height="13" Grid.Column="0" Margin="0,-2,0,0" />
@@ -739,7 +747,7 @@
                                     <Grid.Background>
                                         <SolidColorBrush Color="#87B6CA" Opacity="1" />
                                     </Grid.Background>
-                                    <Image Source="/WeatherIcons/Sunny.png" Width="25" Height="25" HorizontalAlignment="Center" Grid.ColumnSpan="2" />
+                                    <Image Source="{Binding Card08Png}" Width="25" Height="25" HorizontalAlignment="Center" Grid.ColumnSpan="2" />
                                     <StackPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"  Grid.RowSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center" Height="24" Width="65" Background="#FF3D95B9">
                                         <TextBlock Text="{Binding WeatherLeftPanelEight}" Foreground="White" FontSize="10" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="0" Grid.Row="0" />
                                         <TextBlock Text="{Binding TempaEight}" Foreground="White" FontWeight="Bold" FontSize="12" HorizontalAlignment="Center" Height="13" Grid.Column="0" Margin="0,-2,0,0" />
@@ -769,7 +777,7 @@
                                     <Grid.Background>
                                         <SolidColorBrush Color="#87B6CA" Opacity="1" />
                                     </Grid.Background>
-                                    <Image Source="/WeatherIcons/Sunny.png" Width="25" Height="25" HorizontalAlignment="Center" Grid.ColumnSpan="2" />
+                                    <Image Source="{Binding Card09Png}" Width="25" Height="25" HorizontalAlignment="Center" Grid.ColumnSpan="2" />
                                     <StackPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"  Grid.RowSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center" Height="24" Width="65" Background="#FF3D95B9">
                                         <TextBlock Text="{Binding WeatherLeftPanelNine}" Foreground="White" FontSize="10" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="0" Grid.Row="0" />
                                         <TextBlock Text="{Binding TempaNine}" Foreground="White" FontWeight="Bold" FontSize="12" HorizontalAlignment="Center" Height="13" Grid.Column="0" Margin="0,-2,0,0" />
@@ -785,12 +793,9 @@
                                     </StackPanel>
                                 </Grid>
                             </WrapPanel>
-
                         </Grid>
-                    </StackPanel>
-
+                    </ScrollViewer>
                 </Grid>
-
 
             </TabItem>
 

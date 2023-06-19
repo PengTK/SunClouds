@@ -13,10 +13,21 @@ namespace SunClouds.ViewModel
     {
         private string city;
 
+        private bool flag = true;
+
         private string _mainPng;
         private string _onePng;
         private string _twoPng;
         private string _threePng;
+        private string _card01Png;
+        private string _card02Png;
+        private string _card03Png;
+        private string _card04Png;
+        private string _card05Png;
+        private string _card06Png;
+        private string _card07Png;
+        private string _card08Png;
+        private string _card09Png;
 
         //время 
         private string _weatherLeftPanelNow;
@@ -136,124 +147,220 @@ namespace SunClouds.ViewModel
             City = city;
 
             _timer.Elapsed += async (sender, e) => await Selected();
-            _timer.Interval = TimeSpan.FromHours(3).TotalMilliseconds;
+            _timer.Interval = TimeSpan.FromHours(1).TotalMilliseconds;
             _timer.Start();
         }
 
         //вывод данных из API
         public async Task Selected()
         {
-            _ = new RootObject();
-            RootObject rootObject = await WeatherForecast.GetWeatherForecast(city);
-            WeatherLeftPanelNow = TimeConverter.UnixToUtc(rootObject.list[0].dt, rootObject.city.timezone).ToString("HH:mm");
-            WeatherLeftPanelOne = TimeConverter.UnixToUtc(rootObject.list[1].dt, rootObject.city.timezone).ToString("HH:mm");
-            WeatherLeftPanelTwo = TimeConverter.UnixToUtc(rootObject.list[2].dt, rootObject.city.timezone).ToString("HH:mm");
-            WeatherLeftPanelThree = TimeConverter.UnixToUtc(rootObject.list[3].dt, rootObject.city.timezone).ToString("HH:mm");
-            WeatherLeftPanelFour = TimeConverter.UnixToUtc(rootObject.list[4].dt, rootObject.city.timezone).ToString("HH:mm");
-            WeatherLeftPanelFive = TimeConverter.UnixToUtc(rootObject.list[5].dt, rootObject.city.timezone).ToString("HH:mm");
-            WeatherLeftPanelSix = TimeConverter.UnixToUtc(rootObject.list[6].dt, rootObject.city.timezone).ToString("HH:mm");
-            WeatherLeftPanelSeven = TimeConverter.UnixToUtc(rootObject.list[7].dt, rootObject.city.timezone).ToString("HH:mm");
-            WeatherLeftPanelEight = TimeConverter.UnixToUtc(rootObject.list[8].dt, rootObject.city.timezone).ToString("HH:mm");
-            WeatherLeftPanelNine = TimeConverter.UnixToUtc(rootObject.list[9].dt, rootObject.city.timezone).ToString("HH:mm");
+            if (DateTime.Now.Hour%2 == 1 || flag)
+            {
+                _ = new RootObject();
+                RootObject rootObject = await WeatherForecast.GetWeatherForecast(city);
+                WeatherLeftPanelNow = TimeConverter.UnixToUtc(rootObject.list[0].dt, rootObject.city.timezone).ToString("HH:mm");
+                WeatherLeftPanelOne = TimeConverter.UnixToUtc(rootObject.list[1].dt, rootObject.city.timezone).ToString("HH:mm");
+                WeatherLeftPanelTwo = TimeConverter.UnixToUtc(rootObject.list[2].dt, rootObject.city.timezone).ToString("HH:mm");
+                WeatherLeftPanelThree = TimeConverter.UnixToUtc(rootObject.list[3].dt, rootObject.city.timezone).ToString("HH:mm");
+                WeatherLeftPanelFour = TimeConverter.UnixToUtc(rootObject.list[4].dt, rootObject.city.timezone).ToString("HH:mm");
+                WeatherLeftPanelFive = TimeConverter.UnixToUtc(rootObject.list[5].dt, rootObject.city.timezone).ToString("HH:mm");
+                WeatherLeftPanelSix = TimeConverter.UnixToUtc(rootObject.list[6].dt, rootObject.city.timezone).ToString("HH:mm");
+                WeatherLeftPanelSeven = TimeConverter.UnixToUtc(rootObject.list[7].dt, rootObject.city.timezone).ToString("HH:mm");
+                WeatherLeftPanelEight = TimeConverter.UnixToUtc(rootObject.list[8].dt, rootObject.city.timezone).ToString("HH:mm");
+                WeatherLeftPanelNine = TimeConverter.UnixToUtc(rootObject.list[9].dt, rootObject.city.timezone).ToString("HH:mm");
 
-            TempaOne = Math.Round(rootObject.list[1].main.temp).ToString() + '°';
-            TempaTwo = Math.Round(rootObject.list[2].main.temp).ToString() + '°';
-            TempaThree = Math.Round(rootObject.list[3].main.temp).ToString() + '°';
-            TempaFour = Math.Round(rootObject.list[4].main.temp).ToString() + '°';
-            TempaFive = Math.Round(rootObject.list[5].main.temp).ToString() + '°';
-            TempaSix = Math.Round(rootObject.list[6].main.temp).ToString() + '°';
-            TempaSeven = Math.Round(rootObject.list[7].main.temp).ToString() + '°';
-            TempaEight = Math.Round(rootObject.list[8].main.temp).ToString() + '°';
-            TempaNine = Math.Round(rootObject.list[9].main.temp).ToString() + '°';
+                TempaOne = Math.Round(rootObject.list[1].main.temp).ToString() + '°';
+                TempaTwo = Math.Round(rootObject.list[2].main.temp).ToString() + '°';
+                TempaThree = Math.Round(rootObject.list[3].main.temp).ToString() + '°';
+                TempaFour = Math.Round(rootObject.list[4].main.temp).ToString() + '°';
+                TempaFive = Math.Round(rootObject.list[5].main.temp).ToString() + '°';
+                TempaSix = Math.Round(rootObject.list[6].main.temp).ToString() + '°';
+                TempaSeven = Math.Round(rootObject.list[7].main.temp).ToString() + '°';
+                TempaEight = Math.Round(rootObject.list[8].main.temp).ToString() + '°';
+                TempaNine = Math.Round(rootObject.list[9].main.temp).ToString() + '°';
 
-            HumidityOne = rootObject.list[1].main.humidity.ToString() + '°';
-            HumidityTwo = rootObject.list[2].main.humidity.ToString() + '°';
-            HumidityThree = rootObject.list[3].main.humidity.ToString() + '°';
-            HumidityFour = rootObject.list[4].main.humidity.ToString() + '°';
-            HumidityFive = rootObject.list[5].main.humidity.ToString() + '°';
-            HumiditySix = rootObject.list[6].main.humidity.ToString() + '°';
-            HumiditySeven = rootObject.list[7].main.humidity.ToString() + '°';
-            HumidityEight = rootObject.list[8].main.humidity.ToString() + '°';
-            HumidityNine = rootObject.list[9].main.humidity.ToString() + '°';
+                HumidityOne = rootObject.list[1].main.humidity.ToString() + '°';
+                HumidityTwo = rootObject.list[2].main.humidity.ToString() + '°';
+                HumidityThree = rootObject.list[3].main.humidity.ToString() + '°';
+                HumidityFour = rootObject.list[4].main.humidity.ToString() + '°';
+                HumidityFive = rootObject.list[5].main.humidity.ToString() + '°';
+                HumiditySix = rootObject.list[6].main.humidity.ToString() + '°';
+                HumiditySeven = rootObject.list[7].main.humidity.ToString() + '°';
+                HumidityEight = rootObject.list[8].main.humidity.ToString() + '°';
+                HumidityNine = rootObject.list[9].main.humidity.ToString() + '°';
 
-            FeelsOne = Math.Round(rootObject.list[1].main.feels_like).ToString() + '°';
-            FeelsTwo = Math.Round(rootObject.list[2].main.feels_like).ToString() + '°';
-            FeelsThree = Math.Round(rootObject.list[3].main.feels_like).ToString() + '°';
-            FeelsFour = Math.Round(rootObject.list[4].main.feels_like).ToString() + '°';
-            FeelsFive = Math.Round(rootObject.list[5].main.feels_like).ToString() + '°';
-            FeelsSix = Math.Round(rootObject.list[6].main.feels_like).ToString() + '°';
-            FeelsSeven = Math.Round(rootObject.list[7].main.feels_like).ToString() + '°';
-            FeelsEight = Math.Round(rootObject.list[8].main.feels_like).ToString() + '°';
-            FeelsNine = Math.Round(rootObject.list[9].main.feels_like).ToString() + '°';
+                FeelsOne = Math.Round(rootObject.list[1].main.feels_like).ToString() + '°';
+                FeelsTwo = Math.Round(rootObject.list[2].main.feels_like).ToString() + '°';
+                FeelsThree = Math.Round(rootObject.list[3].main.feels_like).ToString() + '°';
+                FeelsFour = Math.Round(rootObject.list[4].main.feels_like).ToString() + '°';
+                FeelsFive = Math.Round(rootObject.list[5].main.feels_like).ToString() + '°';
+                FeelsSix = Math.Round(rootObject.list[6].main.feels_like).ToString() + '°';
+                FeelsSeven = Math.Round(rootObject.list[7].main.feels_like).ToString() + '°';
+                FeelsEight = Math.Round(rootObject.list[8].main.feels_like).ToString() + '°';
+                FeelsNine = Math.Round(rootObject.list[9].main.feels_like).ToString() + '°';
 
-            FeelsLeftNow = rootObject.list[0].weather[0].description.ToString() + "," + Math.Round(rootObject.list[0].main.temp).ToString() + '°' + "\n" + "Ощущается как " + Math.Round(rootObject.list[0].main.feels_like).ToString() + '°';
-            FeelsLeftOne = rootObject.list[1].weather[0].description.ToString() + "," + Math.Round(rootObject.list[1].main.temp).ToString() + '°' + "\n" + "Ощущается как " + Math.Round(rootObject.list[1].main.feels_like).ToString() + '°';
-            FeelsLeftTwo = rootObject.list[2].weather[0].description.ToString() + "," + Math.Round(rootObject.list[2].main.temp).ToString() + '°' + "\n" + "Ощущается как " + Math.Round(rootObject.list[2].main.feels_like).ToString() + '°';
-            FeelsLeftThree = rootObject.list[3].weather[0].description.ToString() + "," + Math.Round(rootObject.list[3].main.temp).ToString() + '°' + "\n" + "Ощущается как " + Math.Round(rootObject.list[3].main.feels_like).ToString() + '°';
+                FeelsLeftNow = rootObject.list[0].weather[0].description.ToString() + "," + Math.Round(rootObject.list[0].main.temp).ToString() + '°' + "\n" + "Ощущается как " + Math.Round(rootObject.list[0].main.feels_like).ToString() + '°';
+                FeelsLeftOne = rootObject.list[1].weather[0].description.ToString() + "," + Math.Round(rootObject.list[1].main.temp).ToString() + '°' + "\n" + "Ощущается как " + Math.Round(rootObject.list[1].main.feels_like).ToString() + '°';
+                FeelsLeftTwo = rootObject.list[2].weather[0].description.ToString() + "," + Math.Round(rootObject.list[2].main.temp).ToString() + '°' + "\n" + "Ощущается как " + Math.Round(rootObject.list[2].main.feels_like).ToString() + '°';
+                FeelsLeftThree = rootObject.list[3].weather[0].description.ToString() + "," + Math.Round(rootObject.list[3].main.temp).ToString() + '°' + "\n" + "Ощущается как " + Math.Round(rootObject.list[3].main.feels_like).ToString() + '°';
 
-            Feels = Math.Round(rootObject.list[0].main.feels_like).ToString() + '°';
-            MinTempa = rootObject.list[0].main.temp_min.ToString() + '°';
-            MaxTempa = rootObject.list[0].main.temp_max.ToString() + '°';
-            //давление
-            Pressure = rootObject.list[0].main.pressure.ToString() + "мм. рт. ст.";
-            //влажность
-            Humidity = rootObject.list[0].main.humidity.ToString() + "%";
-            //скорость ветра
-            Wind = rootObject.list[0].wind.speed.ToString() + "м/с";
-            // темпа ветра
-            WindTemp = rootObject.list[0].wind.deg.ToString() + "°";
+                Feels = Math.Round(rootObject.list[0].main.feels_like).ToString() + '°';
+                MinTempa = rootObject.list[0].main.temp_min.ToString() + '°';
+                MaxTempa = rootObject.list[0].main.temp_max.ToString() + '°';
+                //давление
+                Pressure = rootObject.list[0].main.pressure.ToString() + "мм. рт. ст.";
+                //влажность
+                Humidity = rootObject.list[0].main.humidity.ToString() + "%";
+                //скорость ветра
+                Wind = rootObject.list[0].wind.speed.ToString() + "м/с";
+                // темпа ветра
+                WindTemp = rootObject.list[0].wind.deg.ToString() + "°";
 
-            if (rootObject.list[0].weather[0].description.ToString() == "ясно")
-            {
-                MainPng = "/WeatherIcons/Sunny.png";
-            }
-            else if (rootObject.list[0].weather[0].description.ToString() == "дождь" || rootObject.list[0].weather[0].description.ToString() == "небольшой дождь")
-            {
-                MainPng = "/WeatherIcons/Rainy.png";
-            }
-            else if (rootObject.list[0].weather[0].description.ToString() == "пасмурно" || rootObject.list[0].weather[0].description.ToString() == "переменная облачность" || rootObject.list[0].weather[0].description.ToString() == "облачно с прояснениями" || rootObject.list[0].weather[0].description.ToString() == "небольшая облачность")
-            {
-                MainPng = "/WeatherIcons/Cloudy.png";
-            }
-            
-            if(rootObject.list[1].weather[0].description.ToString() == "ясно")
-            {
-                OnePng = "/WeatherIcons/Sunny.png";
-            }
-            else if (rootObject.list[1].weather[0].description.ToString() == "дождь" || rootObject.list[1].weather[0].description.ToString() == "небольшой дождь")
-            {
-                OnePng = "/WeatherIcons/Rainy.png";
-            }
-            else if (rootObject.list[1].weather[0].description.ToString() == "пасмурно" || rootObject.list[1].weather[0].description.ToString() == "переменная облачность" || rootObject.list[1].weather[0].description.ToString() == "облачно с прояснениями" || rootObject.list[1].weather[0].description.ToString() == "небольшая облачность")
-            {
-                OnePng = "/WeatherIcons/Cloudy.png";
-            }
+                if (rootObject.list[0].weather[0].description.ToString() == "ясно")
+                {
+                    MainPng = "/WeatherIcons/Sunny.png";
+                }
+                else if (rootObject.list[0].weather[0].description.ToString() == "дождь" || rootObject.list[0].weather[0].description.ToString() == "небольшой дождь")
+                {
+                    MainPng = "/WeatherIcons/Rainy.png";
+                }
+                else if (rootObject.list[0].weather[0].description.ToString() == "пасмурно" || rootObject.list[0].weather[0].description.ToString() == "переменная облачность" || rootObject.list[0].weather[0].description.ToString() == "облачно с прояснениями" || rootObject.list[0].weather[0].description.ToString() == "небольшая облачность")
+                {
+                    MainPng = "/WeatherIcons/Cloudy.png";
+                }
+
+                if (rootObject.list[1].weather[0].description.ToString() == "ясно")
+                {
+                    OnePng = "/WeatherIcons/Sunny.png";
+                    Card01Png = "/WeatherIcons/Sunny.png";
+                }
+                else if (rootObject.list[1].weather[0].description.ToString() == "дождь" || rootObject.list[1].weather[0].description.ToString() == "небольшой дождь")
+                {
+                    OnePng = "/WeatherIcons/Rainy.png";
+                    Card01Png = "/WeatherIcons/Rainy.png";
+                }
+                else if (rootObject.list[1].weather[0].description.ToString() == "пасмурно" || rootObject.list[1].weather[0].description.ToString() == "переменная облачность" || rootObject.list[1].weather[0].description.ToString() == "облачно с прояснениями" || rootObject.list[1].weather[0].description.ToString() == "небольшая облачность")
+                {
+                    OnePng = "/WeatherIcons/Cloudy.png";
+                    Card01Png = "/WeatherIcons/Cloudy.png";
+                }
 
 
-            if (rootObject.list[2].weather[0].description.ToString() == "ясно")
-            {
-                TwoPng = "/WeatherIcons/Sunny.png";
-            }
-            else if (rootObject.list[2].weather[0].description.ToString() == "дождь" || rootObject.list[2].weather[0].description.ToString() == "небольшой дождь")
-            {
-                TwoPng = "/WeatherIcons/Rainy.png";
-            }
-            else if (rootObject.list[2].weather[0].description.ToString() == "пасмурно" || rootObject.list[2].weather[0].description.ToString() == "переменная облачность" || rootObject.list[2].weather[0].description.ToString() == "облачно с прояснениями" || rootObject.list[2].weather[0].description.ToString() == "небольшая облачность")
-            {
-                TwoPng = "/WeatherIcons/Cloudy.png";
-            }
+                if (rootObject.list[2].weather[0].description.ToString() == "ясно")
+                {
+                    TwoPng = "/WeatherIcons/Sunny.png";
+                    Card02Png = "/WeatherIcons/Sunny.png";
+                }
+                else if (rootObject.list[2].weather[0].description.ToString() == "дождь" || rootObject.list[2].weather[0].description.ToString() == "небольшой дождь")
+                {
+                    TwoPng = "/WeatherIcons/Rainy.png";
+                    Card02Png = "/WeatherIcons/Rainy.png";
+                }
+                else if (rootObject.list[2].weather[0].description.ToString() == "пасмурно" || rootObject.list[2].weather[0].description.ToString() == "переменная облачность" || rootObject.list[2].weather[0].description.ToString() == "облачно с прояснениями" || rootObject.list[2].weather[0].description.ToString() == "небольшая облачность")
+                {
+                    TwoPng = "/WeatherIcons/Cloudy.png";
+                    Card02Png = "/WeatherIcons/Cloudy.png";
+                }
 
-            if (rootObject.list[3].weather[0].description.ToString() == "ясно")
-            {
-                ThreePng = "/WeatherIcons/Sunny.png";
+                if (rootObject.list[3].weather[0].description.ToString() == "ясно")
+                {
+                    ThreePng = "/WeatherIcons/Sunny.png";
+                    Card03Png = "/WeatherIcons/Sunny.png";
+                }
+                else if (rootObject.list[3].weather[0].description.ToString() == "дождь" || rootObject.list[3].weather[0].description.ToString() == "небольшой дождь")
+                {
+                    ThreePng = "/WeatherIcons/Rainy.png";
+                    Card03Png = "/WeatherIcons/Rainy.png";
+                }
+                else if (rootObject.list[3].weather[0].description.ToString() == "пасмурно" || rootObject.list[3].weather[0].description.ToString() == "переменная облачность" || rootObject.list[3].weather[0].description.ToString() == "облачно с прояснениями" || rootObject.list[3].weather[0].description.ToString() == "небольшая облачность")
+                {
+                    ThreePng = "/WeatherIcons/Cloudy.png";
+                    Card03Png = "/WeatherIcons/Cloudy.png";
+                }
+
+                if (rootObject.list[4].weather[0].description.ToString() == "ясно")
+                {
+                    Card04Png = "/WeatherIcons/Sunny.png";
+                }
+                else if (rootObject.list[4].weather[0].description.ToString() == "дождь" || rootObject.list[3].weather[0].description.ToString() == "небольшой дождь")
+                {
+                    Card04Png = "/WeatherIcons/Rainy.png";
+                }
+                else if (rootObject.list[4].weather[0].description.ToString() == "пасмурно" || rootObject.list[3].weather[0].description.ToString() == "переменная облачность" || rootObject.list[3].weather[0].description.ToString() == "облачно с прояснениями" || rootObject.list[3].weather[0].description.ToString() == "небольшая облачность")
+                {
+                    Card04Png = "/WeatherIcons/Cloudy.png";
+                }
+
+                if (rootObject.list[5].weather[0].description.ToString() == "ясно")
+                {
+                    Card05Png = "/WeatherIcons/Sunny.png";
+                }
+                else if (rootObject.list[5].weather[0].description.ToString() == "дождь" || rootObject.list[3].weather[0].description.ToString() == "небольшой дождь")
+                {
+                    Card05Png = "/WeatherIcons/Rainy.png";
+                }
+                else if (rootObject.list[5].weather[0].description.ToString() == "пасмурно" || rootObject.list[3].weather[0].description.ToString() == "переменная облачность" || rootObject.list[3].weather[0].description.ToString() == "облачно с прояснениями" || rootObject.list[3].weather[0].description.ToString() == "небольшая облачность")
+                {
+                    Card05Png = "/WeatherIcons/Cloudy.png";
+                }
+
+                if (rootObject.list[6].weather[0].description.ToString() == "ясно")
+                {
+                    Card06Png = "/WeatherIcons/Sunny.png";
+                }
+                else if (rootObject.list[6].weather[0].description.ToString() == "дождь" || rootObject.list[3].weather[0].description.ToString() == "небольшой дождь")
+                {
+                    Card06Png = "/WeatherIcons/Rainy.png";
+                }
+                else if (rootObject.list[6].weather[0].description.ToString() == "пасмурно" || rootObject.list[3].weather[0].description.ToString() == "переменная облачность" || rootObject.list[3].weather[0].description.ToString() == "облачно с прояснениями" || rootObject.list[3].weather[0].description.ToString() == "небольшая облачность")
+                {
+                    Card06Png = "/WeatherIcons/Cloudy.png";
+                }
+
+                if (rootObject.list[7].weather[0].description.ToString() == "ясно")
+                {
+                    Card07Png = "/WeatherIcons/Sunny.png";
+                }
+                else if (rootObject.list[7].weather[0].description.ToString() == "дождь" || rootObject.list[3].weather[0].description.ToString() == "небольшой дождь")
+                {
+                    Card07Png = "/WeatherIcons/Rainy.png";
+                }
+                else if (rootObject.list[7].weather[0].description.ToString() == "пасмурно" || rootObject.list[3].weather[0].description.ToString() == "переменная облачность" || rootObject.list[3].weather[0].description.ToString() == "облачно с прояснениями" || rootObject.list[3].weather[0].description.ToString() == "небольшая облачность")
+                {
+                    Card07Png = "/WeatherIcons/Cloudy.png";
+                }
+
+                if (rootObject.list[8].weather[0].description.ToString() == "ясно")
+                {
+                    Card08Png = "/WeatherIcons/Sunny.png";
+                }
+                else if (rootObject.list[8].weather[0].description.ToString() == "дождь" || rootObject.list[3].weather[0].description.ToString() == "небольшой дождь")
+                {
+                    Card08Png = "/WeatherIcons/Rainy.png";
+                }
+                else if (rootObject.list[8].weather[0].description.ToString() == "пасмурно" || rootObject.list[3].weather[0].description.ToString() == "переменная облачность" || rootObject.list[3].weather[0].description.ToString() == "облачно с прояснениями" || rootObject.list[3].weather[0].description.ToString() == "небольшая облачность")
+                {
+                    Card08Png = "/WeatherIcons/Cloudy.png";
+                }
+
+                if (rootObject.list[9].weather[0].description.ToString() == "ясно")
+                {
+                    Card09Png = "/WeatherIcons/Sunny.png";
+                }
+                else if (rootObject.list[9].weather[0].description.ToString() == "дождь" || rootObject.list[3].weather[0].description.ToString() == "небольшой дождь")
+                {
+                    Card09Png = "/WeatherIcons/Rainy.png";
+                }
+                else if (rootObject.list[9].weather[0].description.ToString() == "пасмурно" || rootObject.list[3].weather[0].description.ToString() == "переменная облачность" || rootObject.list[3].weather[0].description.ToString() == "облачно с прояснениями" || rootObject.list[3].weather[0].description.ToString() == "небольшая облачность")
+                {
+                    Card09Png = "/WeatherIcons/Cloudy.png";
+                }
+
+                flag = false;
             }
-            else if (rootObject.list[3].weather[0].description.ToString() == "дождь" || rootObject.list[3].weather[0].description.ToString() == "небольшой дождь")
+            else
             {
-                ThreePng = "/WeatherIcons/Rainy.png";
-            }
-            else if (rootObject.list[3].weather[0].description.ToString() == "пасмурно" || rootObject.list[3].weather[0].description.ToString() == "переменная облачность" || rootObject.list[3].weather[0].description.ToString() == "облачно с прояснениями" || rootObject.list[3].weather[0].description.ToString() == "небольшая облачность")
-            {
-                ThreePng = "/WeatherIcons/Cloudy.png";
+
             }
         }
 
@@ -262,6 +369,15 @@ namespace SunClouds.ViewModel
         public string OnePng { get => _onePng; set { _onePng = value; OnPropertyChanged(); } }
         public string TwoPng { get => _twoPng; set { _twoPng = value; OnPropertyChanged(); } }
         public string ThreePng { get => _threePng; set { _threePng = value; OnPropertyChanged(); } }
+        public string Card01Png { get => _threePng; set { _threePng = value; OnPropertyChanged(); } }
+        public string Card02Png { get => _threePng; set { _threePng = value; OnPropertyChanged(); } }
+        public string Card03Png { get => _threePng; set { _threePng = value; OnPropertyChanged(); } }
+        public string Card04Png { get => _threePng; set { _threePng = value; OnPropertyChanged(); } }
+        public string Card05Png { get => _threePng; set { _threePng = value; OnPropertyChanged(); } }
+        public string Card06Png { get => _threePng; set { _threePng = value; OnPropertyChanged(); } }
+        public string Card07Png { get => _threePng; set { _threePng = value; OnPropertyChanged(); } }
+        public string Card08Png { get => _threePng; set { _threePng = value; OnPropertyChanged(); } }
+        public string Card09Png { get => _threePng; set { _threePng = value; OnPropertyChanged(); } }        
 
 
         //для левой части окна (подробные данные)
