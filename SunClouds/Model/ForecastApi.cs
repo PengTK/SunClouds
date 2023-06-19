@@ -11,9 +11,8 @@ namespace SunClouds
 {
     internal class ForecastApi
     {
-        class WeatherForecast
+        public class WeatherForecast
         {
-
             public async static Task<RootObject> GetWeatherForecast(string sityName)
             {
                 try
@@ -32,7 +31,6 @@ namespace SunClouds
 
                     return null;
                 }
-                
             }
 
         }
