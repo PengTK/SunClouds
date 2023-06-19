@@ -9,6 +9,7 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Effects;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
@@ -22,6 +23,7 @@ namespace SunClouds.View
     {
         private bool isDragging = false;
         private Point startPoint;
+        private bool isMenuVisible = false;
         public WeatherInfWindow()
         {
             InitializeComponent();
