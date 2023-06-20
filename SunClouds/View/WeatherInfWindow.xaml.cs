@@ -143,5 +143,106 @@ namespace SunClouds.View
         {
 
         }
+        // добавление города
+        private List<string> cityList = new List<string>();
+        private void Add_Click(object sender, RoutedEventArgs e)
+        {
+            string cityName = CityTextBox.Text;
+
+            if (!string.IsNullOrEmpty(cityName))
+            {
+                Grid grid = CreatePanel(cityName);
+                myWrapPanel.Children.Add(grid);
+                cityList.Add(cityName);
+                CityTextBox.Clear();
+            }
+        }
+
+        private void DeleteButton_Click(string cityName)
+        {
+            cityList.Remove(cityName);
+            RefreshWrapPanel();
+        }
+
+        private Grid CreatePanel(string cityName)
+        {
+            Grid grid = new Grid();
+            grid.Margin = new Thickness(5, 10, 0, 0);
+            grid.Height = 55;
+            grid.Width = 120;
+            grid.VerticalAlignment = VerticalAlignment.Top;
+            grid.HorizontalAlignment = HorizontalAlignment.Left;
+
+            StackPanel stackPanel1 = new StackPanel();
+            stackPanel1.Margin = new Thickness(0, 21, 0, 0);
+            stackPanel1.Background = new SolidColorBrush(Color.FromArgb(0x7F, 0x3D, 0x95, 0xB9));
+
+            TextBlock textBlock1 = new TextBlock();
+            textBlock1.TextWrapping = TextWrapping.Wrap;
+            textBlock1.Text = "55°45′07″ с.ш.       37°36′56″ в.д.";
+            textBlock1.FontSize = 12;
+            textBlock1.Padding = new Thickness(4);
+            textBlock1.TextAlignment = TextAlignment.Center;
+            textBlock1.Height = 34;
+
+            stackPanel1.Children.Add(textBlock1);
+
+            StackPanel stackPanel2 = new StackPanel();
+            stackPanel2.Margin = new Thickness(0, 0, 0, 34);
+            stackPanel2.Background = new SolidColorBrush(Color.FromArgb(0xFF, 0x3D, 0x95, 0xB9));
+
+            Grid innerGrid = new Grid();
+            innerGrid.Height = 21;
+
+            TextBlock textBlock2 = new TextBlock();
+            textBlock2.TextWrapping = TextWrapping.Wrap;
+            textBlock2.Text = cityName;
+            textBlock2.FontSize = 13;
+            textBlock2.Padding = new Thickness(2);
+            textBlock2.TextAlignment = TextAlignment.Center;
+
+            Button deleteButton = new Button();
+            deleteButton.Content = "X";
+            deleteButton.Margin = new Thickness(106, 0, 0, 5);
+            deleteButton.Padding = new Thickness(0);
+            deleteButton.FontSize = 12;
+            deleteButton.Background = new SolidColorBrush(Colors.Transparent);
+            deleteButton.BorderBrush = new SolidColorBrush(Colors.Transparent);
+            deleteButton.Width = 16;
+            deleteButton.Height = 16;
+            deleteButton.Click += (s, e) => DeleteButton_Click(cityName);
+
+            innerGrid.Children.Add(textBlock2);
+            innerGrid.Children.Add(deleteButton);
+
+            stackPanel2.Children.Add(innerGrid);
+
+            grid.Children.Add(stackPanel1);
+            grid.Children.Add(stackPanel2);
+            return grid;
+        }
+
+        private void RefreshWrapPanel()
+        {
+            myWrapPanel.Children.Clear();
+
+            foreach (string cityName in cityList)
+            {
+                Grid grid = CreatePanel(cityName);
+                myWrapPanel.Children.Add(grid);
+            }
+        }
+
+        private void Clean_Click(object sender, RoutedEventArgs e)
+        {
+            CityTextBox.Text = string.Empty;
+        }
+
+        private void Clear_Click(object sender, RoutedEventArgs e)
+        {
+            CityTextBox.Clear();
+        }
+
+        
     }
 }

@@ -6,6 +6,13 @@ using System;
 using System.Windows;
 using System.Net.Http;
 using System.Timers;
+using System.Collections.Generic;
+using System.Windows.Controls;
+using System.Windows.Media;
+using LiveCharts;
+using LiveCharts.Defaults;
+using LiveCharts.Wpf;
+using Newtonsoft.Json.Linq;
 
 namespace SunClouds.ViewModel
 {
@@ -149,6 +156,7 @@ namespace SunClouds.ViewModel
             _timer.Elapsed += async (sender, e) => await Selected();
             _timer.Interval = TimeSpan.FromHours(1).TotalMilliseconds;
             _timer.Start();
+            
         }
 
         //вывод данных из API
@@ -357,12 +365,59 @@ namespace SunClouds.ViewModel
                 }
 
                 flag = false;
+
+                ChartValues<ObservablePoint> _values1 = new ChartValues<ObservablePoint>();
+                ChartValues<ObservablePoint> _values2 = new ChartValues<ObservablePoint>();
+                ChartValues<ObservablePoint> _values3 = new ChartValues<ObservablePoint>();
+
+                for (int i = 0; i < 13; i++)
+                {
+
+                    _values1.Add(new ObservablePoint(i, Convert.ToDouble(rootObject.list[i].main.pressure)));
+                }
+
+                for (int i = 0; i < 13; i++)
+                {
+                    _values2.Add(new ObservablePoint(i, Convert.ToDouble(rootObject.list[i].main.temp)));
+                }
+
+                for (int i = 0; i < 13; i++)
+                {
+                    _values3.Add(new ObservablePoint(i, Convert.ToDouble(rootObject.list[i].main.feels_like)));
+                }
+
+                Labels = new[] { "00:00", "01:00", "02:00", "03:00", "04:00", "05:00", "06:00", "07:00", "08:00", "09:00", "10:00", "11:00", "12:00", "13:00"};
+
+
+                Diagrramma = new SeriesCollection
+                {
+                    new LineSeries
+                    {
+                        Title = "Давление",
+                        Values = _values1,
+                    },
+                    new LineSeries
+                    {
+                        Title = "Температура",
+                        Values = _values2,
+                    },
+                    new LineSeries
+                    {
+                        Title = "Ощущается как",
+                        Values = _values3,
+                    }
+                };
+
+                Formatter = value =>value.ToString();
+
+
             }
             else
             {
 
             }
         }
+       
 
         //для картинок
         public string MainPng {get { return _mainPng; } set { _mainPng = value; OnPropertyChanged(); } }
@@ -395,5 +450,19 @@ namespace SunClouds.ViewModel
         public string Humidity { get => _humidity; set { _humidity = value; OnPropertyChanged(); } }
         public string Wind { get => _wind; set { _wind = value; OnPropertyChanged();} }
         public string WindTemp { get => _windTemp; set { _windTemp = value; OnPropertyChanged(); } }
-    } 
+
+        private SeriesCollection _diagr;
+        public string[] Labels { get; set; }
+        public Func<double, string> Formatter { get; set; }
+        public SeriesCollection Diagrramma
+        {
+            get { return _diagr; }
+            set
+            {
+                _diagr = value;
+            }
+        }
+        
+    }
+
 }
