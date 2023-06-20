@@ -6,6 +6,7 @@ using System;
 using System.Windows;
 using System.Net.Http;
 using System.Timers;
+using System.Windows.Media.Imaging;
 
 namespace SunClouds.ViewModel
 {
@@ -19,15 +20,17 @@ namespace SunClouds.ViewModel
         private string _onePng;
         private string _twoPng;
         private string _threePng;
-        private string _card01Png;
-        private string _card02Png;
-        private string _card03Png;
-        private string _card04Png;
-        private string _card05Png;
-        private string _card06Png;
-        private string _card07Png;
-        private string _card08Png;
-        private string _card09Png;
+        private BitmapImage[] _cardMassive;
+        private BitmapImage[] _onetwothree;
+        public BitmapImage[] OneTwoTrhee
+        {
+            get => _onetwothree;
+            set
+            {
+                _onetwothree = value;
+                OnPropertyChanged();
+            }
+        }
 
         //время 
         private string _weatherLeftPanelNow;
@@ -41,6 +44,7 @@ namespace SunClouds.ViewModel
         private string _weatherLeftPanelEight;
         private string _weatherLeftPanelNine;
         //температура
+        private string _tempa;
         private string _tempaOne;
         private string _tempaTwo;
         private string _tempaThree;
@@ -102,6 +106,7 @@ namespace SunClouds.ViewModel
 
 
         // для температуры
+        public string Tempa { get => _tempa;  set { _tempa = value; OnPropertyChanged(); }}
         public string TempaOne { get => _tempaOne;  set { _tempaOne = value; OnPropertyChanged(); }}
         public string TempaTwo {get => _tempaTwo;  set { _tempaTwo = value; OnPropertyChanged(); }}
         public string TempaThree {get => _tempaThree;set { _tempaThree = value; OnPropertyChanged(); }}
@@ -144,6 +149,8 @@ namespace SunClouds.ViewModel
         private readonly Timer _timer = new Timer();
         public WeatherInfViewModel(string city)
         {
+            OneTwoTrhee = new BitmapImage[4];
+            CardMassive = new BitmapImage[9];
             City = city;
 
             _timer.Elapsed += async (sender, e) => await Selected();
@@ -168,6 +175,9 @@ namespace SunClouds.ViewModel
                 WeatherLeftPanelSeven = TimeConverter.UnixToUtc(rootObject.list[7].dt, rootObject.city.timezone).ToString("HH:mm");
                 WeatherLeftPanelEight = TimeConverter.UnixToUtc(rootObject.list[8].dt, rootObject.city.timezone).ToString("HH:mm");
                 WeatherLeftPanelNine = TimeConverter.UnixToUtc(rootObject.list[9].dt, rootObject.city.timezone).ToString("HH:mm");
+
+                Tempa = Math.Round(rootObject.list[0].main.temp).ToString() + '°';
+
 
                 TempaOne = Math.Round(rootObject.list[1].main.temp).ToString() + '°';
                 TempaTwo = Math.Round(rootObject.list[2].main.temp).ToString() + '°';
@@ -216,146 +226,90 @@ namespace SunClouds.ViewModel
                 // темпа ветра
                 WindTemp = rootObject.list[0].wind.deg.ToString() + "°";
 
-                if (rootObject.list[0].weather[0].description.ToString() == "ясно")
+                for (int i = 0; i < 13; i++)
                 {
-                    MainPng = "/WeatherIcons/Sunny.png";
-                }
-                else if (rootObject.list[0].weather[0].description.ToString() == "дождь" || rootObject.list[0].weather[0].description.ToString() == "небольшой дождь")
-                {
-                    MainPng = "/WeatherIcons/Rainy.png";
-                }
-                else if (rootObject.list[0].weather[0].description.ToString() == "пасмурно" || rootObject.list[0].weather[0].description.ToString() == "переменная облачность" || rootObject.list[0].weather[0].description.ToString() == "облачно с прояснениями" || rootObject.list[0].weather[0].description.ToString() == "небольшая облачность")
-                {
-                    MainPng = "/WeatherIcons/Cloudy.png";
-                }
 
-                if (rootObject.list[1].weather[0].description.ToString() == "ясно")
-                {
-                    OnePng = "/WeatherIcons/Sunny.png";
-                    Card01Png = "/WeatherIcons/Sunny.png";
-                }
-                else if (rootObject.list[1].weather[0].description.ToString() == "дождь" || rootObject.list[1].weather[0].description.ToString() == "небольшой дождь")
-                {
-                    OnePng = "/WeatherIcons/Rainy.png";
-                    Card01Png = "/WeatherIcons/Rainy.png";
-                }
-                else if (rootObject.list[1].weather[0].description.ToString() == "пасмурно" || rootObject.list[1].weather[0].description.ToString() == "переменная облачность" || rootObject.list[1].weather[0].description.ToString() == "облачно с прояснениями" || rootObject.list[1].weather[0].description.ToString() == "небольшая облачность")
-                {
-                    OnePng = "/WeatherIcons/Cloudy.png";
-                    Card01Png = "/WeatherIcons/Cloudy.png";
-                }
+                    if (i == 1 || i == 2 || i == 3)
+                    {
+                        if (rootObject.list[i].weather[0].icon.ToString() == "01d" || rootObject.list[i].weather[0].icon.ToString() == "01n")
+                        {
+                            OneTwoTrhee[i] = ToBitmapImage("/WeatherIcons/Sunny.png");
+                            CardMassive[i] = ToBitmapImage("/WeatherIcons/Sunny.png");
+                        }
+                        else if (rootObject.list[i].weather[0].icon.ToString() == "09d" || rootObject.list[i].weather[0].icon.ToString() == "10d" || rootObject.list[i].weather[0].icon.ToString() == "09n" || rootObject.list[i].weather[0].icon.ToString() == "10n")
+                        {
+                            OneTwoTrhee[i] = ToBitmapImage("/WeatherIcons/Rainy.png");
+                            CardMassive[i] = ToBitmapImage("/WeatherIcons/Rainy.png");
+                        }
+                        else if (rootObject.list[i].weather[0].icon.ToString() == "03d" || rootObject.list[i].weather[0].icon.ToString() == "02d" || rootObject.list[i].weather[0].icon.ToString() == "04d" || rootObject.list[i].weather[0].icon.ToString() == "02n" || rootObject.list[i].weather[0].icon.ToString() == "03n" || rootObject.list[i].weather[0].icon.ToString() == "04n")
+                        {
+                            OneTwoTrhee[i] = ToBitmapImage("/WeatherIcons/Cloudy.png");
+                            CardMassive[i] = ToBitmapImage("/WeatherIcons/Cloudy.png");
+                        }
+                        else if (rootObject.list[i].weather[0].icon.ToString() == "13d" || rootObject.list[i].weather[0].icon.ToString() == "13n")
+                        {
+                            OneTwoTrhee[i] = ToBitmapImage("/WeatherIcons/Snow.png");
+                            CardMassive[i] = ToBitmapImage("/WeatherIcons/Snow.png");
+                        }
+                        else if (rootObject.list[i].weather[0].icon.ToString() == "50d" || rootObject.list[i].weather[0].icon.ToString() == "50n")
+                        {
+                            OneTwoTrhee[i] = ToBitmapImage("/WeatherIcons/Wind.png");
+                            CardMassive[i] = ToBitmapImage("/WeatherIcons/Wind.png");
+                        }
+                    }
+                    else if (i == 0)
+                    {
+                        if (rootObject.list[i].weather[0].icon.ToString() == "01d" || rootObject.list[i].weather[0].icon.ToString() == "01n")
+                        {
+                            OneTwoTrhee[i] = ToBitmapImage("/WeatherIcons/Sunny.png");
+                        }
+                        else if (rootObject.list[i].weather[0].icon.ToString() == "09d" || rootObject.list[i].weather[0].icon.ToString() == "10d" || rootObject.list[i].weather[0].icon.ToString() == "09n" || rootObject.list[i].weather[0].icon.ToString() == "10n")
 
+                        {
+                            OneTwoTrhee[i] = ToBitmapImage("/WeatherIcons/Rainy.png");
+                        }
+                        else if (rootObject.list[i].weather[0].icon.ToString() == "03d" || rootObject.list[i].weather[0].icon.ToString() == "02d" || rootObject.list[i].weather[0].icon.ToString() == "04d" || rootObject.list[i].weather[0].icon.ToString() == "02n" || rootObject.list[i].weather[0].icon.ToString() == "03n" || rootObject.list[i].weather[0].icon.ToString() == "04n")
+                        {
+                            OneTwoTrhee[i] = ToBitmapImage("/WeatherIcons/Cloudy.png");
+                        }
+                        else if (rootObject.list[i].weather[0].icon.ToString() == "13d" || rootObject.list[i].weather[0].icon.ToString() == "13n")
+                        {
+                            OneTwoTrhee[i] = ToBitmapImage("/WeatherIcons/Snow.png");
+                        }
+                        else if (rootObject.list[i].weather[0].icon.ToString() == "50d" || rootObject.list[i].weather[0].icon.ToString() == "50n")
+                        {
+                            OneTwoTrhee[i] = ToBitmapImage("/WeatherIcons/Wind.png");
+                        }
+                    }
+                    else if (i == 9)
+                    {
+                        Notify("OneTwoTrhee", "CardMassive");
+                    }
+                    else
+                    {
+                        if (rootObject.list[i].weather[0].icon.ToString() == "01d" || rootObject.list[i].weather[0].icon.ToString() == "01n")
+                        {
+                            CardMassive[i] = ToBitmapImage("/WeatherIcons/Sunny.png");
+                        }
+                        else if (rootObject.list[i].weather[0].icon.ToString() == "09d" || rootObject.list[i].weather[0].icon.ToString() == "10d" || rootObject.list[i].weather[0].icon.ToString() == "09n" || rootObject.list[i].weather[0].icon.ToString() == "10n")
 
-                if (rootObject.list[2].weather[0].description.ToString() == "ясно")
-                {
-                    TwoPng = "/WeatherIcons/Sunny.png";
-                    Card02Png = "/WeatherIcons/Sunny.png";
+                        {
+                            CardMassive[i] = ToBitmapImage("/WeatherIcons/Rainy.png");
+                        }
+                        else if (rootObject.list[i].weather[0].icon.ToString() == "03d" || rootObject.list[i].weather[0].icon.ToString() == "02d" || rootObject.list[i].weather[0].icon.ToString() == "04d" || rootObject.list[i].weather[0].icon.ToString() == "02n" || rootObject.list[i].weather[0].icon.ToString() == "03n" || rootObject.list[i].weather[0].icon.ToString() == "04n")
+                        {
+                            CardMassive[i] = ToBitmapImage("/WeatherIcons/Cloudy.png");
+                        }
+                        else if (rootObject.list[i].weather[0].icon.ToString() == "13d" || rootObject.list[i].weather[0].icon.ToString() == "13n")
+                        {
+                            CardMassive[i] = ToBitmapImage("/WeatherIcons/Snow.png");
+                        }
+                        else if (rootObject.list[i].weather[0].icon.ToString() == "50d" || rootObject.list[i].weather[0].icon.ToString() == "50n")
+                        {
+                            CardMassive[i] = ToBitmapImage("/WeatherIcons/Wind.png");
+                        }
+                    }
                 }
-                else if (rootObject.list[2].weather[0].description.ToString() == "дождь" || rootObject.list[2].weather[0].description.ToString() == "небольшой дождь")
-                {
-                    TwoPng = "/WeatherIcons/Rainy.png";
-                    Card02Png = "/WeatherIcons/Rainy.png";
-                }
-                else if (rootObject.list[2].weather[0].description.ToString() == "пасмурно" || rootObject.list[2].weather[0].description.ToString() == "переменная облачность" || rootObject.list[2].weather[0].description.ToString() == "облачно с прояснениями" || rootObject.list[2].weather[0].description.ToString() == "небольшая облачность")
-                {
-                    TwoPng = "/WeatherIcons/Cloudy.png";
-                    Card02Png = "/WeatherIcons/Cloudy.png";
-                }
-
-                if (rootObject.list[3].weather[0].description.ToString() == "ясно")
-                {
-                    ThreePng = "/WeatherIcons/Sunny.png";
-                    Card03Png = "/WeatherIcons/Sunny.png";
-                }
-                else if (rootObject.list[3].weather[0].description.ToString() == "дождь" || rootObject.list[3].weather[0].description.ToString() == "небольшой дождь")
-                {
-                    ThreePng = "/WeatherIcons/Rainy.png";
-                    Card03Png = "/WeatherIcons/Rainy.png";
-                }
-                else if (rootObject.list[3].weather[0].description.ToString() == "пасмурно" || rootObject.list[3].weather[0].description.ToString() == "переменная облачность" || rootObject.list[3].weather[0].description.ToString() == "облачно с прояснениями" || rootObject.list[3].weather[0].description.ToString() == "небольшая облачность")
-                {
-                    ThreePng = "/WeatherIcons/Cloudy.png";
-                    Card03Png = "/WeatherIcons/Cloudy.png";
-                }
-
-                if (rootObject.list[4].weather[0].description.ToString() == "ясно")
-                {
-                    Card04Png = "/WeatherIcons/Sunny.png";
-                }
-                else if (rootObject.list[4].weather[0].description.ToString() == "дождь" || rootObject.list[3].weather[0].description.ToString() == "небольшой дождь")
-                {
-                    Card04Png = "/WeatherIcons/Rainy.png";
-                }
-                else if (rootObject.list[4].weather[0].description.ToString() == "пасмурно" || rootObject.list[3].weather[0].description.ToString() == "переменная облачность" || rootObject.list[3].weather[0].description.ToString() == "облачно с прояснениями" || rootObject.list[3].weather[0].description.ToString() == "небольшая облачность")
-                {
-                    Card04Png = "/WeatherIcons/Cloudy.png";
-                }
-
-                if (rootObject.list[5].weather[0].description.ToString() == "ясно")
-                {
-                    Card05Png = "/WeatherIcons/Sunny.png";
-                }
-                else if (rootObject.list[5].weather[0].description.ToString() == "дождь" || rootObject.list[3].weather[0].description.ToString() == "небольшой дождь")
-                {
-                    Card05Png = "/WeatherIcons/Rainy.png";
-                }
-                else if (rootObject.list[5].weather[0].description.ToString() == "пасмурно" || rootObject.list[3].weather[0].description.ToString() == "переменная облачность" || rootObject.list[3].weather[0].description.ToString() == "облачно с прояснениями" || rootObject.list[3].weather[0].description.ToString() == "небольшая облачность")
-                {
-                    Card05Png = "/WeatherIcons/Cloudy.png";
-                }
-
-                if (rootObject.list[6].weather[0].description.ToString() == "ясно")
-                {
-                    Card06Png = "/WeatherIcons/Sunny.png";
-                }
-                else if (rootObject.list[6].weather[0].description.ToString() == "дождь" || rootObject.list[3].weather[0].description.ToString() == "небольшой дождь")
-                {
-                    Card06Png = "/WeatherIcons/Rainy.png";
-                }
-                else if (rootObject.list[6].weather[0].description.ToString() == "пасмурно" || rootObject.list[3].weather[0].description.ToString() == "переменная облачность" || rootObject.list[3].weather[0].description.ToString() == "облачно с прояснениями" || rootObject.list[3].weather[0].description.ToString() == "небольшая облачность")
-                {
-                    Card06Png = "/WeatherIcons/Cloudy.png";
-                }
-
-                if (rootObject.list[7].weather[0].description.ToString() == "ясно")
-                {
-                    Card07Png = "/WeatherIcons/Sunny.png";
-                }
-                else if (rootObject.list[7].weather[0].description.ToString() == "дождь" || rootObject.list[3].weather[0].description.ToString() == "небольшой дождь")
-                {
-                    Card07Png = "/WeatherIcons/Rainy.png";
-                }
-                else if (rootObject.list[7].weather[0].description.ToString() == "пасмурно" || rootObject.list[3].weather[0].description.ToString() == "переменная облачность" || rootObject.list[3].weather[0].description.ToString() == "облачно с прояснениями" || rootObject.list[3].weather[0].description.ToString() == "небольшая облачность")
-                {
-                    Card07Png = "/WeatherIcons/Cloudy.png";
-                }
-
-                if (rootObject.list[8].weather[0].description.ToString() == "ясно")
-                {
-                    Card08Png = "/WeatherIcons/Sunny.png";
-                }
-                else if (rootObject.list[8].weather[0].description.ToString() == "дождь" || rootObject.list[3].weather[0].description.ToString() == "небольшой дождь")
-                {
-                    Card08Png = "/WeatherIcons/Rainy.png";
-                }
-                else if (rootObject.list[8].weather[0].description.ToString() == "пасмурно" || rootObject.list[3].weather[0].description.ToString() == "переменная облачность" || rootObject.list[3].weather[0].description.ToString() == "облачно с прояснениями" || rootObject.list[3].weather[0].description.ToString() == "небольшая облачность")
-                {
-                    Card08Png = "/WeatherIcons/Cloudy.png";
-                }
-
-                if (rootObject.list[9].weather[0].description.ToString() == "ясно")
-                {
-                    Card09Png = "/WeatherIcons/Sunny.png";
-                }
-                else if (rootObject.list[9].weather[0].description.ToString() == "дождь" || rootObject.list[3].weather[0].description.ToString() == "небольшой дождь")
-                {
-                    Card09Png = "/WeatherIcons/Rainy.png";
-                }
-                else if (rootObject.list[9].weather[0].description.ToString() == "пасмурно" || rootObject.list[3].weather[0].description.ToString() == "переменная облачность" || rootObject.list[3].weather[0].description.ToString() == "облачно с прояснениями" || rootObject.list[3].weather[0].description.ToString() == "небольшая облачность")
-                {
-                    Card09Png = "/WeatherIcons/Cloudy.png";
-                }
-
                 flag = false;
             }
             else
@@ -364,11 +318,18 @@ namespace SunClouds.ViewModel
             }
         }
 
+        public BitmapImage ToBitmapImage(string imagePath)
+        {
+            BitmapImage bitmapImage = new BitmapImage(new Uri(imagePath, UriKind.Relative));
+            return bitmapImage;
+        }
+
         //для картинок
-        public string MainPng {get { return _mainPng; } set { _mainPng = value; OnPropertyChanged(); } }
+        public string MainPng { get { return _mainPng; } set { _mainPng = value; OnPropertyChanged(); } }
         public string OnePng { get => _onePng; set { _onePng = value; OnPropertyChanged(); } }
         public string TwoPng { get => _twoPng; set { _twoPng = value; OnPropertyChanged(); } }
         public string ThreePng { get => _threePng; set { _threePng = value; OnPropertyChanged(); } }
+        public BitmapImage[] CardMassive { get => _cardMassive; set { _cardMassive = value; OnPropertyChanged(); } }
         public string Card01Png { get => _threePng; set { _threePng = value; OnPropertyChanged(); } }
         public string Card02Png { get => _threePng; set { _threePng = value; OnPropertyChanged(); } }
         public string Card03Png { get => _threePng; set { _threePng = value; OnPropertyChanged(); } }
@@ -377,7 +338,7 @@ namespace SunClouds.ViewModel
         public string Card06Png { get => _threePng; set { _threePng = value; OnPropertyChanged(); } }
         public string Card07Png { get => _threePng; set { _threePng = value; OnPropertyChanged(); } }
         public string Card08Png { get => _threePng; set { _threePng = value; OnPropertyChanged(); } }
-        public string Card09Png { get => _threePng; set { _threePng = value; OnPropertyChanged(); } }        
+        public string Card09Png { get => _threePng; set { _threePng = value; OnPropertyChanged(); } }
 
 
         //для левой части окна (подробные данные)
