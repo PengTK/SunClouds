@@ -536,7 +536,7 @@
                                     <Grid.Background>
                                         <SolidColorBrush Color="#87B6CA" Opacity="1" />
                                     </Grid.Background>
-                                    <Image Source="{Binding Card01Png}" Width="30" Height="30" HorizontalAlignment="Center" Grid.ColumnSpan="2" />
+                                    <Image Source="{Binding CardMassive[1]}" Width="30" Height="30" HorizontalAlignment="Center" Grid.ColumnSpan="2" />
                                     <StackPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"  Grid.RowSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center" Height="28.8" Width="78" Background="#FF3D95B9">
                                         <TextBlock Text="{Binding WeatherLeftPanelOne}" Foreground="White" FontSize="12" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="0" Grid.Row="0" />
                                         <TextBlock Text="{Binding TempaOne}" Foreground="White" FontWeight="Bold" FontSize="14" HorizontalAlignment="Center" Height="13" Grid.Column="0" Margin="0,-2,0,0" />
@@ -571,7 +571,7 @@
                                     <Grid.Background>
                                         <SolidColorBrush Color="#87B6CA" Opacity="1" />
                                     </Grid.Background>
-                                    <Image Source="{Binding Card02Png}" Width="30" Height="30" HorizontalAlignment="Center" Grid.ColumnSpan="2" />
+                                    <Image Source="{Binding CardMassive[2]}" Width="30" Height="30" HorizontalAlignment="Center" Grid.ColumnSpan="2" />
                                     <StackPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"  Grid.RowSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center" Height="28.8" Width="78" Background="#FF3D95B9">
                                         <TextBlock Text="{Binding WeatherLeftPanelTwo}" Foreground="White" FontSize="12" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="0" Grid.Row="0" />
                                         <TextBlock Text="{Binding TempaTwo}" Foreground="White" FontWeight="Bold" FontSize="14" HorizontalAlignment="Center" Height="13" Grid.Column="0" Margin="0,-2,0,0" />
@@ -606,7 +606,7 @@
                                     <Grid.Background>
                                         <SolidColorBrush Color="#87B6CA" Opacity="1" />
                                     </Grid.Background>
-                                    <Image Source="{Binding Card03Png}" Width="30" Height="30" HorizontalAlignment="Center" Grid.ColumnSpan="2" />
+                                    <Image Source="{Binding CardMassive[3]}" Width="30" Height="30" HorizontalAlignment="Center" Grid.ColumnSpan="2" />
                                     <StackPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"  Grid.RowSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center" Height="28.8" Width="78" Background="#FF3D95B9">
                                         <TextBlock Text="{Binding WeatherLeftPanelThree}" Foreground="White" FontSize="12" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="0" Grid.Row="0" />
                                         <TextBlock Text="{Binding TempaThree}" Foreground="White" FontWeight="Bold" FontSize="14" HorizontalAlignment="Center" Height="13" Grid.Column="0" Margin="0,-2,0,0" />
@@ -641,7 +641,7 @@
                                     <Grid.Background>
                                         <SolidColorBrush Color="#87B6CA" Opacity="1" />
                                     </Grid.Background>
-                                    <Image Source="{Binding Card04Png}" Width="30" Height="30" HorizontalAlignment="Center" Grid.ColumnSpan="2" />
+                                    <Image Source="{Binding CardMassive[4]}" Width="30" Height="30" HorizontalAlignment="Center" Grid.ColumnSpan="2" />
                                     <StackPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"  Grid.RowSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center" Height="28.8" Width="78" Background="#FF3D95B9">
                                         <TextBlock Text="{Binding WeatherLeftPanelFour}" Foreground="White" FontSize="12" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="0" Grid.Row="0" />
                                         <TextBlock Text="{Binding TempaFour}" Foreground="White" FontWeight="Bold" FontSize="14" HorizontalAlignment="Center" Height="13" Grid.Column="0" Margin="0,-2,0,0" />
@@ -676,7 +676,7 @@
                                     <Grid.Background>
                                         <SolidColorBrush Color="#87B6CA" Opacity="1" />
                                     </Grid.Background>
-                                    <Image Source="{Binding Card05Png}" Width="30" Height="30" HorizontalAlignment="Center" Grid.ColumnSpan="2" />
+                                    <Image Source="{Binding CardMassive[5]}" Width="30" Height="30" HorizontalAlignment="Center" Grid.ColumnSpan="2" RenderTransformOrigin="0.5,1" />
                                     <StackPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"  Grid.RowSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center" Height="28.8" Width="78" Background="#FF3D95B9">
                                         <TextBlock Text="{Binding WeatherLeftPanelFive}" Foreground="White" FontSize="12" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="0" Grid.Row="0" />
                                         <TextBlock Text="{Binding TempaFive}" Foreground="White" FontWeight="Bold" FontSize="14" HorizontalAlignment="Center" Height="13" Grid.Column="0" Margin="0,-2,0,0" />
@@ -711,7 +711,7 @@
                                     <Grid.Background>
                                         <SolidColorBrush Color="#87B6CA" Opacity="1" />
                                     </Grid.Background>
-                                    <Image Source="{Binding Card06Png}" Width="30" Height="30" HorizontalAlignment="Center" Grid.ColumnSpan="2" />
+                                    <Image Source="{Binding CardMassive[6]}" Width="30" Height="30" HorizontalAlignment="Center" Grid.ColumnSpan="2" />
                                     <StackPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"  Grid.RowSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center" Height="28.8" Width="78" Background="#FF3D95B9">
                                         <TextBlock Text="{Binding WeatherLeftPanelSix}" Foreground="White" FontSize="12" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="0" Grid.Row="0" />
                                         <TextBlock Text="{Binding TempaSix}" Foreground="White" FontWeight="Bold" FontSize="14" HorizontalAlignment="Center" Height="13" Grid.Column="0" Margin="0,-2,0,0" />
@@ -746,7 +746,7 @@
                                     <Grid.Background>
                                         <SolidColorBrush Color="#87B6CA" Opacity="1" />
                                     </Grid.Background>
-                                    <Image Source="{Binding Card07Png}" Width="30" Height="30" HorizontalAlignment="Center" Grid.ColumnSpan="2" />
+                                    <Image Source="{Binding CardMassive[7]}" Width="30" Height="30" HorizontalAlignment="Center" Grid.ColumnSpan="2" />
                                     <StackPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"  Grid.RowSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center" Height="28.8" Width="78" Background="#FF3D95B9">
                                         <TextBlock Text="{Binding WeatherLeftPanelSeven}" Foreground="White" FontSize="12" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="0" Grid.Row="0" />
                                         <TextBlock Text="{Binding TempaSeven}" Foreground="White" FontWeight="Bold" FontSize="14" HorizontalAlignment="Center" Height="13" Grid.Column="0" Margin="0,-2,0,0" />
@@ -781,7 +781,7 @@
                                     <Grid.Background>
                                         <SolidColorBrush Color="#87B6CA" Opacity="1" />
                                     </Grid.Background>
-                                    <Image Source="{Binding Card08Png}" Width="30" Height="30" HorizontalAlignment="Center" Grid.ColumnSpan="2" />
+                                    <Image Source="{Binding CardMassive[8]}" Width="30" Height="30" HorizontalAlignment="Center" Grid.ColumnSpan="2" />
                                     <StackPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"  Grid.RowSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center" Height="28.8" Width="78" Background="#FF3D95B9">
                                         <TextBlock Text="{Binding WeatherLeftPanelEight}" Foreground="White" FontSize="12" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="0" Grid.Row="0" />
                                         <TextBlock Text="{Binding TempaEight}" Foreground="White" FontWeight="Bold" FontSize="14" HorizontalAlignment="Center" Height="13" Grid.Column="0" Margin="0,-2,0,0" />
@@ -816,7 +816,7 @@
                                     <Grid.Background>
                                         <SolidColorBrush Color="#87B6CA" Opacity="1" />
                                     </Grid.Background>
-                                    <Image Source="{Binding Card09Png}" Width="30" Height="30" HorizontalAlignment="Center" Grid.ColumnSpan="2" />
+                                    <Image Source="{Binding CardMassive[8]}" Width="30" Height="30" HorizontalAlignment="Center" Grid.ColumnSpan="2" />
                                     <StackPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"  Grid.RowSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center" Height="28.8" Width="78" Background="#FF3D95B9">
                                         <TextBlock Text="{Binding WeatherLeftPanelNine}" Foreground="White" FontSize="12" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="0" Grid.Row="0" />
                                         <TextBlock Text="{Binding TempaNine}" Foreground="White" FontWeight="Bold" FontSize="14" HorizontalAlignment="Center" Height="13" Grid.Column="0" Margin="0,-2,0,0" />
