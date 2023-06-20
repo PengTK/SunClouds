@@ -52,6 +52,41 @@ namespace SunClouds.View
             }
         }
 
+        private void AdjustRowHeights(object sender, SizeChangedEventArgs e)
+        {
+
+            if (this.ActualWidth < 1100)
+            {
+                // Меняем ширину всех столбцов на заданные значения
+                SunniGrid.ColumnDefinitions[0].Width = new GridLength(5.156, GridUnitType.Star);
+                SunniGrid.ColumnDefinitions[1].Width = new GridLength(35, GridUnitType.Pixel);
+                SunniGrid.ColumnDefinitions[2].Width = new GridLength(15, GridUnitType.Pixel);
+                SunniGrid.ColumnDefinitions[3].Width = new GridLength(115, GridUnitType.Pixel);
+                SunniGrid.ColumnDefinitions[4].Width = new GridLength(115, GridUnitType.Pixel);
+                SunniGrid.ColumnDefinitions[5].Width = new GridLength(115, GridUnitType.Pixel);
+                SunniGrid.ColumnDefinitions[6].Width = new GridLength(115, GridUnitType.Pixel);
+                SunniGrid.ColumnDefinitions[7].Width = new GridLength(115, GridUnitType.Pixel);
+                SunniGrid.ColumnDefinitions[8].Width = new GridLength(115, GridUnitType.Pixel);
+                SunniGrid.ColumnDefinitions[9].Width = new GridLength(58, GridUnitType.Pixel);
+            }
+            else
+            {
+                // Меняем ширину всех столбцов на исходные значения с звездочками
+                string[] originalWidths = { "5.156*", "20*", "10*", "70*", "70*", "70*", "77*", "70*", "58*", "58" };
+                for (int i = 0; i < SunniGrid.ColumnDefinitions.Count; i++)
+                {
+                    ColumnDefinition columnDefinition = SunniGrid.ColumnDefinitions[i];
+                    string widthString = originalWidths[i].TrimEnd('*'); // Удаляем символ '*' в конце строки
+                    if (double.TryParse(widthString, out double widthValue)) // Преобразуем оставшуюся часть в число
+                    {
+                        columnDefinition.Width = new GridLength(widthValue, GridUnitType.Star);
+                    }
+                }
+            }
+        }
+
+
+
 
         //КОД ДЛЯ СЛАЙДЕРА ->
         private void OnMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
