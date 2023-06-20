@@ -21,14 +21,14 @@
         </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="25"/>
+            <RowDefinition Height="30"/>
             <RowDefinition/>
             <RowDefinition Height="auto"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
 
 
-        <Border Grid.ColumnSpan="3" Background="Transparent"
+        <Border Margin="0,5,0,0" Grid.ColumnSpan="3" Background="Transparent"
                     MouseDown="Border_MouseDown">
             <Grid HorizontalAlignment="Stretch">
                 <Grid.ColumnDefinitions>
@@ -36,7 +36,7 @@
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
 
-                <StackPanel Grid.Column="1" HorizontalAlignment="Right" Orientation="Horizontal">
+                <StackPanel Grid.Column="1" HorizontalAlignment="Right" Orientation="Horizontal" Margin="0,0,5,0">
                     <Button Grid.Column="1"  Width="35" Height="30" Background="Transparent" BorderThickness="0"
                                 Click="ButtonMinimize_Click">
                         <Image Source="{DynamicResource LineImage}" Width="25" />
@@ -72,6 +72,11 @@
         </Border>
 
         <Border Grid.Column="1" Grid.Row="2" Background="{DynamicResource Primary}" CornerRadius="2" MaxWidth="206" MinWidth="206" MaxHeight="158" MinHeight="158">
+
+            <Border.Effect>
+                <DropShadowEffect Direction="270" ShadowDepth="5" Color="Black" Opacity="0.3"/>
+            </Border.Effect>
+
             <StackPanel>
                 <Label  Content="SunClouds" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center" Foreground="{DynamicResource BackgroundText}"/>
                 <!--<RibbonSeparator Margin="30,10,30,18"/> -->
@@ -89,7 +94,7 @@
                     HorizontalContentAlignment="Center"
                     materialDesign:HintAssist.Hint="Ваш город"/>
 
-                <Button FontWeight="Bold"  Content="Узнать погоду" Background="{DynamicResource Secondary}" Foreground="{DynamicResource BackgroundText}" Margin="17,24,15,17" FontSize="15" Cursor="Hand" Height="25"
+                <Button FontWeight="Bold"  Content="Узнать погоду" Background="{DynamicResource Secondary}" Foreground="{DynamicResource BackgroundText}" Margin="17,24,15,17" FontSize="15" Cursor="Hand" Height="25" IsDefault="True"
                   Width="174"
                   Command="{Binding OpenSecondWindowCommand}">
                 </Button>
