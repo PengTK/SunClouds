@@ -283,7 +283,7 @@
                                 </TextBlock.Effect>-->
                             </TextBlock>
 
-                            <Image Grid.Column="2" Grid.RowSpan="4" Source="/WeatherIcons/Line.png" Width="7" Stretch="Fill" Panel.ZIndex="1" VerticalAlignment="Top" Margin="23,10,26,0" Opacity="1">
+                            <Image Grid.Column="2" Grid.RowSpan="4" Source="/WeatherIcons/Line.png" Width="7" Stretch="Fill" Panel.ZIndex="1" VerticalAlignment="Top" Margin="23,25,26,0" Opacity="1">
                                 <Image.RenderTransform>
                                     <ScaleTransform ScaleY="1" />
                                 </Image.RenderTransform>
@@ -321,7 +321,7 @@
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
-                <StackPanel Grid.Column="1" HorizontalAlignment="Right" Orientation="Horizontal">
+                <StackPanel Grid.Column="1" HorizontalAlignment="Right" Orientation="Horizontal" Margin="0,0,5,0">
                     <Button Grid.Column="1"  Width="35" Height="30" Background="Transparent" BorderThickness="0"
                                 Click="ButtonMinimize_Click" Cursor="Hand">
                         <Image Source="{DynamicResource LineImage}" Width="25" />
@@ -375,11 +375,13 @@
                         <RowDefinition Height="231.538"/>
                         <RowDefinition Height="33.933"/>
                     </Grid.RowDefinitions>
-                    <StackPanel Grid.Row="2" Grid.Column="1" Margin="0,0,0,2">
-                        <Grid Grid.Row="2" Grid.Column="1">
-                            <Grid.Background>
-                                <SolidColorBrush Color="#F8C5B4" Opacity="0.5" />
-                            </Grid.Background>
+                    <StackPanel Grid.Row="2" Grid.Column="1" Margin="3,0,3,2">
+
+                        <StackPanel.Effect>
+                            <DropShadowEffect Direction="270" ShadowDepth="5" Color="Black" Opacity="0.3"/>
+                        </StackPanel.Effect>
+
+                        <Grid Background="{DynamicResource Primary}">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="*" />
                                 <RowDefinition Height="*" />
@@ -478,6 +480,11 @@
                             </Grid.Background>
                             <WrapPanel Orientation="Horizontal">
                                 <Grid Width="78" Height="120" Margin="4" MouseLeftButtonDown="OnMouseLeftButtonDown" MouseLeftButtonUp="OnMouseLeftButtonUp" MouseMove="OnMouseMove">
+
+                                    <Grid.Effect>
+                                        <DropShadowEffect Direction="270" ShadowDepth="5" Color="Black" Opacity="0.3"/>
+                                    </Grid.Effect>
+
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="61*" />
                                         <ColumnDefinition Width="59*" />
@@ -508,6 +515,11 @@
                                 </Grid>
 
                                 <Grid Width="78" Height="120" Margin="4" MouseLeftButtonDown="OnMouseLeftButtonDown" MouseLeftButtonUp="OnMouseLeftButtonUp" MouseMove="OnMouseMove">
+
+                                    <Grid.Effect>
+                                        <DropShadowEffect Direction="270" ShadowDepth="5" Color="Black" Opacity="0.3"/>
+                                    </Grid.Effect>
+
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="51*" />
                                         <ColumnDefinition Width="49*" />
@@ -538,6 +550,11 @@
                                 </Grid>
 
                                 <Grid Width="78" Height="120" Margin="4" MouseLeftButtonDown="OnMouseLeftButtonDown" MouseLeftButtonUp="OnMouseLeftButtonUp" MouseMove="OnMouseMove">
+
+                                    <Grid.Effect>
+                                        <DropShadowEffect Direction="270" ShadowDepth="5" Color="Black" Opacity="0.3"/>
+                                    </Grid.Effect>
+
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="51*" />
                                         <ColumnDefinition Width="49*" />
@@ -568,6 +585,11 @@
                                 </Grid>
 
                                 <Grid Width="78" Height="120" Margin="4" MouseLeftButtonDown="OnMouseLeftButtonDown" MouseLeftButtonUp="OnMouseLeftButtonUp" MouseMove="OnMouseMove">
+
+                                    <Grid.Effect>
+                                        <DropShadowEffect Direction="270" ShadowDepth="5" Color="Black" Opacity="0.3"/>
+                                    </Grid.Effect>
+
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="51*" />
                                         <ColumnDefinition Width="49*" />
@@ -598,6 +620,11 @@
                                 </Grid>
 
                                 <Grid Width="78" Height="120" Margin="4" MouseLeftButtonDown="OnMouseLeftButtonDown" MouseLeftButtonUp="OnMouseLeftButtonUp" MouseMove="OnMouseMove">
+
+                                    <Grid.Effect>
+                                        <DropShadowEffect Direction="270" ShadowDepth="5" Color="Black" Opacity="0.3"/>
+                                    </Grid.Effect>
+
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="51*" />
                                         <ColumnDefinition Width="49*" />
@@ -628,6 +655,11 @@
                                 </Grid>
 
                                 <Grid Width="78" Height="120" Margin="4" MouseLeftButtonDown="OnMouseLeftButtonDown" MouseLeftButtonUp="OnMouseLeftButtonUp" MouseMove="OnMouseMove">
+
+                                    <Grid.Effect>
+                                        <DropShadowEffect Direction="270" ShadowDepth="5" Color="Black" Opacity="0.3"/>
+                                    </Grid.Effect>
+
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="51*" />
                                         <ColumnDefinition Width="49*" />
@@ -658,6 +690,11 @@
                                 </Grid>
 
                                 <Grid Width="78" Height="120" Margin="4" MouseLeftButtonDown="OnMouseLeftButtonDown" MouseLeftButtonUp="OnMouseLeftButtonUp" MouseMove="OnMouseMove">
+
+                                    <Grid.Effect>
+                                        <DropShadowEffect Direction="270" ShadowDepth="5" Color="Black" Opacity="0.3"/>
+                                    </Grid.Effect>
+
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="51*" />
                                         <ColumnDefinition Width="49*" />
@@ -688,6 +725,11 @@
                                 </Grid>
 
                                 <Grid Width="78" Height="120" Margin="4" MouseLeftButtonDown="OnMouseLeftButtonDown" MouseLeftButtonUp="OnMouseLeftButtonUp" MouseMove="OnMouseMove">
+
+                                    <Grid.Effect>
+                                        <DropShadowEffect Direction="270" ShadowDepth="5" Color="Black" Opacity="0.3"/>
+                                    </Grid.Effect>
+
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="51*" />
                                         <ColumnDefinition Width="49*" />
@@ -718,6 +760,11 @@
                                 </Grid>
 
                                 <Grid Width="78" Height="120" Margin="4" MouseLeftButtonDown="OnMouseLeftButtonDown" MouseLeftButtonUp="OnMouseLeftButtonUp" MouseMove="OnMouseMove">
+
+                                    <Grid.Effect>
+                                        <DropShadowEffect Direction="270" ShadowDepth="5" Color="Black" Opacity="0.3"/>
+                                    </Grid.Effect>
+
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="51*" />
                                         <ColumnDefinition Width="49*" />
