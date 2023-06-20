@@ -88,14 +88,13 @@ namespace SunClouds.View
         //ПРИКОЛЬНАЯ СМЕНА РАСЦВЕТОЧКИ В ЗАВИСИМОСТИ ОТ ВРЕМЕНИ ->
         private void SimulateChangeTextEffect()
         {
-            // Введите желаемое время для симуляции
-            int simulatedHour = 23;
+            int currentHour = DateTime.Now.Hour;
 
-            if (simulatedHour >= 4 && simulatedHour < 21)
+            if (currentHour >= 4 && currentHour < 21)
             {
                 ApplyTextEffect(Colors.Yellow);
             }
-            else if (simulatedHour >= 22 || simulatedHour < 4)
+            else if (currentHour >= 22 || currentHour < 4)
             {
                 ApplyTextEffect(Colors.BlueViolet);
             }
@@ -107,7 +106,7 @@ namespace SunClouds.View
             {
                 Color = color,
                 ShadowDepth = 0,
-                BlurRadius = 40,
+                BlurRadius = 0,
                 Opacity = 0.5
             };
 
