@@ -97,7 +97,7 @@
 
 
                             <Image Grid.Column="1" Grid.Row="0" Source="{Binding OneTwoTrhee[0]}" Width="80" Height="80" Panel.ZIndex="2" Grid.ColumnSpan="3" HorizontalAlignment="Left" Margin="21,0,0,0">
-                                <!--<Image.Triggers>
+                                <Image.Triggers>
 
                                     <EventTrigger RoutedEvent="Loaded">
                                         <BeginStoryboard>
@@ -131,7 +131,7 @@
                             </TextBlock>
 
                             <Image Grid.Column="2" Grid.Row="1" Source="{Binding OneTwoTrhee[1]}" Width="45" Height="45" Panel.ZIndex="3" Margin="4,29,7,29">
-                                <!--<Image.Triggers>
+                                <Image.Triggers>
 
                                     <EventTrigger RoutedEvent="Loaded">
                                         <BeginStoryboard>
@@ -168,23 +168,11 @@
                                     <LineBreak/>
                                     <Run Text="{Binding FeelsLeftOne_new}"/>
                                 </TextBlock.Inlines>
-                                <!--<TextBlock.Triggers>x
-                                    <EventTrigger RoutedEvent="Loaded">
-                                        <BeginStoryboard>
-                                            <Storyboard>
-                                                <DoubleAnimation From="0" To="1" Duration="0:0:1" Storyboard.TargetProperty="Opacity"/>
-                                            </Storyboard>
-                                        </BeginStoryboard>
-                                    </EventTrigger>
-                                </TextBlock.Triggers>
-                                <TextBlock.Effect>
-                                    <DropShadowEffect Color="Yellow" ShadowDepth="0" BlurRadius="40" Opacity="0.5"/>
-                                </TextBlock.Effect>-->
                             </TextBlock>
 
 
                             <Image Grid.Column="2" Grid.Row="2" Source="{Binding OneTwoTrhee[2]}" Width="45" Height="45" Panel.ZIndex="4" Margin="4,30,7,29">
-                                <!--<Image.Triggers>
+                                <Image.Triggers>
 
                                     <EventTrigger RoutedEvent="Loaded">
                                         <BeginStoryboard>
@@ -221,22 +209,10 @@
                                     <LineBreak/>
                                     <Run Text="Additional"/>
                                 </TextBlock.Inlines>
-                                <!--<TextBlock.Triggers>
-                                    <EventTrigger RoutedEvent="Loaded">
-                                        <BeginStoryboard>
-                                            <Storyboard>
-                                                <DoubleAnimation From="0" To="1" Duration="0:0:1" Storyboard.TargetProperty="Opacity"/>
-                                            </Storyboard>
-                                        </BeginStoryboard>
-                                    </EventTrigger>
-                                </TextBlock.Triggers>
-                                <TextBlock.Effect>
-                                    <DropShadowEffect Color="Yellow" ShadowDepth="0" BlurRadius="40" Opacity="0.5"/>
-                                </TextBlock.Effect>-->
                             </TextBlock>
 
                             <Image Grid.Column="2" Grid.Row="3" Source="{Binding OneTwoTrhee[3]}" Width="45" Height="45" Panel.ZIndex="5" Margin="4,29,7,30">
-                                <!--<Image.Triggers>
+                                <Image.Triggers>
                                     <EventTrigger RoutedEvent="Loaded">
                                         <BeginStoryboard>
                                             <Storyboard>
