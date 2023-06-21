@@ -257,7 +257,7 @@ namespace SunClouds.ViewModel
                 }
 
                 Labels = new string[9];
-                for (int i = 0; i < 10; i++)
+                for (int i = 0; i < 9; i++)
                 {
                     Labels[i] = TimeConverter.UnixToUtc(rootObject.list[i].dt, rootObject.city.timezone).ToString("HH");
                 }
@@ -320,7 +320,7 @@ namespace SunClouds.ViewModel
                     }
                     else if (i == 9)
                     {
-                        //Notify("OneTwoTrhee", "CardMassive");
+                        Notify("OneTwoTrhee", "CardMassive");
                     }
                     else
                     {
