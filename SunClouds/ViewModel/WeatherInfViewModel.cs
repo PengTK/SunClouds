@@ -11,6 +11,7 @@ using LiveCharts;
 using LiveCharts.Wpf;
 using System.Windows.Input;
 using CommunityToolkit.Mvvm.Input;
+using System.Security.Cryptography.X509Certificates;
 
 namespace SunClouds.ViewModel
 {
@@ -20,7 +21,7 @@ namespace SunClouds.ViewModel
 
         private RootObject rootObject;
 
-        private bool flag = true;
+        public bool flag = true;
 
         private string _mainPng;
         private string _onePng;
@@ -154,11 +155,21 @@ namespace SunClouds.ViewModel
         public ICommand CnDiagr01 { get; }
         public ICommand CnDiagr02 { get; }
         public ICommand CnDiagr03 { get; }
+        public ICommand testik { get; }
+        
+        public string cityy { get; set; }
+
+            public void test() {
+
+            flag = true;
+             City = cityy;
+        }
 
         //таймер для обновления данных каждый час
         private readonly Timer _timer = new Timer();
         public WeatherInfViewModel(string city)
         {
+           
             OneTwoTrhee = new BitmapImage[4];
             CardMassive = new BitmapImage[9];
             City = city;
@@ -170,6 +181,7 @@ namespace SunClouds.ViewModel
             CnDiagr01 = new RelayCommand(Diagram01);
             CnDiagr02 = new RelayCommand(Diagram02);
             CnDiagr03 = new RelayCommand(Diagram03);
+            testik = new RelayCommand(test);
         }
 
         //вывод данных из API
