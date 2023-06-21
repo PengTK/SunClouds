@@ -530,26 +530,62 @@
                                         <ColumnDefinition Width="50" />
                                     </Grid.ColumnDefinitions>
                                     <Grid.RowDefinitions>
-                                        <RowDefinition Height="25*" />
+                                        <RowDefinition Height="auto" />
+                                        <RowDefinition Height="auto" />
                                         <RowDefinition Height="7*" />
+                                        <RowDefinition Height="50" />
+                                    </Grid.RowDefinitions>
+                                    <Grid.Background>
+                                        <SolidColorBrush Color="#87B6CA" Opacity="1" />
+                                    </Grid.Background>
+                                    <Image Source="{Binding CardMassive[1]}" Width="40" Height="40" HorizontalAlignment="Center" Grid.ColumnSpan="2" Margin="0,5,0,5"/>
+                                    <StackPanel Grid.Row="1" Grid.ColumnSpan="2"  HorizontalAlignment="Stretch" VerticalAlignment="Center"  Background="#FF3D95B9">
+                                        <TextBlock Text="{Binding WeatherLeftPanelOne}" Foreground="White" FontSize="15" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                        <TextBlock Text="{Binding TempaOne}" Foreground="White" FontWeight="Bold" FontSize="14" HorizontalAlignment="Center" Height="13" Grid.Column="0" Margin="0,-4,0,2" />
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,2,0,0">
+                                        <TextBlock FontWeight="Thin" Text="Ощущ." Foreground="White" FontSize="14" HorizontalAlignment="Center"/>
+                                        <TextBlock FontWeight="Thin" Text="{Binding FeelsOne}" Foreground="White" FontSize="14" HorizontalAlignment="Center" />
+                                    </StackPanel>
+
+                                    <StackPanel Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Top"  Margin="0,2,0,0">
+                                        <TextBlock FontWeight="Thin" Text="Влаж." Foreground="White" FontSize="14" HorizontalAlignment="Center" />
+                                        <TextBlock FontWeight="Thin" Text="{Binding HumidityOne}" Foreground="White" FontSize="14" HorizontalAlignment="Center" />
+                                    </StackPanel>
+
+                                </Grid>
+
+                                <Grid Margin="7" MouseLeftButtonDown="OnMouseLeftButtonDown" MouseLeftButtonUp="OnMouseLeftButtonUp" MouseMove="OnMouseMove">
+
+                                    <Grid.Effect>
+                                        <DropShadowEffect Direction="270" ShadowDepth="5" Color="Black" Opacity="0.3"/>
+                                    </Grid.Effect>
+
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="50" />
+                                        <ColumnDefinition Width="50" />
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="auto" />
+                                        <RowDefinition Height="auto" />
                                         <RowDefinition Height="7*" />
-                                        <RowDefinition Height="20*" />
+                                        <RowDefinition Height="50*" />
                                     </Grid.RowDefinitions>
                                     <Grid.Background>
                                         <SolidColorBrush Color="#87B6CA" Opacity="1" />
                                     </Grid.Background>
-                                    <Image Source="{Binding CardMassive[1]}" Width="30" Height="30" HorizontalAlignment="Center" Grid.ColumnSpan="2" />
-                                    <StackPanel Grid.Row="1" Grid.ColumnSpan="2" Grid.RowSpan="2" HorizontalAlignment="Stretch" VerticalAlignment="Center" Height="28.8"  Background="#FF3D95B9">
-                                        <TextBlock Text="{Binding WeatherLeftPanelOne}" Foreground="White" FontSize="17" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="0" Grid.Row="0" />
-                                        <TextBlock Text="{Binding TempaOne}" Foreground="White" FontWeight="Bold" FontSize="14" HorizontalAlignment="Center" Height="13" Grid.Column="0" Margin="0,-2,0,0" />
+                                    <Image Source="{Binding CardMassive[2]}" Width="40" Height="40" HorizontalAlignment="Center" Grid.ColumnSpan="2" Margin="0,5,0,5"/>
+                                    <StackPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" VerticalAlignment="Center" Background="#FF3D95B9">
+                                        <TextBlock Text="{Binding WeatherLeftPanelTwo}" Foreground="White" FontSize="15" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                        <TextBlock Text="{Binding TempaTwo}" Foreground="White" FontWeight="Bold" FontSize="14" HorizontalAlignment="Center" Height="13" Grid.Column="0" Margin="0,-4,0,2" />
                                     </StackPanel>
-                                    <StackPanel Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Top" Height="23">
-                                        <TextBlock Text="Ощущ." Foreground="White" FontSize="15" HorizontalAlignment="Center" Margin="0,3,0,0"/>
-                                        <TextBlock Text="{Binding FeelsOne}" Foreground="White" FontSize="13" HorizontalAlignment="Center" />
+                                    <StackPanel Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Top">
+                                        <TextBlock FontWeight="Thin" Text="Ощущ." Foreground="White" FontSize="14" HorizontalAlignment="Center" />
+                                        <TextBlock FontWeight="Thin" Text="{Binding FeelsTwo}" Foreground="White" FontSize="14" HorizontalAlignment="Center" />
                                     </StackPanel>
-                                    <StackPanel Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Top" Height="23">
-                                        <TextBlock Text="Влаж." Foreground="White" FontSize="15" HorizontalAlignment="Center" Margin="0,3,0,0"/>
-                                        <TextBlock Text="{Binding HumidityOne}" Foreground="White" FontSize="13" HorizontalAlignment="Center" />
+                                    <StackPanel Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Top">
+                                        <TextBlock FontWeight="Thin" Text="Влаж." Foreground="White" FontSize="14" HorizontalAlignment="Center" />
+                                        <TextBlock FontWeight="Thin" Text="{Binding HumidityTwo}" Foreground="White" FontSize="14" HorizontalAlignment="Center" />
                                     </StackPanel>
                                 </Grid>
 
@@ -560,31 +596,64 @@
                                     </Grid.Effect>
 
                                     <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="51*" />
-                                        <ColumnDefinition Width="49*" />
+                                        <ColumnDefinition Width="50" />
+                                        <ColumnDefinition Width="50" />
                                     </Grid.ColumnDefinitions>
                                     <Grid.RowDefinitions>
-                                        <RowDefinition Height="49.14" />
+                                        <RowDefinition Height="auto" />
+                                        <RowDefinition Height="auto" />
                                         <RowDefinition Height="7*" />
+                                        <RowDefinition Height="50*" />
+                                    </Grid.RowDefinitions>
+                                    <Grid.Background>
+                                        <SolidColorBrush Color="#87B6CA" Opacity="1" />
+                                    </Grid.Background>
+                                    <Image Source="{Binding CardMassive[3]}" Width="40" Height="40" HorizontalAlignment="Center" Grid.ColumnSpan="2" Margin="0,5,0,5"/>
+                                    <StackPanel Grid.Row="1" Grid.ColumnSpan="2"  HorizontalAlignment="Stretch" VerticalAlignment="Center" Height="30" Background="#FF3D95B9">
+                                        <TextBlock Text="{Binding WeatherLeftPanelThree}" Foreground="White" FontSize="15" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="0" Grid.Row="0" />
+                                        <TextBlock Text="{Binding TempaThree}" Foreground="White" FontWeight="Bold" FontSize="14" HorizontalAlignment="Center" Height="13" Grid.Column="0" Margin="0,-4,0,2" />
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Top">
+                                        <TextBlock FontWeight="Thin" Text="Ощущ." Foreground="White" FontSize="14" HorizontalAlignment="Center" />
+                                        <TextBlock FontWeight="Thin" Text="{Binding FeelsThree}" Foreground="White" FontSize="14" HorizontalAlignment="Center" />
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Top">
+                                        <TextBlock FontWeight="Thin"  Text="Влаж." Foreground="White" FontSize="14" HorizontalAlignment="Center" />
+                                        <TextBlock FontWeight="Thin" Text="{Binding HumidityThree}" Foreground="White" FontSize="14" HorizontalAlignment="Center" />
+                                    </StackPanel>
+                                </Grid>
+
+                                <Grid Margin="7" MouseLeftButtonDown="OnMouseLeftButtonDown" MouseLeftButtonUp="OnMouseLeftButtonUp" MouseMove="OnMouseMove">
+
+                                    <Grid.Effect>
+                                        <DropShadowEffect Direction="270" ShadowDepth="5" Color="Black" Opacity="0.3"/>
+                                    </Grid.Effect>
+
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="50" />
+                                        <ColumnDefinition Width="50" />
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="auto" />
+                                        <RowDefinition Height="auto" />
                                         <RowDefinition Height="7*" />
-                                        <RowDefinition Height="20*" />
+                                        <RowDefinition Height="50*" />
                                     </Grid.RowDefinitions>
                                     <Grid.Background>
                                         <SolidColorBrush Color="#87B6CA" Opacity="1" />
                                     </Grid.Background>
-                                    <Image Source="{Binding CardMassive[2]}" Width="30" Height="30" HorizontalAlignment="Center" Grid.ColumnSpan="2" />
-                                    <StackPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"  Grid.RowSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center" Height="28.8" Width="78" Background="#FF3D95B9">
-                                        <TextBlock Text="{Binding WeatherLeftPanelTwo}" Foreground="White" FontSize="12" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="0" Grid.Row="0" />
-                                        <TextBlock Text="{Binding TempaTwo}" Foreground="White" FontWeight="Bold" FontSize="14" HorizontalAlignment="Center" Height="13" Grid.Column="0" Margin="0,-2,0,0" />
+                                    <Image Source="{Binding CardMassive[4]}" Width="40" Height="40" HorizontalAlignment="Center" Grid.ColumnSpan="2" Margin="0,5,0,5"/>
+                                    <StackPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"  HorizontalAlignment="Stretch" VerticalAlignment="Center" Height="30" Background="#FF3D95B9">
+                                        <TextBlock Text="{Binding WeatherLeftPanelFour}" Foreground="White" FontSize="15" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="0" Grid.Row="0" />
+                                        <TextBlock Text="{Binding TempaFour}" Foreground="White" FontWeight="Bold" FontSize="14" HorizontalAlignment="Center" Height="13" Grid.Column="0" Margin="0,-4,0,2" />
                                     </StackPanel>
-                                    <StackPanel Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Height="23" Width="29">
-                                        <TextBlock Text="Ощущ." Foreground="White" FontSize="10.7" HorizontalAlignment="Center" />
-                                        <TextBlock Text="{Binding FeelsTwo}" Foreground="White" FontSize="9.3" HorizontalAlignment="Center" />
+                                    <StackPanel Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                        <TextBlock FontWeight="Thin" Text="Ощущ." Foreground="White" FontSize="14" HorizontalAlignment="Center" />
+                                        <TextBlock FontWeight="Thin" Text="{Binding FeelsFour}" Foreground="White" FontSize="14" HorizontalAlignment="Center" />
                                     </StackPanel>
-                                    <StackPanel Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" Height="23
-                                                " Width="29">
-                                        <TextBlock Text="Влаж." Foreground="White" FontSize="11" HorizontalAlignment="Center" />
-                                        <TextBlock Text="{Binding HumidityTwo}" Foreground="White" FontSize="9" HorizontalAlignment="Center" />
+                                    <StackPanel Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Top">
+                                        <TextBlock FontWeight="Thin" Text="Влаж." Foreground="White" FontSize="14" HorizontalAlignment="Center" />
+                                        <TextBlock FontWeight="Thin" Text="{Binding HumidityFour}" Foreground="White" FontSize="14" HorizontalAlignment="Center" />
                                     </StackPanel>
                                 </Grid>
 
@@ -595,31 +664,30 @@
                                     </Grid.Effect>
 
                                     <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="51*" />
-                                        <ColumnDefinition Width="49*" />
+                                        <ColumnDefinition Width="50" />
+                                        <ColumnDefinition Width="50" />
                                     </Grid.ColumnDefinitions>
                                     <Grid.RowDefinitions>
+                                        <RowDefinition Height="auto" />
+                                        <RowDefinition Height="auto" />
                                         <RowDefinition Height="7*" />
-                                        <RowDefinition Height="2*" />
-                                        <RowDefinition Height="2*" />
-                                        <RowDefinition Height="39.78" />
+                                        <RowDefinition Height="50*" />
                                     </Grid.RowDefinitions>
                                     <Grid.Background>
                                         <SolidColorBrush Color="#87B6CA" Opacity="1" />
                                     </Grid.Background>
-                                    <Image Source="{Binding CardMassive[3]}" Width="30" Height="30" HorizontalAlignment="Center" Grid.ColumnSpan="2" />
-                                    <StackPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"  Grid.RowSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center" Height="28.8" Width="78" Background="#FF3D95B9">
-                                        <TextBlock Text="{Binding WeatherLeftPanelThree}" Foreground="White" FontSize="12" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="0" Grid.Row="0" />
-                                        <TextBlock Text="{Binding TempaThree}" Foreground="White" FontWeight="Bold" FontSize="14" HorizontalAlignment="Center" Height="13" Grid.Column="0" Margin="0,-2,0,0" />
+                                    <Image Source="{Binding CardMassive[5]}" Width="40" Height="40" HorizontalAlignment="Center"  Margin="0,5,0,5" Grid.ColumnSpan="2"/>
+                                    <StackPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" VerticalAlignment="Center" Height="30" Background="#FF3D95B9">
+                                        <TextBlock Text="{Binding WeatherLeftPanelFive}" Foreground="White" FontSize="15" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                        <TextBlock FontWeight="Bold" Text="{Binding TempaFive}" Foreground="White" FontSize="14" HorizontalAlignment="Center" Height="13" Grid.Column="0" Margin="0,-4,0,2" />
                                     </StackPanel>
-                                    <StackPanel Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Height="23" Width="29">
-                                        <TextBlock Text="Ощущ." Foreground="White" FontSize="10.7" HorizontalAlignment="Center" />
-                                        <TextBlock Text="{Binding FeelsThree}" Foreground="White" FontSize="9.3" HorizontalAlignment="Center" />
+                                    <StackPanel Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Top" >
+                                        <TextBlock FontWeight="Thin" Text="Ощущ." Foreground="White" FontSize="14" HorizontalAlignment="Center" />
+                                        <TextBlock FontWeight="Thin" Text="{Binding FeelsFive}" Foreground="White" FontSize="14" HorizontalAlignment="Center" />
                                     </StackPanel>
-                                    <StackPanel Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" Height="23
-                                                " Width="29">
-                                        <TextBlock Text="Влаж." Foreground="White" FontSize="11" HorizontalAlignment="Center" />
-                                        <TextBlock Text="{Binding HumidityThree}" Foreground="White" FontSize="9.6" HorizontalAlignment="Center" />
+                                    <StackPanel Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Top">
+                                        <TextBlock FontWeight="Thin" Text="Влаж." Foreground="White" FontSize="14" HorizontalAlignment="Center" />
+                                        <TextBlock FontWeight="Thin" Text="{Binding HumidityFive}" Foreground="White" FontSize="14" HorizontalAlignment="Center" />
                                     </StackPanel>
                                 </Grid>
 
@@ -630,31 +698,30 @@
                                     </Grid.Effect>
 
                                     <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="51*" />
-                                        <ColumnDefinition Width="49*" />
+                                        <ColumnDefinition Width="50" />
+                                        <ColumnDefinition Width="50" />
                                     </Grid.ColumnDefinitions>
                                     <Grid.RowDefinitions>
-                                        <RowDefinition Height="21*" />
-                                        <RowDefinition Height="6*" />
-                                        <RowDefinition Height="6*" />
-                                        <RowDefinition Height="17*" />
+                                        <RowDefinition Height="auto" />
+                                        <RowDefinition Height="auto" />
+                                        <RowDefinition Height="7*" />
+                                        <RowDefinition Height="50*" />
                                     </Grid.RowDefinitions>
                                     <Grid.Background>
                                         <SolidColorBrush Color="#87B6CA" Opacity="1" />
                                     </Grid.Background>
-                                    <Image Source="{Binding CardMassive[4]}" Width="30" Height="30" HorizontalAlignment="Center" Grid.ColumnSpan="2" />
-                                    <StackPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"  Grid.RowSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center" Height="28.8" Width="78" Background="#FF3D95B9">
-                                        <TextBlock Text="{Binding WeatherLeftPanelFour}" Foreground="White" FontSize="12" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="0" Grid.Row="0" />
-                                        <TextBlock Text="{Binding TempaFour}" Foreground="White" FontWeight="Bold" FontSize="14" HorizontalAlignment="Center" Height="13" Grid.Column="0" Margin="0,-2,0,0" />
+                                    <Image Source="{Binding CardMassive[6]}" Width="40" Height="40" HorizontalAlignment="Center" Grid.ColumnSpan="2" Margin="0,5,0,5"/>
+                                    <StackPanel Grid.Row="1" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" VerticalAlignment="Center" Height="30" Background="#FF3D95B9">
+                                        <TextBlock FontWeight="Thin" Text="{Binding WeatherLeftPanelSix}" Foreground="White" FontSize="15"  VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="0" Grid.Row="0" />
+                                        <TextBlock FontWeight="Bold" Text="{Binding TempaSix}" Foreground="White" FontSize="14" HorizontalAlignment="Center" Height="13" Grid.Column="0" Margin="0,-4,0,2" />
                                     </StackPanel>
-                                    <StackPanel Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Height="23" Width="29">
-                                        <TextBlock Text="Ощущ." Foreground="White" FontSize="10.7" HorizontalAlignment="Center" />
-                                        <TextBlock Text="{Binding FeelsFour}" Foreground="White" FontSize="9.3" HorizontalAlignment="Center" />
+                                    <StackPanel Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                        <TextBlock FontWeight="Thin" Text="Ощущ." Foreground="White" FontSize="14" HorizontalAlignment="Center" />
+                                        <TextBlock FontWeight="Thin" Text="{Binding FeelsSix}" Foreground="White" FontSize="14" HorizontalAlignment="Center" />
                                     </StackPanel>
-                                    <StackPanel Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" Height="23
-                                                " Width="29">
-                                        <TextBlock Text="Влаж." Foreground="White" FontSize="11" HorizontalAlignment="Center" />
-                                        <TextBlock Text="{Binding HumidityFour}" Foreground="White" FontSize="9.6" HorizontalAlignment="Center" />
+                                    <StackPanel Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                        <TextBlock FontWeight="Thin" Text="Влаж." Foreground="White" FontSize="14" HorizontalAlignment="Center" />
+                                        <TextBlock FontWeight="Thin" Text="{Binding HumiditySix}" Foreground="White" FontSize="14" HorizontalAlignment="Center" />
                                     </StackPanel>
                                 </Grid>
 
@@ -665,31 +732,30 @@
                                     </Grid.Effect>
 
                                     <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="51*" />
-                                        <ColumnDefinition Width="49*" />
+                                        <ColumnDefinition Width="50" />
+                                        <ColumnDefinition Width="50" />
                                     </Grid.ColumnDefinitions>
                                     <Grid.RowDefinitions>
-                                        <RowDefinition Height="21*" />
-                                        <RowDefinition Height="6*" />
-                                        <RowDefinition Height="6*" />
-                                        <RowDefinition Height="17*" />
+                                        <RowDefinition Height="auto" />
+                                        <RowDefinition Height="auto" />
+                                        <RowDefinition Height="7*" />
+                                        <RowDefinition Height="50*" />
                                     </Grid.RowDefinitions>
                                     <Grid.Background>
                                         <SolidColorBrush Color="#87B6CA" Opacity="1" />
                                     </Grid.Background>
-                                    <Image Source="{Binding CardMassive[5]}" Width="30" Height="30" HorizontalAlignment="Center" Grid.ColumnSpan="2" RenderTransformOrigin="0.5,1" />
-                                    <StackPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"  Grid.RowSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center" Height="28.8" Width="78" Background="#FF3D95B9">
-                                        <TextBlock Text="{Binding WeatherLeftPanelFive}" Foreground="White" FontSize="12" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="0" Grid.Row="0" />
-                                        <TextBlock Text="{Binding TempaFive}" Foreground="White" FontWeight="Bold" FontSize="14" HorizontalAlignment="Center" Height="13" Grid.Column="0" Margin="0,-2,0,0" />
+                                    <Image Source="{Binding CardMassive[7]}" Width="40" Height="40" HorizontalAlignment="Center" Grid.ColumnSpan="2" Margin="0,5,0,5"/>
+                                    <StackPanel Grid.Row="1"  Grid.ColumnSpan="2" HorizontalAlignment="Stretch" VerticalAlignment="Center" Height="30" Background="#FF3D95B9">
+                                        <TextBlock FontWeight="Thin" Text="{Binding WeatherLeftPanelSeven}" Foreground="White" FontSize="15" VerticalAlignment="Center" HorizontalAlignment="Center"  />
+                                        <TextBlock Text="{Binding TempaSeven}" Foreground="White" FontSize="14" HorizontalAlignment="Center" Height="13" Margin="0,-4,0,2" />
                                     </StackPanel>
-                                    <StackPanel Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Height="23" Width="29">
-                                        <TextBlock Text="Ощущ." Foreground="White" FontSize="10.7" HorizontalAlignment="Center" />
-                                        <TextBlock Text="{Binding FeelsFive}" Foreground="White" FontSize="9.3" HorizontalAlignment="Center" />
+                                    <StackPanel Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                        <TextBlock FontWeight="Thin" Text="Ощущ." Foreground="White" FontSize="14" HorizontalAlignment="Center" />
+                                        <TextBlock  FontWeight="Thin" Text="{Binding FeelsSeven}" Foreground="White" FontSize="14" HorizontalAlignment="Center" />
                                     </StackPanel>
-                                    <StackPanel Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" Height="23
-                                                " Width="29">
-                                        <TextBlock Text="Влаж." Foreground="White" FontSize="11" HorizontalAlignment="Center" />
-                                        <TextBlock Text="{Binding HumidityFive}" Foreground="White" FontSize="9.6" HorizontalAlignment="Center" />
+                                    <StackPanel Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                        <TextBlock FontWeight="Thin" Text="Влаж." Foreground="White" FontSize="14" HorizontalAlignment="Center" />
+                                        <TextBlock FontWeight="Thin" Text="{Binding HumiditySeven}" Foreground="White" FontSize="14" HorizontalAlignment="Center" />
                                     </StackPanel>
                                 </Grid>
 
@@ -700,31 +766,30 @@
                                     </Grid.Effect>
 
                                     <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="51*" />
-                                        <ColumnDefinition Width="49*" />
+                                        <ColumnDefinition Width="50" />
+                                        <ColumnDefinition Width="50" />
                                     </Grid.ColumnDefinitions>
                                     <Grid.RowDefinitions>
-                                        <RowDefinition Height="21*" />
-                                        <RowDefinition Height="6*" />
-                                        <RowDefinition Height="6*" />
-                                        <RowDefinition Height="17*" />
+                                        <RowDefinition Height="auto" />
+                                        <RowDefinition Height="auto" />
+                                        <RowDefinition Height="7*" />
+                                        <RowDefinition Height="50*" />
                                     </Grid.RowDefinitions>
                                     <Grid.Background>
                                         <SolidColorBrush Color="#87B6CA" Opacity="1" />
                                     </Grid.Background>
-                                    <Image Source="{Binding CardMassive[6]}" Width="30" Height="30" HorizontalAlignment="Center" Grid.ColumnSpan="2" />
-                                    <StackPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"  Grid.RowSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center" Height="28.8" Width="78" Background="#FF3D95B9">
-                                        <TextBlock Text="{Binding WeatherLeftPanelSix}" Foreground="White" FontSize="12" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="0" Grid.Row="0" />
-                                        <TextBlock Text="{Binding TempaSix}" Foreground="White" FontWeight="Bold" FontSize="14" HorizontalAlignment="Center" Height="13" Grid.Column="0" Margin="0,-2,0,0" />
+                                    <Image Source="{Binding CardMassive[8]}" Width="40" Height="40" HorizontalAlignment="Center" Grid.ColumnSpan="2" Margin="0,5,0,5"/>
+                                    <StackPanel Grid.Row="1" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" VerticalAlignment="Center" Height="30" Background="#FF3D95B9">
+                                        <TextBlock FontWeight="Thin" Text="{Binding WeatherLeftPanelEight}" Foreground="White" FontSize="14"  VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="0" Grid.Row="0" />
+                                        <TextBlock Text="{Binding TempaEight}" Foreground="White" FontSize="14" HorizontalAlignment="Center" Height="13" Grid.Column="0" Margin="0,-4,0,2" />
                                     </StackPanel>
-                                    <StackPanel Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Height="23" Width="29">
-                                        <TextBlock Text="Ощущ." Foreground="White" FontSize="10.7" HorizontalAlignment="Center" />
-                                        <TextBlock Text="{Binding FeelsSix}" Foreground="White" FontSize="9.3" HorizontalAlignment="Center" />
+                                    <StackPanel Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                        <TextBlock FontWeight="Thin" Text="Ощущ." Foreground="White" FontSize="14" HorizontalAlignment="Center" />
+                                        <TextBlock FontWeight="Thin" Text="{Binding FeelsEight}" Foreground="White" FontSize="14" HorizontalAlignment="Center" />
                                     </StackPanel>
-                                    <StackPanel Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" Height="23
-                                                " Width="29">
-                                        <TextBlock Text="Влаж." Foreground="White" FontSize="11" HorizontalAlignment="Center" />
-                                        <TextBlock Text="{Binding HumiditySix}" Foreground="White" FontSize="9.6" HorizontalAlignment="Center" />
+                                    <StackPanel Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                        <TextBlock FontWeight="Thin" Text="Влаж." Foreground="White" FontSize="14" HorizontalAlignment="Center" />
+                                        <TextBlock FontWeight="Thin" Text="{Binding HumidityEight}" Foreground="White" FontSize="14" HorizontalAlignment="Center" />
                                     </StackPanel>
                                 </Grid>
 
@@ -735,101 +800,30 @@
                                     </Grid.Effect>
 
                                     <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="51*" />
-                                        <ColumnDefinition Width="49*" />
+                                        <ColumnDefinition Width="50" />
+                                        <ColumnDefinition Width="50" />
                                     </Grid.ColumnDefinitions>
                                     <Grid.RowDefinitions>
-                                        <RowDefinition Height="21*" />
-                                        <RowDefinition Height="6*" />
-                                        <RowDefinition Height="6*" />
-                                        <RowDefinition Height="17*" />
+                                        <RowDefinition Height="auto" />
+                                        <RowDefinition Height="auto" />
+                                        <RowDefinition Height="7*" />
+                                        <RowDefinition Height="50*" />
                                     </Grid.RowDefinitions>
                                     <Grid.Background>
                                         <SolidColorBrush Color="#87B6CA" Opacity="1" />
                                     </Grid.Background>
-                                    <Image Source="{Binding CardMassive[7]}" Width="30" Height="30" HorizontalAlignment="Center" Grid.ColumnSpan="2" />
-                                    <StackPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"  Grid.RowSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center" Height="28.8" Width="78" Background="#FF3D95B9">
-                                        <TextBlock Text="{Binding WeatherLeftPanelSeven}" Foreground="White" FontSize="12" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="0" Grid.Row="0" />
-                                        <TextBlock Text="{Binding TempaSeven}" Foreground="White" FontWeight="Bold" FontSize="14" HorizontalAlignment="Center" Height="13" Grid.Column="0" Margin="0,-2,0,0" />
+                                    <Image Source="{Binding CardMassive[8]}" Width="40" Height="40" HorizontalAlignment="Center" Grid.ColumnSpan="2" Margin="0,5,0,5"/>
+                                    <StackPanel Grid.Row="1" Grid.ColumnSpan="2"  HorizontalAlignment="Stretch" VerticalAlignment="Center" Height="30" Background="#FF3D95B9">
+                                        <TextBlock FontWeight="Thin" Text="{Binding WeatherLeftPanelNine}" Foreground="White" FontSize="15" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                        <TextBlock Text="{Binding TempaNine}" Foreground="White" FontSize="14" HorizontalAlignment="Center" Height="13" Margin="0,-4,0,2" />
                                     </StackPanel>
-                                    <StackPanel Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Height="23" Width="29">
-                                        <TextBlock Text="Ощущ." Foreground="White" FontSize="10.7" HorizontalAlignment="Center" />
-                                        <TextBlock Text="{Binding FeelsSeven}" Foreground="White" FontSize="9.3" HorizontalAlignment="Center" />
+                                    <StackPanel Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Top">
+                                        <TextBlock FontWeight="Thin" Text="Ощущ." Foreground="White" FontSize="14" HorizontalAlignment="Center" />
+                                        <TextBlock FontWeight="Thin" Text="{Binding FeelsNine}" Foreground="White" FontSize="14" HorizontalAlignment="Center" />
                                     </StackPanel>
-                                    <StackPanel Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" Height="23
-                                                " Width="29">
-                                        <TextBlock Text="Влаж." Foreground="White" FontSize="11" HorizontalAlignment="Center" />
-                                        <TextBlock Text="{Binding HumiditySeven}" Foreground="White" FontSize="9.6" HorizontalAlignment="Center" />
-                                    </StackPanel>
-                                </Grid>
-
-                                <Grid Margin="7" MouseLeftButtonDown="OnMouseLeftButtonDown" MouseLeftButtonUp="OnMouseLeftButtonUp" MouseMove="OnMouseMove">
-
-                                    <Grid.Effect>
-                                        <DropShadowEffect Direction="270" ShadowDepth="5" Color="Black" Opacity="0.3"/>
-                                    </Grid.Effect>
-
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="51*" />
-                                        <ColumnDefinition Width="49*" />
-                                    </Grid.ColumnDefinitions>
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="21*" />
-                                        <RowDefinition Height="6*" />
-                                        <RowDefinition Height="6*" />
-                                        <RowDefinition Height="17*" />
-                                    </Grid.RowDefinitions>
-                                    <Grid.Background>
-                                        <SolidColorBrush Color="#87B6CA" Opacity="1" />
-                                    </Grid.Background>
-                                    <Image Source="{Binding CardMassive[8]}" Width="30" Height="30" HorizontalAlignment="Center" Grid.ColumnSpan="2" />
-                                    <StackPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"  Grid.RowSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center" Height="28.8" Width="78" Background="#FF3D95B9">
-                                        <TextBlock Text="{Binding WeatherLeftPanelEight}" Foreground="White" FontSize="12" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="0" Grid.Row="0" />
-                                        <TextBlock Text="{Binding TempaEight}" Foreground="White" FontWeight="Bold" FontSize="14" HorizontalAlignment="Center" Height="13" Grid.Column="0" Margin="0,-2,0,0" />
-                                    </StackPanel>
-                                    <StackPanel Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Height="23" Width="29">
-                                        <TextBlock Text="Ощущ." Foreground="White" FontSize="10.7" HorizontalAlignment="Center" />
-                                        <TextBlock Text="{Binding FeelsEight}" Foreground="White" FontSize="9.3" HorizontalAlignment="Center" />
-                                    </StackPanel>
-                                    <StackPanel Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" Height="23
-                                                " Width="29">
-                                        <TextBlock Text="Влаж." Foreground="White" FontSize="11" HorizontalAlignment="Center" />
-                                        <TextBlock Text="{Binding HumidityEight}" Foreground="White" FontSize="9.6" HorizontalAlignment="Center" />
-                                    </StackPanel>
-                                </Grid>
-
-                                <Grid Width="78" Height="120" Margin="7" MouseLeftButtonDown="OnMouseLeftButtonDown" MouseLeftButtonUp="OnMouseLeftButtonUp" MouseMove="OnMouseMove">
-
-                                    <Grid.Effect>
-                                        <DropShadowEffect Direction="270" ShadowDepth="5" Color="Black" Opacity="0.3"/>
-                                    </Grid.Effect>
-
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="51*" />
-                                        <ColumnDefinition Width="49*" />
-                                    </Grid.ColumnDefinitions>
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="21*" />
-                                        <RowDefinition Height="6*" />
-                                        <RowDefinition Height="6*" />
-                                        <RowDefinition Height="17*" />
-                                    </Grid.RowDefinitions>
-                                    <Grid.Background>
-                                        <SolidColorBrush Color="#87B6CA" Opacity="1" />
-                                    </Grid.Background>
-                                    <Image Source="{Binding CardMassive[8]}" Width="30" Height="30" HorizontalAlignment="Center" Grid.ColumnSpan="2" />
-                                    <StackPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"  Grid.RowSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center" Height="28.8" Width="78" Background="#FF3D95B9">
-                                        <TextBlock Text="{Binding WeatherLeftPanelNine}" Foreground="White" FontSize="12" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="0" Grid.Row="0" />
-                                        <TextBlock Text="{Binding TempaNine}" Foreground="White" FontWeight="Bold" FontSize="14" HorizontalAlignment="Center" Height="13" Grid.Column="0" Margin="0,-2,0,0" />
-                                    </StackPanel>
-                                    <StackPanel Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Height="23" Width="29">
-                                        <TextBlock Text="Ощущ." Foreground="White" FontSize="10.7" HorizontalAlignment="Center" />
-                                        <TextBlock Text="{Binding FeelsNine}" Foreground="White" FontSize="9.3" HorizontalAlignment="Center" />
-                                    </StackPanel>
-                                    <StackPanel Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" Height="23
-                                                " Width="29">
-                                        <TextBlock Text="Влаж." Foreground="White" FontSize="11" HorizontalAlignment="Center" />
-                                        <TextBlock Text="{Binding HumidityNine}" Foreground="White" FontSize="9.6" HorizontalAlignment="Center" />
+                                    <StackPanel Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Top">
+                                        <TextBlock FontWeight="Thin" Text="Влаж." Foreground="White" FontSize="14" HorizontalAlignment="Center" />
+                                        <TextBlock FontWeight="Thin" Text="{Binding HumidityNine}" Foreground="White" FontSize="14" HorizontalAlignment="Center" />
                                     </StackPanel>
                                 </Grid>
 
@@ -874,375 +868,6 @@
                         </Grid>
                     </Border>
 
-                    <!--<StackPanel Grid.Row="7" Grid.ColumnSpan="3" Background="{DynamicResource Primary}" Margin="20,0,20,10">
-                        <Grid>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto" />
-                                <RowDefinition  Height="*"/>
-                            </Grid.RowDefinitions>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="*" />
-                            </Grid.ColumnDefinitions>
-
-
-                            <Button Command="{Binding CnDiagr01}" Content="Температура" Grid.Column="0" Margin="5" Background="{DynamicResource Secondary}" Height="35" HorizontalAlignment="Stretch" FontSize="16" FontWeight="Normal"></Button>
-                            <Button Command="{Binding CnDiagr02}" Content="Ощущается как" Grid.Column="1" Margin="5" Background="{DynamicResource Secondary}" Height="35" HorizontalAlignment="Stretch" FontSize="16" FontWeight="Normal"></Button>
-                            <Button Command="{Binding CnDiagr03}" Content="Давление" Grid.Column="3" Margin="5" Background="{DynamicResource Secondary}" Height="35" HorizontalAlignment="Stretch" FontSize="16" FontWeight="Normal"></Button>
-
-
-                            <lvc:CartesianChart Series="{Binding SeriesCollection}" Foreground="Black" Grid.Row="1" Grid.ColumnSpan="3" VerticalAlignment="Stretch">
-                                <lvc:CartesianChart.AxisX>
-                                    <lvc:Axis Title="Время" Labels="{Binding Labels}"></lvc:Axis>
-                                </lvc:CartesianChart.AxisX>
-                                <lvc:CartesianChart.AxisY>
-                                    <lvc:Axis Title="Сведения" LabelFormatter="{Binding YFormatter}" Foreground="White"></lvc:Axis>
-                                </lvc:CartesianChart.AxisY>
-                            </lvc:CartesianChart>
-                        </Grid>
-                    </StackPanel> -->
-
-
-
-
-
-
-                    <!-- <ScrollViewer x:Name="scrollViewer" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden" Grid.Row="4" Grid.Column="1" MouseLeftButtonDown="OnMouseLeftButtonDown" MouseLeftButtonUp="OnMouseLeftButtonUp" MouseMove="OnMouseMove" Grid.ColumnSpan="1" >
-                        <Grid>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="*"/>
-                            </Grid.RowDefinitions>
-                            <Grid.Background>
-                                <SolidColorBrush Color="#F8C5B4" Opacity="0.5" />
-                            </Grid.Background>
-                            <WrapPanel Orientation="Horizontal">
-                                <Grid Width="78" Height="120" Margin="4" MouseLeftButtonDown="OnMouseLeftButtonDown" MouseLeftButtonUp="OnMouseLeftButtonUp" MouseMove="OnMouseMove">
-
-                                    <Grid.Effect>
-                                        <DropShadowEffect Direction="270" ShadowDepth="5" Color="Black" Opacity="0.3"/>
-                                    </Grid.Effect>
-
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="61*" />
-                                        <ColumnDefinition Width="59*" />
-                                    </Grid.ColumnDefinitions>
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="25*" />
-                                        <RowDefinition Height="7*" />
-                                        <RowDefinition Height="7*" />
-                                        <RowDefinition Height="20*" />
-                                    </Grid.RowDefinitions>
-                                    <Grid.Background>
-                                        <SolidColorBrush Color="#87B6CA" Opacity="1" />
-                                    </Grid.Background>
-                                    <Image Source="{Binding CardMassive[1]}" Width="30" Height="30" HorizontalAlignment="Center" Grid.ColumnSpan="2" />
-                                    <StackPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"  Grid.RowSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center" Height="28.8" Width="78" Background="#FF3D95B9">
-                                        <TextBlock Text="{Binding WeatherLeftPanelOne}" Foreground="White" FontSize="12" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="0" Grid.Row="0" />
-                                        <TextBlock Text="{Binding TempaOne}" Foreground="White" FontWeight="Bold" FontSize="14" HorizontalAlignment="Center" Height="13" Grid.Column="0" Margin="0,-2,0,0" />
-                                    </StackPanel>
-                                    <StackPanel Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Height="23" Width="29">
-                                        <TextBlock Text="Ощущ." Foreground="White" FontSize="9.6" HorizontalAlignment="Center" />
-                                        <TextBlock Text="{Binding FeelsOne}" Foreground="White" FontSize="9.6" HorizontalAlignment="Center" />
-                                    </StackPanel>
-                                    <StackPanel Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" Height="23
-                                                " Width="29">
-                                        <TextBlock Text="Влаж." Foreground="White" FontSize="9.6" HorizontalAlignment="Center" />
-                                        <TextBlock Text="{Binding HumidityOne}" Foreground="White" FontSize="9.6" HorizontalAlignment="Center" />
-                                    </StackPanel>
-                                </Grid>
-
-                                <Grid Width="78" Height="120" Margin="4" MouseLeftButtonDown="OnMouseLeftButtonDown" MouseLeftButtonUp="OnMouseLeftButtonUp" MouseMove="OnMouseMove">
-
-                                    <Grid.Effect>
-                                        <DropShadowEffect Direction="270" ShadowDepth="5" Color="Black" Opacity="0.3"/>
-                                    </Grid.Effect>
-
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="51*" />
-                                        <ColumnDefinition Width="49*" />
-                                    </Grid.ColumnDefinitions>
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="21*" />
-                                        <RowDefinition Height="6*" />
-                                        <RowDefinition Height="6*" />
-                                        <RowDefinition Height="17*" />
-                                    </Grid.RowDefinitions>
-                                    <Grid.Background>
-                                        <SolidColorBrush Color="#87B6CA" Opacity="1" />
-                                    </Grid.Background>
-                                    <Image Source="{Binding CardMassive[1]}" Width="30" Height="30" HorizontalAlignment="Center" Grid.ColumnSpan="2" />
-                                    <StackPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"  Grid.RowSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center" Height="28.8" Width="78" Background="#FF3D95B9">
-                                        <TextBlock Text="{Binding WeatherLeftPanelTwo}" Foreground="White" FontSize="12" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="0" Grid.Row="0" />
-                                        <TextBlock Text="{Binding TempaTwo}" Foreground="White" FontWeight="Bold" FontSize="14" HorizontalAlignment="Center" Height="13" Grid.Column="0" Margin="0,-2,0,0" />
-                                    </StackPanel>
-                                    <StackPanel Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Height="23" Width="29">
-                                        <TextBlock Text="Ощущ." Foreground="White" FontSize="9.6" HorizontalAlignment="Center" />
-                                        <TextBlock Text="{Binding FeelsTwo}" Foreground="White" FontSize="9.3" HorizontalAlignment="Center" />
-                                    </StackPanel>
-                                    <StackPanel Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" Height="23
-                                                " Width="29">
-                                        <TextBlock Text="Влаж." Foreground="White" FontSize="9.6" HorizontalAlignment="Center" />
-                                        <TextBlock Text="{Binding HumidityTwo}" Foreground="White" FontSize="9.6" HorizontalAlignment="Center" />
-                                    </StackPanel>
-                                </Grid>
-
-                                <Grid Width="78" Height="120" Margin="4" MouseLeftButtonDown="OnMouseLeftButtonDown" MouseLeftButtonUp="OnMouseLeftButtonUp" MouseMove="OnMouseMove">
-
-                                    <Grid.Effect>
-                                        <DropShadowEffect Direction="270" ShadowDepth="5" Color="Black" Opacity="0.3"/>
-                                    </Grid.Effect>
-
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="51*" />
-                                        <ColumnDefinition Width="49*" />
-                                    </Grid.ColumnDefinitions>
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="21*" />
-                                        <RowDefinition Height="6*" />
-                                        <RowDefinition Height="6*" />
-                                        <RowDefinition Height="17*" />
-                                    </Grid.RowDefinitions>
-                                    <Grid.Background>
-                                        <SolidColorBrush Color="#87B6CA" Opacity="1" />
-                                    </Grid.Background>
-                                    <Image Source="{Binding CardMassive[2]}" Width="30" Height="30" HorizontalAlignment="Center" Grid.ColumnSpan="2" />
-                                    <StackPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"  Grid.RowSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center" Height="28.8" Width="78" Background="#FF3D95B9">
-                                        <TextBlock Text="{Binding WeatherLeftPanelThree}" Foreground="White" FontSize="12" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="0" Grid.Row="0" />
-                                        <TextBlock Text="{Binding TempaThree}" Foreground="White" FontWeight="Bold" FontSize="14" HorizontalAlignment="Center" Height="13" Grid.Column="0" Margin="0,-2,0,0" />
-                                    </StackPanel>
-                                    <StackPanel Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Height="23" Width="29">
-                                        <TextBlock Text="Ощущ." Foreground="White" FontSize="9.6" HorizontalAlignment="Center" />
-                                        <TextBlock Text="{Binding FeelsThree}" Foreground="White" FontSize="9.3" HorizontalAlignment="Center" />
-                                    </StackPanel>
-                                    <StackPanel Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" Height="23
-                                                " Width="29">
-                                        <TextBlock Text="Влаж." Foreground="White" FontSize="9.6" HorizontalAlignment="Center" />
-                                        <TextBlock Text="{Binding HumidityThree}" Foreground="White" FontSize="9.6" HorizontalAlignment="Center" />
-                                    </StackPanel>
-                                </Grid>
-
-                                <Grid Width="78" Height="120" Margin="4" MouseLeftButtonDown="OnMouseLeftButtonDown" MouseLeftButtonUp="OnMouseLeftButtonUp" MouseMove="OnMouseMove">
-
-                                    <Grid.Effect>
-                                        <DropShadowEffect Direction="270" ShadowDepth="5" Color="Black" Opacity="0.3"/>
-                                    </Grid.Effect>
-
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="51*" />
-                                        <ColumnDefinition Width="49*" />
-                                    </Grid.ColumnDefinitions>
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="21*" />
-                                        <RowDefinition Height="6*" />
-                                        <RowDefinition Height="6*" />
-                                        <RowDefinition Height="17*" />
-                                    </Grid.RowDefinitions>
-                                    <Grid.Background>
-                                        <SolidColorBrush Color="#87B6CA" Opacity="1" />
-                                    </Grid.Background>
-                                    <Image Source="{Binding CardMassive[3]}" Width="30" Height="30" HorizontalAlignment="Center" Grid.ColumnSpan="2" />
-                                    <StackPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"  Grid.RowSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center" Height="28.8" Width="78" Background="#FF3D95B9">
-                                        <TextBlock Text="{Binding WeatherLeftPanelFour}" Foreground="White" FontSize="12" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="0" Grid.Row="0" />
-                                        <TextBlock Text="{Binding TempaFour}" Foreground="White" FontWeight="Bold" FontSize="14" HorizontalAlignment="Center" Height="13" Grid.Column="0" Margin="0,-2,0,0" />
-                                    </StackPanel>
-                                    <StackPanel Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Height="23" Width="29">
-                                        <TextBlock Text="Ощущ." Foreground="White" FontSize="9.6" HorizontalAlignment="Center" />
-                                        <TextBlock Text="{Binding FeelsFour}" Foreground="White" FontSize="9.3" HorizontalAlignment="Center" />
-                                    </StackPanel>
-                                    <StackPanel Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" Height="23
-                                                " Width="29">
-                                        <TextBlock Text="Влаж." Foreground="White" FontSize="9.6" HorizontalAlignment="Center" />
-                                        <TextBlock Text="{Binding HumidityFour}" Foreground="White" FontSize="9.6" HorizontalAlignment="Center" />
-                                    </StackPanel>
-                                </Grid>
-
-                                <Grid Width="78" Height="120" Margin="4" MouseLeftButtonDown="OnMouseLeftButtonDown" MouseLeftButtonUp="OnMouseLeftButtonUp" MouseMove="OnMouseMove">
-
-                                    <Grid.Effect>
-                                        <DropShadowEffect Direction="270" ShadowDepth="5" Color="Black" Opacity="0.3"/>
-                                    </Grid.Effect>
-
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="51*" />
-                                        <ColumnDefinition Width="49*" />
-                                    </Grid.ColumnDefinitions>
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="50.4" />
-                                        <RowDefinition Height="14*" />
-                                        <RowDefinition Height="14*" />
-                                        <RowDefinition Height="41*" />
-                                    </Grid.RowDefinitions>
-                                    <Grid.Background>
-                                        <SolidColorBrush Color="#87B6CA" Opacity="1" />
-                                    </Grid.Background>
-                                    <Image Source="{Binding CardMassive[4]}" Width="30" Height="30" HorizontalAlignment="Center" Grid.ColumnSpan="2" />
-                                    <StackPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"  Grid.RowSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center" Height="28.8" Width="78" Background="#FF3D95B9">
-                                        <TextBlock Text="{Binding WeatherLeftPanelFive}" Foreground="White" FontSize="12" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="0" Grid.Row="0" />
-                                        <TextBlock Text="{Binding TempaFive}" Foreground="White" FontWeight="Bold" FontSize="14" HorizontalAlignment="Center" Height="13" Grid.Column="0" Margin="0,-2,0,0" />
-                                    </StackPanel>
-                                    <StackPanel Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Height="23" Width="29">
-                                        <TextBlock Text="Ощущ." Foreground="White" FontSize="9.6" HorizontalAlignment="Center" />
-                                        <TextBlock Text="{Binding FeelsFive}" Foreground="White" FontSize="9.3" HorizontalAlignment="Center" />
-                                    </StackPanel>
-                                    <StackPanel Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" Height="23
-                                                " Width="29">
-                                        <TextBlock Text="Влаж." Foreground="White" FontSize="9.6" HorizontalAlignment="Center" />
-                                        <TextBlock Text="{Binding HumidityFive}" Foreground="White" FontSize="9.6" HorizontalAlignment="Center" />
-                                    </StackPanel>
-                                </Grid>
-
-                                <Grid Width="78" Height="120" Margin="4" MouseLeftButtonDown="OnMouseLeftButtonDown" MouseLeftButtonUp="OnMouseLeftButtonUp" MouseMove="OnMouseMove">
-
-                                    <Grid.Effect>
-                                        <DropShadowEffect Direction="270" ShadowDepth="5" Color="Black" Opacity="0.3"/>
-                                    </Grid.Effect>
-
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="51*" />
-                                        <ColumnDefinition Width="49*" />
-                                    </Grid.ColumnDefinitions>
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="21*" />
-                                        <RowDefinition Height="6*" />
-                                        <RowDefinition Height="6*" />
-                                        <RowDefinition Height="17*" />
-                                    </Grid.RowDefinitions>
-                                    <Grid.Background>
-                                        <SolidColorBrush Color="#87B6CA" Opacity="1" />
-                                    </Grid.Background>
-                                    <Image Source="{Binding CardMassive[5]}" Width="30" Height="30" HorizontalAlignment="Center" Grid.ColumnSpan="2" />
-                                    <StackPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"  Grid.RowSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center" Height="28.8" Width="78" Background="#FF3D95B9">
-                                        <TextBlock Text="{Binding WeatherLeftPanelSix}" Foreground="White" FontSize="12" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="0" Grid.Row="0" />
-                                        <TextBlock Text="{Binding TempaSix}" Foreground="White" FontWeight="Bold" FontSize="14" HorizontalAlignment="Center" Height="13" Grid.Column="0" Margin="0,-2,0,0" />
-                                    </StackPanel>
-                                    <StackPanel Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Height="23" Width="29">
-                                        <TextBlock Text="Ощущ." Foreground="White" FontSize="9.6" HorizontalAlignment="Center" />
-                                        <TextBlock Text="{Binding FeelsSix}" Foreground="White" FontSize="9.3" HorizontalAlignment="Center" />
-                                    </StackPanel>
-                                    <StackPanel Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" Height="23
-                                                " Width="29">
-                                        <TextBlock Text="Влаж." Foreground="White" FontSize="9.6" HorizontalAlignment="Center" />
-                                        <TextBlock Text="{Binding HumiditySix}" Foreground="White" FontSize="9.6" HorizontalAlignment="Center" />
-                                    </StackPanel>
-                                </Grid>
-
-                                <Grid Width="78" Height="120" Margin="4" MouseLeftButtonDown="OnMouseLeftButtonDown" MouseLeftButtonUp="OnMouseLeftButtonUp" MouseMove="OnMouseMove">
-
-                                    <Grid.Effect>
-                                        <DropShadowEffect Direction="270" ShadowDepth="5" Color="Black" Opacity="0.3"/>
-                                    </Grid.Effect>
-
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="51*" />
-                                        <ColumnDefinition Width="49*" />
-                                    </Grid.ColumnDefinitions>
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="21*" />
-                                        <RowDefinition Height="6*" />
-                                        <RowDefinition Height="6*" />
-                                        <RowDefinition Height="17*" />
-                                    </Grid.RowDefinitions>
-                                    <Grid.Background>
-                                        <SolidColorBrush Color="#87B6CA" Opacity="1" />
-                                    </Grid.Background>
-                                    <Image Source="{Binding CardMassive[6]}" Width="30" Height="30" HorizontalAlignment="Center" Grid.ColumnSpan="2" />
-                                    <StackPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"  Grid.RowSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center" Height="28.8" Width="78" Background="#FF3D95B9">
-                                        <TextBlock Text="{Binding WeatherLeftPanelSeven}" Foreground="White" FontSize="12" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="0" Grid.Row="0" />
-                                        <TextBlock Text="{Binding TempaSeven}" Foreground="White" FontWeight="Bold" FontSize="14" HorizontalAlignment="Center" Height="13" Grid.Column="0" Margin="0,-2,0,0" />
-                                    </StackPanel>
-                                    <StackPanel Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Height="23" Width="29">
-                                        <TextBlock Text="Ощущ." Foreground="White" FontSize="9.6" HorizontalAlignment="Center" />
-                                        <TextBlock Text="{Binding FeelsSeven}" Foreground="White" FontSize="9.3" HorizontalAlignment="Center" />
-                                    </StackPanel>
-                                    <StackPanel Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" Height="23
-                                                " Width="29">
-                                        <TextBlock Text="Влаж." Foreground="White" FontSize="9.6" HorizontalAlignment="Center" />
-                                        <TextBlock Text="{Binding HumiditySeven}" Foreground="White" FontSize="9.6" HorizontalAlignment="Center" />
-                                    </StackPanel>
-                                </Grid>
-
-                                <Grid Width="78" Height="120" Margin="4" MouseLeftButtonDown="OnMouseLeftButtonDown" MouseLeftButtonUp="OnMouseLeftButtonUp" MouseMove="OnMouseMove">
-
-                                    <Grid.Effect>
-                                        <DropShadowEffect Direction="270" ShadowDepth="5" Color="Black" Opacity="0.3"/>
-                                    </Grid.Effect>
-
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="51*" />
-                                        <ColumnDefinition Width="49*" />
-                                    </Grid.ColumnDefinitions>
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="21*" />
-                                        <RowDefinition Height="6*" />
-                                        <RowDefinition Height="6*" />
-                                        <RowDefinition Height="17*" />
-                                    </Grid.RowDefinitions>
-                                    <Grid.Background>
-                                        <SolidColorBrush Color="#87B6CA" Opacity="1" />
-                                    </Grid.Background>
-                                    <Image Source="{Binding CardMassive[7]}" Width="30" Height="30" HorizontalAlignment="Center" Grid.ColumnSpan="2" />
-                                    <StackPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"  Grid.RowSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center" Height="28.8" Width="78" Background="#FF3D95B9">
-                                        <TextBlock Text="{Binding WeatherLeftPanelEight}" Foreground="White" FontSize="12" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="0" Grid.Row="0" />
-                                        <TextBlock Text="{Binding TempaEight}" Foreground="White" FontWeight="Bold" FontSize="14" HorizontalAlignment="Center" Height="13" Grid.Column="0" Margin="0,-2,0,0" />
-                                    </StackPanel>
-                                    <StackPanel Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Height="23" Width="29">
-                                        <TextBlock Text="Ощущ." Foreground="White" FontSize="9.6" HorizontalAlignment="Center" />
-                                        <TextBlock Text="{Binding FeelsEight}" Foreground="White" FontSize="9.3" HorizontalAlignment="Center" />
-                                    </StackPanel>
-                                    <StackPanel Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" Height="23
-                                                " Width="29">
-                                        <TextBlock Text="Влаж." Foreground="White" FontSize="9.6" HorizontalAlignment="Center" />
-                                        <TextBlock Text="{Binding HumidityEight}" Foreground="White" FontSize="9.6" HorizontalAlignment="Center" />
-                                    </StackPanel>
-                                </Grid>
-
-                                <Grid Width="78" Height="120" Margin="4" MouseLeftButtonDown="OnMouseLeftButtonDown" MouseLeftButtonUp="OnMouseLeftButtonUp" MouseMove="OnMouseMove">
-
-                                    <Grid.Effect>
-                                        <DropShadowEffect Direction="270" ShadowDepth="5" Color="Black" Opacity="0.3"/>
-                                    </Grid.Effect>
-
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="51*" />
-                                        <ColumnDefinition Width="49*" />
-                                    </Grid.ColumnDefinitions>
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="21*" />
-                                        <RowDefinition Height="6*" />
-                                        <RowDefinition Height="6*" />
-                                        <RowDefinition Height="17*" />
-                                    </Grid.RowDefinitions>
-                                    <Grid.Background>
-                                        <SolidColorBrush Color="#87B6CA" Opacity="1" />
-                                    </Grid.Background>
-                                    <Image Source="{Binding CardMassive[8]}" Width="30" Height="30" HorizontalAlignment="Center" Grid.ColumnSpan="2" />
-                                    <StackPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"  Grid.RowSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center" Height="28.8" Width="78" Background="#FF3D95B9">
-                                        <TextBlock Text="{Binding WeatherLeftPanelNine}" Foreground="White" FontSize="12" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="0" Grid.Row="0" />
-                                        <TextBlock Text="{Binding TempaNine}" Foreground="White" FontWeight="Bold" FontSize="14" HorizontalAlignment="Center" Height="13" Grid.Column="0" Margin="0,-2,0,0" />
-                                    </StackPanel>
-                                    <StackPanel Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Height="23" Width="29">
-                                        <TextBlock Text="Ощущ." Foreground="White" FontSize="9.6" HorizontalAlignment="Center" />
-                                        <TextBlock Text="{Binding FeelsNine}" Foreground="White" FontSize="9.3" HorizontalAlignment="Center" />
-                                    </StackPanel>
-                                    <StackPanel Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" Height="23
-                                                " Width="29">
-                                        <TextBlock Text="Влаж." Foreground="White" FontSize="9.6" HorizontalAlignment="Center" />
-                                        <TextBlock Text="{Binding HumidityNine}" Foreground="White" FontSize="9.6" HorizontalAlignment="Center" />
-                                    </StackPanel>
-                                </Grid>
-
-                            </WrapPanel>
-
-
-
-                        </Grid>
-                    </ScrollViewer> -->
-
-                    <!-- <ProgressBar Grid.RowSpan="6" Grid.Column="1" Grid.Row="1"
-              Style="{StaticResource MaterialDesignCircularProgressBar}"
-              Value="0"
-              IsIndeterminate="True" Width="300" Height="200" /> -->
                 </Grid>
             </TabItem>
 
