@@ -7,12 +7,18 @@ using System.Windows;
 using System.Net.Http;
 using System.Timers;
 using System.Windows.Media.Imaging;
+using LiveCharts;
+using LiveCharts.Wpf;
+using System.Windows.Input;
+using CommunityToolkit.Mvvm.Input;
 
 namespace SunClouds.ViewModel
 {
     internal class WeatherInfViewModel : PropertyChangedHelper
     {
         private string city;
+
+        private RootObject rootObject;
 
         private bool flag = true;
 
@@ -145,6 +151,10 @@ namespace SunClouds.ViewModel
             } 
         }
 
+        public ICommand CnDiagr01 { get; }
+        public ICommand CnDiagr02 { get; }
+        public ICommand CnDiagr03 { get; }
+
         //таймер для обновления данных каждый час
         private readonly Timer _timer = new Timer();
         public WeatherInfViewModel(string city)
@@ -156,6 +166,10 @@ namespace SunClouds.ViewModel
             _timer.Elapsed += async (sender, e) => await Selected();
             _timer.Interval = TimeSpan.FromHours(1).TotalMilliseconds;
             _timer.Start();
+
+            CnDiagr01 = new RelayCommand(Diagram01);
+            CnDiagr02 = new RelayCommand(Diagram02);
+            CnDiagr03 = new RelayCommand(Diagram03);
         }
 
         //вывод данных из API
@@ -164,7 +178,7 @@ namespace SunClouds.ViewModel
             if (DateTime.Now.Hour%2 == 1 || flag)
             {
                 _ = new RootObject();
-                RootObject rootObject = await WeatherForecast.GetWeatherForecast(city);
+                rootObject = await WeatherForecast.GetWeatherForecast(city);
                 WeatherLeftPanelNow = TimeConverter.UnixToUtc(rootObject.list[0].dt, rootObject.city.timezone).ToString("HH:mm");
                 WeatherLeftPanelOne = TimeConverter.UnixToUtc(rootObject.list[1].dt, rootObject.city.timezone).ToString("HH:mm");
                 WeatherLeftPanelTwo = TimeConverter.UnixToUtc(rootObject.list[2].dt, rootObject.city.timezone).ToString("HH:mm");
@@ -224,7 +238,30 @@ namespace SunClouds.ViewModel
                 //скорость ветра
                 Wind = rootObject.list[0].wind.speed.ToString() + "м/с";
                 // темпа ветра
-                WindTemp = rootObject.list[0].wind.deg.ToString() + "°";
+                WindTemp = rootObject.list[0].wind.deg.ToString() + "°";                               
+
+                ChartValues<double> doubles = new ChartValues<double>();
+
+                SeriesCollection = new SeriesCollection
+                {
+                    new LineSeries
+                    {
+                        Title = "Температура",
+                        Values = doubles
+                    },
+                };
+
+                for (int i = 0; i < 10; i++)
+                {
+                    doubles.Add(Math.Round(rootObject.list[i].main.temp));
+                }
+
+                Labels = new string[9];
+                for (int i = 0; i < 10; i++)
+                {
+                    Labels[i] = TimeConverter.UnixToUtc(rootObject.list[i].dt, rootObject.city.timezone).ToString("HH");
+                }
+                YFormatter = value => value.ToString();
 
                 for (int i = 0; i < 13; i++)
                 {
@@ -283,7 +320,7 @@ namespace SunClouds.ViewModel
                     }
                     else if (i == 9)
                     {
-                        Notify("OneTwoTrhee", "CardMassive");
+                        //Notify("OneTwoTrhee", "CardMassive");
                     }
                     else
                     {
@@ -310,12 +347,69 @@ namespace SunClouds.ViewModel
                         }
                     }
                 }
+
                 flag = false;
             }
             else
             {
 
             }
+        }
+
+        private void Diagram01()
+        {
+            ChartValues<double> doubles = new ChartValues<double>();            
+
+            SeriesCollection = new SeriesCollection
+            {
+                new LineSeries
+                {
+                    Title = "Температура",
+                    Values = doubles
+                },
+            };
+
+            for (int i = 0; i < 10; i++)
+            {
+                doubles.Add(Math.Round(rootObject.list[i].main.temp));
+                
+            }
+        }
+        private void Diagram02()
+        {
+            ChartValues<double> doubles = new ChartValues<double>();
+
+            SeriesCollection = new SeriesCollection
+            {
+                new LineSeries
+                {
+                    Title = "Ощущается как",
+                    Values = doubles
+                },
+            };
+
+            for (int i = 0; i < 10; i++)
+            {
+                doubles.Add(Math.Round(rootObject.list[i].main.feels_like));
+            }           
+        }
+        private void Diagram03()
+        {
+            ChartValues<double> doubles = new ChartValues<double>();
+
+            SeriesCollection = new SeriesCollection
+            {
+                new LineSeries
+                {
+                    Title = "Давление",
+                    Values = doubles
+                },
+            };
+
+            for (int i = 0; i < 10; i++)
+            {
+                doubles.Add(rootObject.list[i].main.pressure);
+            }            
         }
 
         public BitmapImage ToBitmapImage(string imagePath)
@@ -356,5 +450,12 @@ namespace SunClouds.ViewModel
         public string Humidity { get => _humidity; set { _humidity = value; OnPropertyChanged(); } }
         public string Wind { get => _wind; set { _wind = value; OnPropertyChanged();} }
         public string WindTemp { get => _windTemp; set { _windTemp = value; OnPropertyChanged(); } }
+
+        private SeriesCollection _SeriesCollection;
+        private string[] _Labels;
+        private Func<double, string> _YFormatter;
+        public SeriesCollection SeriesCollection { get => _SeriesCollection; set { _SeriesCollection = value; OnPropertyChanged(); } }
+        public string[] Labels { get => _Labels; set { _Labels = value; OnPropertyChanged(); } }
+        public Func<double, string> YFormatter { get => _YFormatter; set { _YFormatter = value; OnPropertyChanged(); } }
     } 
 }
