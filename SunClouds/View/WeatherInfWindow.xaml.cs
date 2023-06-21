@@ -30,6 +30,47 @@ namespace SunClouds.View
             SimulateChangeTextEffect();
         }
 
+        private void ClosePanelButton_Click(object sender, RoutedEventArgs e)
+        {
+            var button = (Button)sender;
+            var grid = FindParent<Grid>(button);
+            if (grid != null)
+            {
+                var parent = VisualTreeHelper.GetParent(grid) as UIElement;
+                if (parent != null)
+                {
+                    var panel = parent as Panel;
+                    if (panel != null)
+                    {
+                        panel.Children.Remove(grid);
+                    }
+                    else
+                    {
+                        var contentControl = parent as ContentControl;
+                        if (contentControl != null)
+                        {
+                            contentControl.Content = null;
+                        }
+                    }
+                }
+            }
+        }
+
+        private T FindParent<T>(DependencyObject child) where T : DependencyObject
+        {
+            DependencyObject parent = VisualTreeHelper.GetParent(child);
+
+            if (parent == null)
+                return null;
+
+            T foundParent = parent as T;
+            return foundParent ?? FindParent<T>(parent);
+        }
+
+
+
+
+
         private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
         {
             if (this.ActualHeight < 550)

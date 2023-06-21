@@ -852,9 +852,9 @@
 
 
 
-                            <Button MinWidth="150" Command="{Binding CnDiagr01}" Content="Температура" Margin="5" HorizontalContentAlignment="Center" HorizontalAlignment="Stretch" Background="{DynamicResource Secondary}" Height="35" FontSize="16"></Button>
-                            <Button MinWidth="150" Grid.Column="1" Command="{Binding CnDiagr02}" Content="Ощущается как" Margin="5" Background="{DynamicResource Secondary}" Height="35"  FontSize="16" HorizontalContentAlignment="Center" ></Button>
-                            <Button MinWidth="150" Grid.Column="2" Command="{Binding CnDiagr03}" Content="Давление" Margin="5" Background="{DynamicResource Secondary}" Height="35"  FontSize="16" HorizontalContentAlignment="Center" ></Button>
+                            <Button MinWidth="150" Command="{Binding CnDiagr01}" Content="Температура" Margin="5" HorizontalContentAlignment="Center" HorizontalAlignment="Stretch" Background="{DynamicResource Secondary}" Height="35" FontSize="16" Foreground="White"></Button>
+                            <Button MinWidth="150" Grid.Column="1" Command="{Binding CnDiagr02}" Content="Ощущается как" Margin="5" Background="{DynamicResource Secondary}" Height="35"  FontSize="16" HorizontalContentAlignment="Center" Foreground="White"></Button>
+                            <Button MinWidth="150" Grid.Column="2" Command="{Binding CnDiagr03}" Content="Давление" Margin="5" Background="{DynamicResource Secondary}" Height="35"  FontSize="16" HorizontalContentAlignment="Center" Foreground="White"></Button>
 
                             <lvc:CartesianChart Series="{Binding SeriesCollection}" Foreground="Black" Grid.Row="1" Grid.ColumnSpan="3" VerticalAlignment="Stretch">
                                 <lvc:CartesianChart.AxisX>
@@ -884,73 +884,73 @@
                         <ColumnDefinition Width="25*"/>
                     </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto" MinHeight="40"/>
-                        <RowDefinition Height="Auto" MinHeight="44"/>
-                        <RowDefinition Height="Auto" MinHeight="34"/>
-                        <RowDefinition Height="Auto" MinHeight="151"/>
-                        <RowDefinition Height="Auto" MinHeight="53"/>
-                        <RowDefinition Height="Auto" MinHeight="0"/>
-                        <RowDefinition Height="Auto" MinHeight="29" />
-                        <RowDefinition Height="Auto" MinHeight="51" />
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="3*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
                         <RowDefinition/>
                     </Grid.RowDefinitions>
-                    <TextBlock TextWrapping="Wrap" Text="Ваш основной город:" TextAlignment="Center" FontWeight="Bold" FontSize="18" Margin="0,16,2,0" Grid.Column="2"/>
+                    <TextBlock TextWrapping="Wrap" Text="Ваш основной город:" TextAlignment="Center" FontWeight="Bold" FontSize="18" Grid.Column="2"/>
 
-                    <TextBlock TextWrapping="Wrap" Text="Избранные города:" TextAlignment="Center" FontWeight="Bold" FontSize="18" Grid.Row="2" Grid.Column="2" Margin="2,4,0,4"/>
-                    <WrapPanel Height="140" Grid.Row="3" VerticalAlignment="Center" Background="#7FF8C5B4" Grid.Column="1" Margin="1,0,0,0" Grid.ColumnSpan="3">
+                    <TextBlock TextWrapping="Wrap" Text="Избранные города:" TextAlignment="Center" FontWeight="Bold" FontSize="18" Grid.Row="2" Grid.Column="2"/>
+                    <WrapPanel Height="140" Grid.Row="3" VerticalAlignment="Center" Background="#7FF8C5B4" Grid.Column="1" Grid.ColumnSpan="3">
                         <Grid Height="140" Width="503">
                             <Grid Margin="5,10,0,0" Height="55" Width="120" VerticalAlignment="Top" HorizontalAlignment="Left">
                                 <StackPanel Margin="0,21,0,0" Background="#7F3D95B9">
-                                    <TextBlock TextWrapping="Wrap" Text="55°45′07″ с.ш.       37°36′56″ в.д." FontSize="12" Padding="4" TextAlignment="Center" Height="34"/>
+                                    <TextBlock TextWrapping="Wrap" Text="55°45′07″ с.ш. 37°36′56″ в.д." FontSize="12" Padding="4" TextAlignment="Center" Height="34" FontWeight="Normal"/>
                                 </StackPanel>
                                 <StackPanel Margin="0,0,0,34" Background="#FF3D95B9">
                                     <Grid Height="21">
-                                        <TextBlock TextWrapping="Wrap" Text="Москва" FontSize="13" Padding="2" TextAlignment="Center"/>
-                                        <Button Content="X" Margin="106,0,0,5" Padding="0" FontSize="12" Grid.RowSpan="1" Height="16" Background="#00000000" BorderBrush="#00000000" Width="16" Panel.ZIndex="1"/>
+                                        <TextBlock TextWrapping="Wrap" Text="Москва" FontSize="13" Padding="2" TextAlignment="Center" FontWeight="Normal"/>
+                                        <Button Content="X" Margin="106,0,0,5" Padding="0" FontSize="12" Grid.RowSpan="1" Height="16" Background="#00000000" BorderBrush="#00000000" Width="16" Panel.ZIndex="1" Foreground="White" Click="ClosePanelButton_Click"/>
                                     </Grid>
                                 </StackPanel>
                             </Grid>
                             <Grid Margin="130,10,0,0" Height="55" Width="120" VerticalAlignment="Top" HorizontalAlignment="Left">
                                 <StackPanel Margin="0,21,0,0" Background="#7F3D95B9">
-                                    <TextBlock TextWrapping="Wrap" Text="55°45′07″ с.ш.       37°36′56″ в.д." FontSize="12" Padding="4" TextAlignment="Center" Height="34"/>
+                                    <TextBlock TextWrapping="Wrap" Text="55°45′07″ с.ш. 37°36′56″ в.д." FontSize="12" Padding="4" TextAlignment="Center" Height="34" FontWeight="Normal"/>
                                 </StackPanel>
                                 <StackPanel Margin="0,0,0,34" Background="#FF3D95B9">
                                     <Grid Height="21">
-                                        <TextBlock TextWrapping="Wrap" Text="Москва" FontSize="13" Padding="2" TextAlignment="Center"/>
-                                        <Button Content="X" Margin="106,0,0,5" Padding="0" FontSize="12" Grid.RowSpan="1" Height="16" Background="#00000000" BorderBrush="#00000000" Width="16" Panel.ZIndex="1"/>
+                                        <TextBlock TextWrapping="Wrap" Text="Москва" FontSize="13" Padding="2" TextAlignment="Center" FontWeight="Normal"/>
+                                        <Button Content="X" Margin="106,0,0,5" Padding="0" FontSize="12" Grid.RowSpan="1" Height="16" Background="#00000000" BorderBrush="#00000000" Width="16" Panel.ZIndex="1" Foreground="White"/>
                                     </Grid>
                                 </StackPanel>
                             </Grid>
                             <Grid Margin="255,10,0,0" Height="55" Width="120" VerticalAlignment="Top" HorizontalAlignment="Left">
                                 <StackPanel Margin="0,21,0,0" Background="#7F3D95B9">
-                                    <TextBlock TextWrapping="Wrap" Text="55°45′07″ с.ш.       37°36′56″ в.д." FontSize="12" Padding="4" TextAlignment="Center" Height="34"/>
+                                    <TextBlock TextWrapping="Wrap" Text="55°45′07″ с.ш. 37°36′56″ в.д." FontSize="12" Padding="4" TextAlignment="Center" Height="34" FontWeight="Normal"/>
                                 </StackPanel>
                                 <StackPanel Margin="0,0,0,34" Background="#FF3D95B9">
                                     <Grid Height="21">
-                                        <TextBlock TextWrapping="Wrap" Text="Москва" FontSize="13" Padding="2" TextAlignment="Center"/>
-                                        <Button Content="X" Margin="106,0,0,5" Padding="0" FontSize="12" Grid.RowSpan="1" Height="16" Background="#00000000" BorderBrush="#00000000" Width="16" Panel.ZIndex="1"/>
+                                        <TextBlock TextWrapping="Wrap" Text="Москва" FontSize="13" Padding="2" TextAlignment="Center" FontWeight="Normal"/>
+                                        <Button Content="X" Margin="106,0,0,5" Padding="0" FontSize="12" Grid.RowSpan="1" Height="16" Background="#00000000" BorderBrush="#00000000" Width="16" Panel.ZIndex="1" Foreground="White"/>
                                     </Grid>
                                 </StackPanel>
                             </Grid>
                             <Grid Margin="380,10,0,0" Height="55" Width="120" VerticalAlignment="Top" HorizontalAlignment="Left">
                                 <StackPanel Margin="0,21,0,0" Background="#7F3D95B9">
-                                    <TextBlock TextWrapping="Wrap" Text="55°45′07″ с.ш.       37°36′56″ в.д." FontSize="12" Padding="4" TextAlignment="Center" Height="34"/>
+                                    <TextBlock TextWrapping="Wrap" Text="55°45′07″ с.ш. 37°36′56″ в.д." FontSize="12" Padding="4" TextAlignment="Center" Height="34" FontWeight="Normal"/>
                                 </StackPanel>
                                 <StackPanel Margin="0,0,0,34" Background="#FF3D95B9">
                                     <Grid Height="21">
-                                        <TextBlock TextWrapping="Wrap" Text="Москва" FontSize="13" Padding="2" TextAlignment="Center"/>
-                                        <Button Content="X" Margin="106,0,0,5" Padding="0" FontSize="12" Grid.RowSpan="1" Height="16" Background="#00000000" BorderBrush="#00000000" Width="16" Panel.ZIndex="1"/>
+                                        <TextBlock TextWrapping="Wrap" Text="Москва" FontSize="13" Padding="2" TextAlignment="Center" FontWeight="Normal"/>
+                                        <Button Content="X" Margin="106,0,0,5" Padding="0" FontSize="12" Grid.RowSpan="1" Height="16" Background="#00000000" BorderBrush="#00000000" Width="16" Panel.ZIndex="1" Foreground="White"/>
                                     </Grid>
                                 </StackPanel>
                             </Grid>
                             <Grid Margin="5,75,0,0" Height="55" Width="120" VerticalAlignment="Top" HorizontalAlignment="Left">
                                 <StackPanel Margin="0,21,0,0" Background="#7F3D95B9">
-                                    <TextBlock TextWrapping="Wrap" Text="55°45′07″ с.ш.       37°36′56″ в.д." FontSize="12" Padding="4" TextAlignment="Center" Height="34"/>
+                                    <TextBlock TextWrapping="Wrap" Text="55°45′07″ с.ш. 37°36′56″ в.д." FontSize="12" Padding="4" TextAlignment="Center" Height="34" FontWeight="Normal" />
                                 </StackPanel>
                                 <StackPanel Margin="0,0,0,34" Background="#FF3D95B9">
                                     <Grid Height="21">
-                                        <TextBlock TextWrapping="Wrap" Text="Москва" FontSize="13" Padding="2" TextAlignment="Center"/>
-                                        <Button Content="X" Margin="106,0,0,5" Padding="0" FontSize="12" Grid.RowSpan="1" Height="16" Background="#00000000" BorderBrush="#00000000" Width="16" Panel.ZIndex="1"/>
+                                        <TextBlock TextWrapping="Wrap" Text="Москва" FontSize="13" Padding="2" TextAlignment="Center" FontWeight="Normal"/>
+                                        <Button Content="X" Margin="106,0,0,5" Padding="0" FontSize="12" Grid.RowSpan="1" Height="16" Background="#00000000" BorderBrush="#00000000" Width="16" Panel.ZIndex="1" Foreground="White"/>
                                     </Grid>
                                 </StackPanel>
                             </Grid>
@@ -959,11 +959,11 @@
                     <StackPanel Height="26" Grid.Row="1" VerticalAlignment="Center" Grid.Column="1" Grid.ColumnSpan="3" Margin="1,0,0,0">
                         <Grid>
                             <TextBlock  Text="{Binding City, Mode=OneWay}" TextWrapping="Wrap" FontSize="13" Background="#7F3D95B9" Padding="4"  TextAlignment="Center" Height="25" FontWeight="Normal" Margin="0,4,-1,4"/>
-                            <Button Content="X" Margin="0,0,1,1" Background="{x:Null}" BorderBrush="#00000000" FontSize="13" HorizontalAlignment="Right" Width="39"/>
+                            <Button Content="X" Margin="0,0,1,1" Background="{x:Null}" BorderBrush="#00000000" FontSize="13" HorizontalAlignment="Right" Width="39" Foreground="White"/>
 
                         </Grid>
                     </StackPanel>
-                    <StackPanel Grid.Row="4" Grid.Column="1" Margin="1,13,0,14" Grid.ColumnSpan="3">
+                    <StackPanel Grid.Row="4" Grid.Column="1" VerticalAlignment="Center" Grid.ColumnSpan="3">
                         <Grid Height="25">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="353*"/>
@@ -973,14 +973,14 @@
                             <TextBlock TextWrapping="Wrap" FontSize="13" Background="#7F3D95B9" Padding="4"  TextAlignment="Center"/>
                             <TextBlock TextWrapping="Wrap" FontSize="13" Background="#FF87B6CA" Padding="4"  TextAlignment="Center" Grid.Column="1" Margin="0,0,1,0"/>
                             <TextBox materialDesign:HintAssist.Hint="Название города" materialDesign:HintAssist.HintOpacity="100" materialDesign:TextFieldAssist.DecorationVisibility="Collapsed" BorderThickness="0" TextWrapping="Wrap" Text="" CaretBrush="Black" FontSize="13" Foreground="White" SelectionBrush="#FF313131" BorderBrush="Transparent" TextAlignment="Center" FontWeight="Normal" Margin="0,0,41,-1"/>
-                            <Button Content="X" Height="26" VerticalAlignment="Center" Background="{x:Null}" BorderBrush="#00000000" FontSize="13" HorizontalAlignment="Right" Width="40"/>
-                            <Button Content="Добавить" Height="24" VerticalAlignment="Top" FontSize="13" BorderBrush="#00000000" Background="#00000000" FontWeight="Normal" Grid.Column="1"/>
+                            <Button Content="X" Height="26" VerticalAlignment="Center" Background="{x:Null}" BorderBrush="#00000000" FontSize="13" HorizontalAlignment="Right" Width="40" Foreground="White"/>
+                            <Button Content="Добавить" Height="24" VerticalAlignment="Top" FontSize="13" BorderBrush="#00000000" Background="#00000000" FontWeight="Normal" Grid.Column="1" Foreground="White"/>
 
 
                         </Grid>
                     </StackPanel>
-                    <TextBlock TextWrapping="Wrap" Text="Исчисление градусов:" TextAlignment="Center" FontWeight="Bold" FontSize="18" Grid.Row="6" Grid.Column="2" Margin="2,0,0,3"/>
-                    <StackPanel Margin="48,2,54,25" Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="3">
+                    <TextBlock TextWrapping="Wrap" Text="Исчисление градусов:" TextAlignment="Center" FontWeight="Bold" FontSize="18" Grid.Row="5" Grid.Column="2"/>
+                    <StackPanel Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="3">
                         <Grid Height="24">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="197*"/>
@@ -1051,10 +1051,10 @@
                             </RadioButton>
                         </Grid>
                     </StackPanel>
-                    <StackPanel Margin="0,47,0,0" Grid.Row="8" Height="24" VerticalAlignment="Top" HorizontalAlignment="Center" Width="550" Grid.Column="2">
+                    <StackPanel Grid.Row="8" Height="24" VerticalAlignment="Top" HorizontalAlignment="Center" Width="550" Grid.Column="1" Grid.ColumnSpan="3">
                         <Grid Height="24">
                             <TextBlock TextWrapping="Wrap" FontSize="13" Background="#FF87B6CA" Padding="4"  TextAlignment="Center" Margin="23,0,23,0" Height="24"/>
-                            <Button Content="Сохранить" FontSize="13" Width="503" BorderBrush="#00000000" Background="#00000000" FontWeight="Normal" Margin="23,0,23,0" Height="24"/>
+                            <Button Content="Сохранить" FontSize="13" Width="503" BorderBrush="#00000000" Background="#00000000" FontWeight="Normal" Margin="23,0,23,0" Height="24" Foreground="White"/>
                         </Grid>
                     </StackPanel>
                 </Grid>
